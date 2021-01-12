@@ -1,0 +1,14 @@
+{
+  "name": "hrnyc34-fec-falculelle",
+  "version": "1.0.0",
+  "description": "Front End Capstone project for Hack Reactor NYC",
+  "main": "index.js",
+  "repository": "https://github.com/FEC-falculelle/FEC-Falculelle",
+  "author": "Tina Tkatchenko, Theodore Telonis, Albert Chua",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.5.0",
+    "redux": "^4.0.5"
+  }
+}
