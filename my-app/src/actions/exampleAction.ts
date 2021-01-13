@@ -14,13 +14,5 @@
 
 //
 
-<<<<<<< HEAD
-=======
-
-
-
-
-*/
->>>>>>> 61162f969e766c2473911e639fc2ff62fe6ce7af
 let emptyObj = {};
 export default emptyObj;
