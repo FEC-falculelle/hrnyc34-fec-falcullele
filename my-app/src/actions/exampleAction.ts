@@ -18,3 +18,5 @@ export default retryAction;
 
 
 */
+let emptyObj = {};
+export default emptyObj;
