@@ -11,7 +11,7 @@ interface Props {
 function App() {
   const dispatch = useDispatch();
   const [productName, setProductName] = useState('');
-  const productState = useSelector((state: RootStore) => state.example);
+  const productState = useSelector((state: RootStore) => state.products);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => setProductName(e.target.value)
 
