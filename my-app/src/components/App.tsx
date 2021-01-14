@@ -22,9 +22,28 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <h1>Falculelle Gang #FEC</h1>
-      <button onClick={handleSubmit}>Click Me and look at the console to see the results from the api</button>
+        <h1>Falculelle Gang #FEC</h1>
       </header>
+      <div className='product'>
+        <div className='featured-image'>
+          <button onClick={handleSubmit}>Click Me and look at the console to see the results from the api</button>
+        </div>
+        <div className='product-options'>
+            product options
+        </div>
+      </div>
+        <div className='description'>
+           description
+        </div>
+        <div className='related-products'>
+           related-products
+        </div>
+        <div className='qa'>
+           Q and A
+        </div>
+        <div className='reviews'>
+           product reviews
+        </div>
     </div>
   );
 }
