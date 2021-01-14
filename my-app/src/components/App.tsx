@@ -3,6 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import {RootStore} from '../store/store';
 import {getProducts} from '../actions/getProductsAction';
 import '../styles/App.css';
+import '../styles/Product.css';
+import '../styles/QA.css';
+import '../styles/Ratings.css';
 import Product from './widgets/product/Product';
 
 interface Props {
