@@ -3,6 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import {RootStore} from '../store/store';
 import {getProducts} from '../actions/getProductsAction';
 import '../styles/App.css';
+import '../styles/Product.css';
+import '../styles/QA.css';
+import '../styles/Ratings.css';
+import Product from './widgets/product/Product';
 
 interface Props {
   exampleData: string;
@@ -17,6 +21,7 @@ function App() {
 
   const handleSubmit = () => dispatch(getProducts())
 
+
   console.log('product state: ', productState);
 
   return (
@@ -24,17 +29,7 @@ function App() {
       <header className="App-header">
         <h1>Falculelle Gang #FEC</h1>
       </header>
-      <div className='product'>
-        <div className='featured-image'>
-          <button onClick={handleSubmit}>Click Me and look at the console to see the results from the api</button>
-        </div>
-        <div className='product-options'>
-            product options
-        </div>
-      </div>
-        <div className='description'>
-           description
-        </div>
+      <Product />
         <div className='related-products'>
            related-products
         </div>
