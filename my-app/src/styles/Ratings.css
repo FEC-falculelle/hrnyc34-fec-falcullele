@@ -1,0 +1,11 @@
+.reviews {
+  height: 100%;
+  width: 100%;
+  display: block;
+  margin: auto;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 6;
+  grid-row-end: 7;
+  background-color:plum;
+}
