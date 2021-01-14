@@ -1,56 +1,49 @@
-import React from 'react';
-import logo from '../logo.svg';
-import { Counter } from '../features/counter/Counter';
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {RootStore} from '../store/store';
+import {getProducts} from '../actions/getProductsAction';
 import '../styles/App.css';
 
+interface Props {
+  exampleData: string;
+}
+
 function App() {
+  const dispatch = useDispatch();
+  const [productName, setProductName] = useState('');
+  const productState = useSelector((state: RootStore) => state.products);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => setProductName(e.target.value)
+
+  const handleSubmit = () => dispatch(getProducts())
+
+  console.log('product state: ', productState);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
+        <h1>Falculelle Gang #FEC</h1>
       </header>
+      <div className='product'>
+        <div className='featured-image'>
+          <button onClick={handleSubmit}>Click Me and look at the console to see the results from the api</button>
+        </div>
+        <div className='product-options'>
+            product options
+        </div>
+      </div>
+        <div className='description'>
+           description
+        </div>
+        <div className='related-products'>
+           related-products
+        </div>
+        <div className='qa'>
+           Q and A
+        </div>
+        <div className='reviews'>
+           product reviews
+        </div>
     </div>
   );
 }
