@@ -3,6 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import {RootStore} from '../../../store/store';
 
 import ReviewsList from './reviewsList';
+import SortComponent from './sortComponent';
+import ProductBreakdown from './productBreakdown';
+import RatingBreakdown from './ratingBreakdown';
 
 interface Props {
   exampleData: string;
@@ -17,8 +20,10 @@ var ProductReviewsComponent = () => {
   return (
     <div className='ratings'>
       ratings and review component :
+      <SortComponent />
       <ReviewsList />
-
+      <ProductBreakdown />
+      <RatingBreakdown />
     </div>
 
   );
