@@ -14,19 +14,19 @@ export interface ProductFail {
 
 export type ProductType = {
   "id": number,
-    "campus": string,
-    "name": string,
-    "slogan": string,
-    "description": string,
-    "category": string,
-    "default_price": string,
-    "created_at": string,
-    "updated_at": string
+  "campus": string,
+  "name": string,
+  "slogan": string,
+  "description": string,
+  "category": string,
+  "default_price": string,
+  "created_at": string,
+  "updated_at": string
 }
 
 export interface ProductSuccess {
   type: typeof PRODUCTS_SUCCESS,
-  payload: ProductType | ProductType[]
+  payload: (ProductType)[]
 }
 
 // '|' is equal to '||' in typescript
