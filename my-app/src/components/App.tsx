@@ -7,6 +7,7 @@ import '../styles/Product.css';
 import '../styles/QA.css';
 import '../styles/Ratings.css';
 import Product from './widgets/product/Product';
+import ProductReviewsComponent from './widgets/ratings/ratingReview';
 
 interface Props {
   exampleData: string;
@@ -35,6 +36,7 @@ function App() {
         </div>
         <div className='reviews'>
            product reviews
+           <ProductReviewsComponent/>
         </div>
     </div>
   );
