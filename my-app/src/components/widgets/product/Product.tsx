@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {RootStore} from '../../../store/store';
 import {getProducts} from '../../../actions/getProductsAction';
+import {getProduct} from '../../../actions/singleProductAction';
 import ImageGallery from './ImageGallery';
 import ProductInfo from './ProductInfo';
 import ProductDescription from './ProductDescription';
@@ -26,7 +27,9 @@ function Product() {
 
   useEffect(()  => {
     if (Array.isArray(productState.products)) {
-    console.log('meow', productState.products[0])
+      if (productState.products[0]) {
+        dispatch(getProduct(productState.products[0].id));
+      }
     } else {
       console.log('productState is not an array')
     }
