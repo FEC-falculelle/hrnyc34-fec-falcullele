@@ -12,13 +12,9 @@ function ImageGallery() {
   const dispatch = useDispatch();
   const productState = useSelector((state: RootStore) => state.products);
 
-  const handleSubmit = () => dispatch(getProducts())
-
-  console.log('product state: ', productState);
-
   return (
         <div className='featured-image'>
-          <button onClick={handleSubmit}>Click Me and look at the console to see the results from the api</button>
+          image
       </div>
   );
 }

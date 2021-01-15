@@ -1,4 +1,4 @@
-import {ProductType, ProductDispatchTypes, PRODUCTS_FAIL, PRODUCTS_LOADING, PRODUCTS_SUCCESS} from '../actions/actionTypes';
+import {ProductType, ProductDispatchTypes, PRODUCT_FAIL, PRODUCT_LOADING, PRODUCT_SUCCESS} from '../actions/actionTypes';
 
 interface ExampleState {
   loading: boolean,
@@ -10,17 +10,17 @@ const exampleState: ExampleState = {
   products: []
 };
 
-const productsReducer = (state: ExampleState = exampleState, action: ProductDispatchTypes) : ExampleState => {
+const singleProductReducer = (state: ExampleState = exampleState, action: ProductDispatchTypes) : ExampleState => {
   switch (action.type) {
-    case PRODUCTS_FAIL:
+    case PRODUCT_FAIL:
       return {
         loading: false,
       }
-    case PRODUCTS_LOADING:
+    case PRODUCT_LOADING:
       return {
         loading: true,
       }
-    case PRODUCTS_SUCCESS:
+    case PRODUCT_SUCCESS:
       return {
         loading: false,
         products: action.payload
@@ -31,4 +31,4 @@ const productsReducer = (state: ExampleState = exampleState, action: ProductDisp
 };
 
 
-export default productsReducer;
+export default singleProductReducer;
