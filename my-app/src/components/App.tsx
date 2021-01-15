@@ -22,9 +22,6 @@ function App() {
 
   const handleSubmit = () => dispatch(getProducts())
 
-
-  console.log('product state: ', productState);
-
   return (
     <div className="App">
       <header className="App-header">
