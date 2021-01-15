@@ -7,6 +7,7 @@ import '../styles/Product.css';
 import '../styles/QA.css';
 import '../styles/Ratings.css';
 import Product from './widgets/product/Product';
+import ProductReviewsComponent from './widgets/ratings/ratingReview';
 
 interface Props {
   exampleData: string;
@@ -20,9 +21,6 @@ function App() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => setProductName(e.target.value)
 
   const handleSubmit = () => dispatch(getProducts())
-
-
-  console.log('product state: ', productState);
 
   return (
     <div className="App">
@@ -38,6 +36,7 @@ function App() {
         </div>
         <div className='reviews'>
            product reviews
+           <ProductReviewsComponent/>
         </div>
     </div>
   );
