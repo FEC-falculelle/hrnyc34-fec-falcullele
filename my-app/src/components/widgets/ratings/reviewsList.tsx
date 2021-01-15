@@ -1,14 +1,19 @@
+
+
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {RootStore} from '../../../store/store';
 
-import ReviewsList from './reviewsList';
+// import {getReviews} from '../../../actions/ratingReview/getReviewsAction';
+// import ImageGallery from './ImageGallery';
+// import ProductInfo from './ProductInfo';
+// import ProductDescription from './ProductDescription';
 
 interface Props {
   exampleData: string;
 }
 
-var ProductReviewsComponent = () => {
+var ReviewsList = () => {
   // const dispatch = useDispatch();
   // const productReviewsState = useSelector((state: RootStore) => state.productReviewsInfo);
 
@@ -16,12 +21,12 @@ var ProductReviewsComponent = () => {
 
   return (
     <div className='ratings'>
-      ratings and review component :
-      <ReviewsList />
+      ReviewsList
 
+      
     </div>
 
   );
 }
 
-export default ProductReviewsComponent;
+export default ReviewsList;
