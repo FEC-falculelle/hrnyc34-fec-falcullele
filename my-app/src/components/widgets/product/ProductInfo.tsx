@@ -23,18 +23,21 @@ interface Featured {
 
 function ProductInfo() {
   const dispatch = useDispatch();
-  const productState = useSelector((state: RootStore) => state.products);
+  const singleProductState = useSelector((state: RootStore) => state.singleProduct);
   // const featuredProduct = useSelector((state: RootStore) => state.products[0]);
 
   const handleClick = (e: any) => {
     console.log(e.target.value);
   }
 
+
+
   return (
     <div className='product-options'>
       <button value='1' onClick={handleClick}>1</button>
       <button value='2' onClick={handleClick}>2</button>
       <button value='3' onClick={handleClick}>3</button>
+      {/* <h1>{singleProductState.name}</h1> */}
     </div>
   );
 }
