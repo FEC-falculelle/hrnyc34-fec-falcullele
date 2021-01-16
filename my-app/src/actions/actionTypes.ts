@@ -44,12 +44,7 @@ export interface Featured {
   "default_price": string,
   "created_at": string,
   "updated_at": string,
-  "features": [
-      {
-          "feature": string,
-          "value": string
-      }
-  ]
+  "features": object[]
 }
 
 export interface ProductsSuccess {
@@ -59,7 +54,7 @@ export interface ProductsSuccess {
 
 export interface ProductSuccess {
   type: typeof PRODUCT_SUCCESS,
-  payload: (ProductType)[]
+  payload: Featured
 }
 
 // '|' is equal to '||' in typescript
