@@ -42,7 +42,6 @@ function ProductInfo() {
   }
 
 
-
   return (
     <div className='product-options'>
       <p>reviews, Read all reviews</p>
@@ -52,8 +51,9 @@ function ProductInfo() {
       <h5>Style &gt; {selectedStyle?.name}</h5>
       <div className='style-selector'>
         {styles?.map((item) => {
+          console.log ('item: ', item);
           return (
-            StyleComponent(item)
+            <StyleComponent props={item} key={item.style_id}/>
           );
         })}
       </div>

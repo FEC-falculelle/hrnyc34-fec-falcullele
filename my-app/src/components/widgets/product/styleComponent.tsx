@@ -3,15 +3,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import {RootStore} from '../../../store/store';
 import { Result } from '../../../actions/actionTypes';
 
-interface Props {
-  exampleData: string;
-}
 
-function StyleComponent(style:Result) {
-  const dispatch = useDispatch();
+function StyleComponent(style:Result | any) {
 
   return (
-          <div>{style.name}</div>
+          <div>{style.props.name}</div>
   );
 }
 
