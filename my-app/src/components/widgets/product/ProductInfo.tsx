@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {RootStore} from '../../../store/store';
 import {getStyle} from '../../../actions/productStyleAction';
+import StyleComponent from './styleComponent';
 
 
 function ProductInfo() {
@@ -49,6 +50,13 @@ function ProductInfo() {
       <h1>{name}</h1>
       <h4>{price}</h4>
       <h5>Style &gt; {selectedStyle?.name}</h5>
+      <div className='style-selector'>
+        {styles?.map((item) => {
+          return (
+            StyleComponent(item)
+          );
+        })}
+      </div>
     </div>
   );
 }
