@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {RootStore} from '../../../store/store';
-import {getProducts} from '../../../actions/getProductsAction';
+import {getStyle} from '../../../actions/productStyleAction';
 
 
 function ProductInfo() {
   const dispatch = useDispatch();
   const singleProductState = useSelector((state: RootStore) => state.singleProduct);
-
   const [category, setCategory] = useState(singleProductState?.products?.category);
   const [name, setName] = useState(singleProductState?.products?.name);
   const [slogan, setSlogan] = useState(singleProductState?.products?.slogan);
@@ -20,6 +19,7 @@ function ProductInfo() {
       setName(singleProductState?.products?.name);
       setSlogan(singleProductState?.products?.slogan);
       setPrice(singleProductState?.products?.default_price);
+      getStyle(singleProductState?.products?.id);
     }
   }, [singleProductState])
 
