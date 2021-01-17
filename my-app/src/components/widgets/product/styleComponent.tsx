@@ -5,7 +5,6 @@ import { Result } from '../../../actions/actionTypes';
 
 
 function StyleComponent(style:Result | any) {
-console.log(style.props.photos[0].thumbnail_url);
 
   return (
           <div className='styleBubble'
