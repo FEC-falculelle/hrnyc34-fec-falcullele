@@ -7,10 +7,14 @@ import {getStyle} from '../../../actions/productStyleAction';
 function ProductInfo() {
   const dispatch = useDispatch();
   const singleProductState = useSelector((state: RootStore) => state.singleProduct);
+  const styleState = useSelector((state: RootStore) => state.style);
+
   const [category, setCategory] = useState(singleProductState?.products?.category);
   const [name, setName] = useState(singleProductState?.products?.name);
   const [slogan, setSlogan] = useState(singleProductState?.products?.slogan);
   const [price, setPrice] = useState(singleProductState?.products?.default_price);
+  const [styles, setStyles] = useState(styleState?.products?.results)
+  const [selectedStyle, setSelectedStyle] = useState(styleState?.products?.results[0])
 
   //might need to useRed or useCallback here incase values are not stored
   useEffect(() => {
@@ -21,7 +25,13 @@ function ProductInfo() {
       setPrice(singleProductState?.products?.default_price);
       getStyle(singleProductState?.products?.id);
     }
-  }, [singleProductState])
+  }, [singleProductState]);
+
+  useEffect(() => {
+    if (styleState.hasOwnProperty('products')) {
+      setStyles(styleState.products?.results);
+    }
+  }, [styleState])
 
 
   // const featuredProduct = useSelector((state: RootStore) => state.products[0]);
@@ -38,7 +48,7 @@ function ProductInfo() {
       <h3>{category}</h3>
       <h1>{name}</h1>
       <h4>{price}</h4>
-      <h5>Style &gt ~seleected style~ </h5>
+      <h5>Style &gt; {selectedStyle?.name}</h5>
     </div>
   );
 }
