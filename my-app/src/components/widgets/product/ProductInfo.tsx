@@ -47,7 +47,7 @@ function ProductInfo() {
       <p>reviews, Read all reviews</p>
       <h3>{category}</h3>
       <h1>{name}</h1>
-      <h4>{price}</h4>
+      <h4>${price}</h4>
       <h5>Style &gt; {selectedStyle?.name}</h5>
       <div className='style-selector'>
         {styles?.map((item) => {

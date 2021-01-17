@@ -53,13 +53,13 @@
   width: 375px;
   height: 150px;
   margin: 2%;
-  outline: 1px solid pink;
   justify-content: space-evenly;
 }
 
 .styleBubble {
   height: 50px;
   width: 50px;
+  border: 1px solid black;
   border-radius: 50%;
   background-size: contain;
 }
