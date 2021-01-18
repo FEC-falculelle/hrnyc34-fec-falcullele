@@ -2,11 +2,12 @@ import {ProductType, ProductDispatchTypes, PRODUCTS_FAIL, PRODUCTS_LOADING, PROD
 
 interface ExampleState {
   loading: boolean,
-  products?: ProductType | ProductType[]
+  products?: (ProductType)[]
 }
 
 const exampleState: ExampleState = {
-  loading: false
+  loading: false,
+  products: []
 };
 
 const productsReducer = (state: ExampleState = exampleState, action: ProductDispatchTypes) : ExampleState => {

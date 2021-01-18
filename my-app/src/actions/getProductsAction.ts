@@ -3,17 +3,13 @@ import {ProductDispatchTypes, PRODUCTS_LOADING, PRODUCTS_FAIL, PRODUCTS_SUCCESS,
 import axios from 'axios';
 import API_TOKEN from '../config';
 
-export const getProducts = (/* add in product param here to search for specific products*/) => async (dispatch: Dispatch<ProductDispatchTypes>) => {
+export const getProducts = (id: any = '') => async (dispatch: Dispatch<ProductDispatchTypes>) => {
   try {
     dispatch( {
       type: PRODUCTS_LOADING
     })
 
-    const res = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products`,
-    {headers: {
-      "Authorization" : API_TOKEN
-    }
-  }
+    const res = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${id}`,
     )
 
     dispatch( {
