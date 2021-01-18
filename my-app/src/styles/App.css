@@ -19,52 +19,6 @@ body {
   background-color: azure;
 }
 
-.product {
-  width: 100%;
-  height: 100%;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 3;
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-}
-
-.featured-image {
-  display: block;
-  margin: auto;
-  background-color: cornflowerblue;
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 5;
-  width: 100%;
-  height: 100%;
-}
-
-.product-options {
-  display: block;
-  margin: auto;
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 5;
-  width: 100%;
-  height: 100%;
-  background-color: rebeccapurple;
-}
-
-.description {
-  height: 100%;
-  width: 100%;
-  display: block;
-  margin: auto;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 3;
-  grid-row-end: 4;
-  background-color:teal;
-}
 .related-products {
   height: 100%;
   width: 100%;
@@ -76,35 +30,5 @@ body {
   grid-row-end: 5;
   background-color:thistle;
 }
-.qa {
-  height: 100%;
-  width: 100%;
-  display: block;
-  margin: auto;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 5;
-  grid-row-end: 6;
-  background-color:skyblue;
-}
-.reviews {
-  height: 100%;
-  width: 100%;
-  display: block;
-  margin: auto;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 6;
-  grid-row-end: 7;
-  background-color:plum;
-}
 
-/* .App-header {
-  min-height: 50vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-} */
 

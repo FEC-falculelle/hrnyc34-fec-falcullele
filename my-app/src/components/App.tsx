@@ -3,6 +3,19 @@ import { useSelector, useDispatch } from 'react-redux';
 import {RootStore} from '../store/store';
 import {getProducts} from '../actions/getProductsAction';
 import '../styles/App.css';
+import '../styles/Product.css';
+import '../styles/QA.css';
+import '../styles/Ratings.css';
+import Product from './widgets/product/Product';
+import ProductReviewsComponent from './widgets/ratings/ratingReview';
+import Questions from './widgets/Questions';
+
+import axios from 'axios';
+import API_TOKEN from '../config';
+
+axios.defaults.headers = {
+  Authorization: API_TOKEN,
+};
 
 interface Props {
   exampleData: string;
@@ -17,32 +30,21 @@ function App() {
 
   const handleSubmit = () => dispatch(getProducts())
 
-  console.log('product state: ', productState);
-
   return (
     <div className="App">
       <header className="App-header">
         <h1>Falculelle Gang #FEC</h1>
       </header>
-      <div className='product'>
-        <div className='featured-image'>
-          <button onClick={handleSubmit}>Click Me and look at the console to see the results from the api</button>
-        </div>
-        <div className='product-options'>
-            product options
-        </div>
-      </div>
-        <div className='description'>
-           description
-        </div>
+      <Product />
         <div className='related-products'>
            related-products
         </div>
         <div className='qa'>
-           Q and A
+          <Questions />
         </div>
         <div className='reviews'>
            product reviews
+           <ProductReviewsComponent/>
         </div>
     </div>
   );
