@@ -7,19 +7,18 @@ interface Photos {
   url: string
 }
 
-function ImageSlide () {
+function ImageSlide ({url}:any) {
 
   const styleState = useSelector((state: RootStore) => state.style);
   const [featuredImage, setFeaturedImage] = useState<Photos | any>(styleState?.products?.results[0]?.photos[0]);
 
-  console.log(featuredImage.thumbnail_url);
 
   const styles = {
-    backgroundImage: `url(${featuredImage.thumbnail_url})`,
+    backgroundImage: `url(${url})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    width: '100px',
-    height: '100px'
+    width: '300px',
+    height: '300px'
   };
 
   return (
