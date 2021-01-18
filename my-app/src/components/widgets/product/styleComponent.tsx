@@ -6,7 +6,6 @@ import { Result } from '../../../actions/actionTypes';
 
 
 function StyleComponent({style, clickFunction, index}:Result | any) {
-console.log('style: ', style);
 
   return (
           <div className='styleBubble' onClick={clickFunction} id={index}

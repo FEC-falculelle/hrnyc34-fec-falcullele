@@ -10,7 +10,10 @@ interface Photos {
 function ImageSlide ({url}:any) {
 
   const styleState = useSelector((state: RootStore) => state.style);
-  const [featuredImage, setFeaturedImage] = useState<Photos | any>(styleState?.products?.results[0]?.photos[0]);
+  const styleIndex = useSelector((state: any) => state.selectStyle);
+  let index = styleIndex.selectedStyleIndex;
+
+  const [featuredImage, setFeaturedImage] = useState<Photos | any>(styleState?.products?.results[index]?.photos[0]);
 
 
   const styles = {

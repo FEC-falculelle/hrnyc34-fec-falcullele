@@ -43,7 +43,9 @@ function ProductInfo() {
   // const featuredProduct = useSelector((state: RootStore) => state.products[0]);
 
   const handleClick = (e: any) => {
-    console.log(e.target.id);
+    let index = e.target.id
+    dispatch(selectStyle(Number(index)));
+    setSelectedStyle(styleState?.products?.results[index]);
   }
 
 

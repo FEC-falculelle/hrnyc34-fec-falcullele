@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {RootStore} from '../../../store/store';
 import ImageSlide from './ImageSlide';
@@ -12,11 +12,24 @@ interface Photos {
 
 function Carousel() {
   const styleState = useSelector((state: RootStore) => state.style);
-  const [featuredImage, setFeaturedImage] = useState<Photos | any>(styleState?.products?.results[0]?.photos);
+  const styleIndex = useSelector((state: any) => state.selectStyle);
+
+
+  const [index, setIndex] = useState<number| any>(styleIndex.selectedStyleIndex);
+
+  const [featuredImage, setFeaturedImage] = useState<Photos | any>(styleState?.products?.results[index]?.photos);
+
+  useEffect( () => {
+    setIndex(styleIndex.selectedStyleIndex);
+    console.log(styleIndex.selectedStyleIndex);
+    setFeaturedImage(styleState?.products?.results[styleIndex.selectedStyleIndex]?.photos)
+  }, [styleIndex])
+
+
+  console.log('featuredImage: ', featuredImage, 'index: ', index);
+
   let [curIndex, setCurIndex] = useState<any>(0);
   const maxIndex = featuredImage.length - 1;
-
-  console.log(curIndex);
 
   let previousSlide = () => {
     const maxIndex = featuredImage.length - 1;
@@ -31,6 +44,12 @@ function Carousel() {
     const index = shouldReset ? 0 : curIndex + 1;
     setCurIndex(index);
     }
+
+    // useEffect(() => {
+    //   console.log('featuredImage: ', featuredImage);
+    //   console.log(styleState?.products?.results[styleIndex.styleIndex]?.photos);
+    //   setFeaturedImage(styleState?.products?.results[styleIndex.styleIndex]?.photos);
+    // }, [styleIndex])
 
   return (
         <div className='carousel'>
