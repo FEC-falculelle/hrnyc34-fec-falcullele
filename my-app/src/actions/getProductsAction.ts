@@ -10,10 +10,6 @@ export const getProducts = (id: any = '') => async (dispatch: Dispatch<ProductDi
     })
 
     const res = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${id}`,
-    {headers: {
-      "Authorization" : API_TOKEN
-    }
-  }
     )
 
     dispatch( {

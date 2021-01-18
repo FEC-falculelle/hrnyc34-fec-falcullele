@@ -8,6 +8,14 @@ import '../styles/QA.css';
 import '../styles/Ratings.css';
 import Product from './widgets/product/Product';
 import ProductReviewsComponent from './widgets/ratings/ratingReview';
+import Questions from './widgets/Questions';
+
+import axios from 'axios';
+import API_TOKEN from '../config';
+
+axios.defaults.headers = {
+  Authorization: API_TOKEN,
+};
 
 interface Props {
   exampleData: string;
@@ -32,7 +40,7 @@ function App() {
            related-products
         </div>
         <div className='qa'>
-           Q and A
+          <Questions />
         </div>
         <div className='reviews'>
            product reviews
