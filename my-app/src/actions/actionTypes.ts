@@ -9,6 +9,8 @@ export const PRODUCT_SUCCESS = "PRODUCT_SUCCESS";
 export const STYLE_LOADING = "STYLE_LOADING";
 export const STYLE_FAIL = "STYLE_FAIL";
 export const STYLE_SUCCESS = "STYLE_SUCCESS";
+export const CURRENT_STYLE_INDEX = "CURRENT_STYLE_INDEX";
+
 
 
 export type ProductType = {
@@ -89,5 +91,10 @@ export interface StyleSuccess {
   payload: Style
 }
 
+export interface CurrentStyleIndex {
+  type: typeof CURRENT_STYLE_INDEX,
+  payload: number
+}
+
 // '|' is equal to '||' in typescript
-export type ProductDispatchTypes = ProductsLoading | ProductsFail | ProductsSuccess | ProductLoading | ProductFail | ProductSuccess | StyleLoading | StyleFail | StyleSuccess
+export type ProductDispatchTypes = ProductsLoading | ProductsFail | ProductsSuccess | ProductLoading | ProductFail | ProductSuccess | StyleLoading | StyleFail | StyleSuccess | CurrentStyleIndex

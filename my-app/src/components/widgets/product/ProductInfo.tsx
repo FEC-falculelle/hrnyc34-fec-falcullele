@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {RootStore} from '../../../store/store';
 import {getStyle} from '../../../actions/productStyleAction';
 import StyleComponent from './styleComponent';
+import {selectStyle} from '../../../actions/selectStyleAction';
 
 
 function ProductInfo() {
@@ -16,6 +17,10 @@ function ProductInfo() {
   const [price, setPrice] = useState(singleProductState?.products?.default_price);
   const [styles, setStyles] = useState(styleState?.products?.results)
   const [selectedStyle, setSelectedStyle] = useState(styleState?.products?.results[0])
+
+  useEffect(() => {
+    dispatch(selectStyle())
+  }, []);
 
   //might need to useRed or useCallback here incase values are not stored
   useEffect(() => {
@@ -38,8 +43,12 @@ function ProductInfo() {
   // const featuredProduct = useSelector((state: RootStore) => state.products[0]);
 
   const handleClick = (e: any) => {
-    console.log(e.target.value);
+    console.log(e.target.id);
   }
+
+
+
+
 
 
   return (
@@ -50,9 +59,9 @@ function ProductInfo() {
       <h4>${price}</h4>
       <h5>Style &gt; {selectedStyle?.name}</h5>
       <div className='style-selector'>
-        {styles?.map((item) => {
+        {styles?.map((item, i) => {
           return (
-            <StyleComponent props={item} key={item.style_id} />
+            <StyleComponent index={i} style={item} key={item.style_id} clickFunction={handleClick}/>
           );
         })}
       </div>
