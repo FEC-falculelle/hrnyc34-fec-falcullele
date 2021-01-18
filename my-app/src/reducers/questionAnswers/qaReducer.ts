@@ -1,7 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
 import {
   GET_QUESTIONS,
-  GET_ANSWERS,
   PRODUCT_NAME,
   SHOW_ANSWERS,
   HELPFUL_ANSWER,
