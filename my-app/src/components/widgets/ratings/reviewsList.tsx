@@ -5,9 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {RootStore} from '../../../store/store';
 
 import {getReviews} from '../../../actions/ratingReview/getReviewsAction';
-// import ImageGallery from './ImageGallery';
-// import ProductInfo from './ProductInfo';
-// import ProductDescription from './ProductDescription';
+import {getReviewsMeta} from '../../../actions/ratingReview/getReviewsMetaDataAction'
 
 
 var ReviewsList = () => {
@@ -17,6 +15,7 @@ var ReviewsList = () => {
 
   useEffect(()  => {
     dispatch(getReviews());
+    dispatch(getReviewsMeta()); // TODO: BASED ON PRODUCT INFO!
   }, []);
 
   // useEffect(()  => {

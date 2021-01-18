@@ -2,9 +2,9 @@ export const REVIEWS_LOADING = "REVIEWS_LOADING";
 export const REVIEWS_FAIL = "REVIEWS_FAIL";
 export const REVIEWS_SUCCESS = "REVIEWS_SUCCESS";
 
-// export const PRODUCT_LOADING = "PRODUCT_LOADING";
-// export const PRODUCT_FAIL = "PRODUCT_FAIL";
-// export const PRODUCT_SUCCESS = "PRODUCT_SUCCESS";
+export const REVIEWSMETA_LOADING = "REVIEWSMETA_LOADING";
+export const REVIEWSMETA_FAIL = "REVIEWSMETA_FAIL";
+export const REVIEWSMETA_SUCCESS = "REVIEWSMETA_SUCCESS";
 
 
 export interface ReviewsLoading {
@@ -14,19 +14,64 @@ export interface ReviewsLoading {
 export interface ReviewsFail {
   type: typeof REVIEWS_FAIL
 }
-// export interface ProductLoading {
-//   type: typeof PRODUCT_LOADING
-// }
 
-// export interface ProductFail {
-//   type: typeof PRODUCT_FAIL
-// }
+export interface ReviewsSuccess {
+  type: typeof REVIEWS_SUCCESS,
+  payload: ReviewDataFromAPI[]
+}
+
+export interface ReviewsMetaLoading {
+  type: typeof REVIEWSMETA_LOADING
+}
+
+export interface ReviewsMetaFail {
+  type: typeof REVIEWSMETA_FAIL
+}
+
+export interface ReviewsMetaSuccess {
+  type: typeof REVIEWSMETA_SUCCESS,
+  payload: ReviewsMetaDataFromAPI
+}
 
 export type ReviewDataFromAPI = {
   "product": string,
   "page": number,
   "count": number,
   "results": ReviewResults[],
+}
+
+export type ratingsForMeta = {
+  1?: string,
+  2?: string,
+  3?: string,
+  4?: string,
+  5?: string
+}
+
+export type recommendedForMeta = {
+  true?: string,
+  false?: string
+}
+
+export type characteristicsForMeta = {
+  Fit?: characteristic,
+  Length?: characteristic,
+  Comfort?: characteristic,
+  Quality?: characteristic,
+  Size?: characteristic,
+  Width?: characteristic,
+}
+
+export type characteristic = {
+  "id": number,
+  "value": string
+}
+
+export type ReviewsMetaDataFromAPI = {
+  "product_id": string,
+  "ratings": ratingsForMeta,
+  "recommended": recommendedForMeta,
+  "characteristics": characteristicsForMeta
 }
 
 export interface Photo {
@@ -47,15 +92,6 @@ export interface ReviewResults {
     "photos": Photo[]
 }
 
-export interface ReviewsSuccess {
-  type: typeof REVIEWS_SUCCESS,
-  payload: ReviewDataFromAPI[]
-}
-
-// export interface ProductSuccess {
-//   type: typeof PRODUCT_SUCCESS,
-//   payload: ReviewDataFromAPI[]
-// }
-
 // '|' is equal to '||' in typescript
-export type ReviewsDispatchTypes = ReviewsLoading | ReviewsFail | ReviewsSuccess  //| ProductLoading | ProductFail | ProductSuccess
+export type ReviewsDispatchTypes = ReviewsLoading | ReviewsFail | ReviewsSuccess 
+export type ReviewsMetaDispatchTypes = ReviewsMetaLoading | ReviewsMetaFail | ReviewsMetaSuccess
