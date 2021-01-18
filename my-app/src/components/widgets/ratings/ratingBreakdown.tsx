@@ -7,9 +7,9 @@ import {RootStore} from '../../../store/store';
 // import ProductInfo from './ProductInfo';
 // import ProductDescription from './ProductDescription';
 
-interface Props {
-  exampleData: string;
-}
+// interface Props {
+//   exampleData: string;
+// }
 
 var RatingBreakdown = () => {
   // const dispatch = useDispatch();

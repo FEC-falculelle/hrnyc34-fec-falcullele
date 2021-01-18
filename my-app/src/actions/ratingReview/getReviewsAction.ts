@@ -1,0 +1,65 @@
+import {Dispatch} from "redux";
+import {ReviewsDispatchTypes, REVIEWS_LOADING, REVIEWS_FAIL, REVIEWS_SUCCESS, ReviewResults} from './ratingActionTypes';
+import axios from 'axios';
+import API_TOKEN from '../../config';
+
+export const getReviews = (id: string = '11001', page: number = 1, count: number = 5, sort: string = 'newest') => async (dispatch: Dispatch<ReviewsDispatchTypes>) => {
+  try {
+    dispatch( {
+      type: REVIEWS_LOADING
+    })
+
+    const res = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews/`,
+    {headers: {
+      "Authorization" : API_TOKEN
+    },
+    params: {
+      "product_id": id,
+      "page": page,
+      "count" : count, 
+      "sort" : sort
+    }
+  }
+    )
+  console.log('this is res', res)
+    dispatch( {
+      type: REVIEWS_SUCCESS,
+      payload: res.data
+    })
+
+  } catch(e) {
+    dispatch( {
+      type: REVIEWS_FAIL
+    })
+  }
+};
+
+
+
+
+
+
+
+
+
+
+/*
+
+import generateBoard from '../data/generateBoard';
+let newBoard = generateBoard(10,10);
+
+var retryAction = (e) => ({
+
+  type: 'RETRY',
+    results: null,
+    exampleBoard: newBoard,
+    win: false
+});
+
+export default retryAction;
+
+
+
+
+
+*/

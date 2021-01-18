@@ -7,10 +7,6 @@ import {RootStore} from '../../../store/store';
 // import ProductInfo from './ProductInfo';
 // import ProductDescription from './ProductDescription';
 
-interface Props {
-  exampleData: string;
-}
-
 var ProductBreakdown = () => {
   // const dispatch = useDispatch();
   // const productReviewsState = useSelector((state: RootStore) => state.productReviewsInfo);
