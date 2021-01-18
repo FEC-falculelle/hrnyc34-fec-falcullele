@@ -6,33 +6,24 @@ import {RootStore} from '../../../store/store';
 
 import {getReviews} from '../../../actions/ratingReview/getReviewsAction';
 import {getReviewsMeta} from '../../../actions/ratingReview/getReviewsMetaDataAction'
+import ReviewTile from './reviewTile';
 
 
 var ReviewsList = () => {
   const dispatch = useDispatch();
   const productReviewsState = useSelector((state: RootStore) => state.reviewsInfo);
 
-
   useEffect(()  => {
-    dispatch(getReviews());
+    dispatch(getReviews());  // TODO: BASED ON PRODUCT INFO! hardcoded for now
     dispatch(getReviewsMeta()); // TODO: BASED ON PRODUCT INFO!
   }, []);
 
-  // useEffect(()  => {
-  //   if (Array.isArray(productState.products)) {
-  //     if (productState.products[0]) {
-  //       dispatch(getReviews(productState.products[0].id));
-  //     }
-  //   } else {
-  //     console.log('productState is not an array')
-  //   }
-  // }, [productState]);
-
-  console.log('product state: ', productReviewsState);
+  console.log('product Reviews state: ', productReviewsState);
 
   return (
     <div className='reviewsList'>
       ReviewsList
+      <ReviewTile />
       <button onClick={() => {console.log('clicked')}}> testing!</button>
       
     </div>

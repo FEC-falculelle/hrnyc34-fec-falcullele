@@ -5,13 +5,11 @@ import HoverRating from './starComponent';
 
 var ProductBreakdown = () => {
   // const dispatch = useDispatch();
-  // const productReviewsState = useSelector((state: RootStore) => state.productReviewsInfo);
-
-  // console.log('product state: ', productReviewsInfo);
 
   return (
     <div className='productBreakdown'>
       ProductBreakdown
+      <h1>A BIG NUMBER</h1>
       <HoverRating />
       
     </div>
