@@ -14,14 +14,23 @@ function Carousel() {
   const styleState = useSelector((state: RootStore) => state.style);
   const [featuredImage, setFeaturedImage] = useState<Photos | any>(styleState?.products?.results[0]?.photos);
   let [curIndex, setCurIndex] = useState<any>(0);
+  const maxIndex = featuredImage.length - 1;
+
+  console.log(curIndex);
 
   let previousSlide = () => {
-    setCurIndex(curIndex--);
-  }
+    const maxIndex = featuredImage.length - 1;
+    const shouldReset = curIndex === 0;
+    const index = shouldReset ? maxIndex : curIndex - 1;
+    setCurIndex(index);
+    }
 
   let nextSlide = () => {
-    setCurIndex(curIndex++);
-  }
+    const maxIndex = featuredImage.length - 1;
+    const shouldReset = curIndex === maxIndex;
+    const index = shouldReset ? 0 : curIndex + 1;
+    setCurIndex(index);
+    }
 
   return (
         <div className='carousel'>
