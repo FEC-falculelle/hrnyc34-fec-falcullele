@@ -7,10 +7,6 @@ import SortComponent from './sortComponent';
 import ProductBreakdown from './productBreakdown';
 import RatingBreakdown from './ratingBreakdown';
 
-interface Props {
-  exampleData: string;
-}
-
 var ProductReviewsComponent = () => {
   // const dispatch = useDispatch();
   // const productReviewsState = useSelector((state: RootStore) => state.productReviewsInfo);

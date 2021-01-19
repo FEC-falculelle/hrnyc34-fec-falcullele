@@ -35,8 +35,6 @@ function Product() {
     }
   }, [productState]);
 
-  console.log('product state: ', productState);
-
   return (
     <div className='product'>
       <ImageGallery />

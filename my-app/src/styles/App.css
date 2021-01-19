@@ -3,11 +3,11 @@ body {
 }
 
 .App {
-  height: 100vh;
-  width: 100 vw;
+  height: auto;
+  width: auto;
   display: grid;
-  grid-template-columns: 3fr 2fr;
-  grid-template-rows: 1fr 5fr 2fr 1fr 1fr 1fr;
+  /* grid-template-columns: 3fr 2fr;
+  grid-template-rows: 1fr 5fr 2fr 1fr 1fr 1fr; */
 }
 
 .App-header {
