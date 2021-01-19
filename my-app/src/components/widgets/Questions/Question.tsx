@@ -14,7 +14,7 @@ const Question: FC<QuestionProps> = ({ questionInfo }) => {
   return (
     <Box>
       <Typography variant="h5" component="h3">
-        {questionInfo.question_body}
+        {`Q: ${questionInfo.question_body}`}
       </Typography>
       {Object.values(questionInfo.answers).map((answer) => (
         <Answer key={answer.id} answerInfo={answer} />

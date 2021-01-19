@@ -13,7 +13,7 @@ const Answer: FC<AnswerProps> = ({ answerInfo }) => {
   return (
     <Box>
       <Typography variant="body1" component="p">
-        {answerInfo.body}
+      {`A: ${answerInfo.body}`}
       </Typography>
     </Box>
   );

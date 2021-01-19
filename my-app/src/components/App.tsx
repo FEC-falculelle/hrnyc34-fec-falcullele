@@ -40,6 +40,7 @@ function App() {
            related-products
         </div>
         <div className='qa'>
+          QUESTIONS &amp; ANSWERS
           <Questions />
         </div>
         <div className='reviews'>
