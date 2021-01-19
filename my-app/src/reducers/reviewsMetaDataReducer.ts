@@ -1,11 +1,11 @@
 import {ReviewsMetaDataFromAPI, ReviewsMetaDispatchTypes, REVIEWSMETA_FAIL, REVIEWSMETA_LOADING, REVIEWSMETA_SUCCESS} from '../actions/ratingReview/ratingActionTypes';
 
-interface ExampleState {
+interface metaDataInfo {
   loading: boolean,
   reviewsMeta?: ReviewsMetaDataFromAPI
 }
 
-const exampleState: ExampleState = {
+const exampleState: metaDataInfo = {
   loading: false,
   reviewsMeta: {
     "product_id": "11001",
@@ -38,7 +38,7 @@ const exampleState: ExampleState = {
 }
 };
 
-const reviewsMetaReducer = (state: ExampleState = exampleState, action: ReviewsMetaDispatchTypes) : ExampleState => {
+const reviewsMetaReducer = (state: metaDataInfo = exampleState, action: ReviewsMetaDispatchTypes) : metaDataInfo => {
   switch (action.type) {
     case REVIEWSMETA_FAIL:
       return {

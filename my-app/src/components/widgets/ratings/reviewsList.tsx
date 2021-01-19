@@ -12,10 +12,12 @@ import ReviewTile from './reviewTile';
 var ReviewsList = () => {
   const dispatch = useDispatch();
   const productReviewsState = useSelector((state: RootStore) => state.reviewsInfo);
+  const productState = useSelector((state: RootStore) => state.singleProduct);
+
 
   useEffect(()  => {
-    dispatch(getReviews());  // TODO: BASED ON PRODUCT INFO! hardcoded for now
-    dispatch(getReviewsMeta()); // TODO: BASED ON PRODUCT INFO!
+    dispatch(getReviews('11001'));  // TODO: BASED ON PRODUCT INFO! hardcoded for now
+    dispatch(getReviewsMeta(11001)); // TODO: BASED ON PRODUCT INFO!
   }, []);
 
   console.log('product Reviews state: ', productReviewsState);

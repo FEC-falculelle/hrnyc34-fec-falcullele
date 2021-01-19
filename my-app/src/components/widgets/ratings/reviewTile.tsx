@@ -5,9 +5,9 @@ import {RootStore} from '../../../store/store';
 
 var ReviewTile = () => {
   // const dispatch = useDispatch();
-  const productReviewsState = useSelector((state: RootStore) => state.reviewsInfo);
+  const productReviewsState:any = useSelector((state: RootStore) => state.reviewsInfo);
 
-  console.log('List of review results state: ', productReviewsState);
+  console.log('List of review results state: ', productReviewsState.reviews);
 
   return (
     <div className='reviewTile'>

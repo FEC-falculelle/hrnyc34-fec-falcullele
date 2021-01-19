@@ -6,6 +6,7 @@ import ReviewsList from './reviewsList';
 import SortComponent from './sortComponent';
 import ProductBreakdown from './productBreakdown';
 import RatingBreakdown from './ratingBreakdown';
+import CharacteristicsBar from './characteristicsBar'
 
 var ProductReviewsComponent = () => {
   // const dispatch = useDispatch();
@@ -20,6 +21,7 @@ var ProductReviewsComponent = () => {
       <ReviewsList />
       <ProductBreakdown />
       <RatingBreakdown />
+      <CharacteristicsBar />
     </div>
 
   );

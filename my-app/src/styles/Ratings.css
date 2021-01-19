@@ -9,3 +9,11 @@
   grid-row-end: 7;
   background-color:plum;
 }
+
+.characteristicsBar {
+  color: red
+}
+
+.productBreakdown h1{
+  font-size: 60px;
+}

@@ -19,9 +19,12 @@ var SortComponent = () => {
 
   return (
     <div className='sortingComponent'>
-      This is the sorting component
-
-      
+      # of reviews, sorted by: 
+      <select>
+        <option value="newest">Newest</option>
+        <option value="helpful">Helpful</option>
+        <option selected value="relevant">Relevant</option>
+      </select> 
     </div>
 
   );
