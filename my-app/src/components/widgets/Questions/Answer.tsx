@@ -12,7 +12,7 @@ interface AnswerProps {
 const Answer: FC<AnswerProps> = ({ answerInfo }) => {
   return (
     <Box>
-      <Typography variant="body1" component="body">
+      <Typography variant="body1" component="p">
         {answerInfo.body}
       </Typography>
     </Box>
