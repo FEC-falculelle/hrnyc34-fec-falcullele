@@ -119,6 +119,7 @@
   height: 50px;
   margin-right: 5%;
   margin-bottom: 5%;
+  left: 5%;
 }
 
 .quantityForm {
@@ -139,4 +140,8 @@
   height: 50px;
   background-color: white;
   border: 1px solid black;
+}
+
+.form-option {
+
 }

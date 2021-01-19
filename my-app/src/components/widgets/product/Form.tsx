@@ -74,17 +74,18 @@ function Form() {
         <div className='form'>
           <form>
             <select value={sizeValue} onChange={handleSizeSelect} className='sizeForm'>
+              <option value='SELECT SIZE'>SELECT SIZE</option>
             {availibleSizes.map((item, i) => {
-              return (<option key={i} value={item}>{item}</option>)
+              return (<option className='form-select' key={i} value={item}>{item}</option>)
             })}
             </select>
             <select value={quantityArray[0]} onChange={handleQuantitySelect} className='quantityForm'>
-              {
-                quantityArray.map((item,) => {
-                  return (
-                    <option value={item}>{item}</option>
-                  );
-                })
+              {sizeValue === "SELECT SIZE" ? <option className='form-select' value='-'>-</option> :
+                  quantityArray.map((item,) => {
+                    return (
+                      <option className='form-select' value={item}>{item}</option>
+                    );
+                  })
               }
             </select>
             <br />
