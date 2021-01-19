@@ -18,6 +18,7 @@ function Form() {
   let [availibleSizes, setSizes] = useState<string[]>([]);
 
   let [quantity, setQuantity] = useState<number | string>('-');
+  let [quantityArray, setQuantityArray] = useState<number[]>([]);
 
   let [sizeValue, setSizeValue] = useState<string>('SELECT SIZE');
 
@@ -31,6 +32,7 @@ function Form() {
     setSizes(array);
   }, []);
 
+
   let handleSizeSelect = (e: any) => {
     let selectedSize = e.target.value;
     setSizeValue(e.target.value);
@@ -38,10 +40,17 @@ function Form() {
       if (skus[i].size === selectedSize) {
         if (skus[i].quantity >= 15) {
           setQuantity(15)
+          setQuantityArray([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]);
         } else if (skus[i].quantity === 0) {
-          setQuantity('OUT OF STOCK')
+          setQuantity('OUT OF STOCK');
+          setQuantityArray([]);
         } else {
           setQuantity(skus[i].quantity)
+          let quanArr = [];
+          for (let j = 1; j <= skus[i].quantity; j++) {
+            quanArr.push(j);
+          }
+          setQuantityArray(quanArr);
         }
       }
     }
@@ -69,8 +78,14 @@ function Form() {
               return (<option key={i} value={item}>{item}</option>)
             })}
             </select>
-            <select value={quantity} onChange={handleQuantitySelect}>
-              <option value={quantity}>{quantity}</option> : <option value='1'>1</option>
+            <select value={quantityArray[0]} onChange={handleQuantitySelect}>
+              {
+                quantityArray.map((item,) => {
+                  return (
+                    <option value={item}>{item}</option>
+                  );
+                })
+              }
             </select>
             <br />
             <button>ADD TO BAG</button>
