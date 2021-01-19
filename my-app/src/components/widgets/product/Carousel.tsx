@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {RootStore} from '../../../store/store';
 import ImageSlide from './ImageSlide';
 import Arrow from './Arrow';
+import Thumbnail from './Thumbnail';
 
 
 interface Photos {
@@ -25,6 +26,7 @@ function Carousel() {
   }, [styleIndex]);
 
   let [curIndex, setCurIndex] = useState<any>(0);
+
   const maxIndex = featuredImage.length - 1;
 
   let previousSlide = () => {
@@ -49,6 +51,13 @@ function Carousel() {
 
   return (
         <div className='carousel'>
+          <div className='thumbnails' >
+          {featuredImage?.map((item:any, i:number) => {
+            return (
+            <Thumbnail key={i} index={i} url={item} setCurIndex={setCurIndex} />
+            )
+          })}
+            </div>
           <Arrow direction='left' clickFunction={previousSlide} glyph="&#9664;" />
           <ImageSlide url={featuredImage[curIndex].url}/>
           <Arrow direction='right' clickFunction={nextSlide} glyph="&#9664;" />
