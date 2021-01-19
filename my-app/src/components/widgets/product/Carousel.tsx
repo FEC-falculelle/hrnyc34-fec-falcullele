@@ -21,12 +21,8 @@ function Carousel() {
 
   useEffect( () => {
     setIndex(styleIndex.selectedStyleIndex);
-    console.log(styleIndex.selectedStyleIndex);
     setFeaturedImage(styleState?.products?.results[styleIndex.selectedStyleIndex]?.photos)
-  }, [styleIndex])
-
-
-  console.log('featuredImage: ', featuredImage, 'index: ', index);
+  }, [styleIndex]);
 
   let [curIndex, setCurIndex] = useState<any>(0);
   const maxIndex = featuredImage.length - 1;
