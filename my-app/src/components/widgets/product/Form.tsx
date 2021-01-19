@@ -1,6 +1,6 @@
 import React, { useDebugValue, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { isConstructorDeclaration } from 'typescript';
+import { isConstructorDeclaration, setSyntheticTrailingComments } from 'typescript';
 import {RootStore} from '../../../store/store';
 
 function Form() {
@@ -12,6 +12,8 @@ function Form() {
   const [index, setIndex] = useState<number| any>(styleIndex.selectedStyleIndex);
 
   const [skus, setSkus] = useState<any>(styleState?.products?.results[index]?.skus);
+
+  const [star, setStar] = useState<boolean>(false);
 
   let [availibleSizes, setSizes] = useState<string[]>([]);
 
@@ -46,7 +48,17 @@ function Form() {
   }
 
   let handleQuantitySelect = (e: any) => {
+    e.preventDefault();
     console.log(e.target.value);
+  }
+
+  let handleStarClick = (e: any) => {
+    e.preventDefault();
+    if(e.target.value === `&#9734`) {
+      setStar(true);
+    } else {
+      setStar(false);
+    }
   }
 
   return (
@@ -62,7 +74,10 @@ function Form() {
             </select>
             <br />
             <button>ADD TO BAG</button>
-            <button>&#9734;</button>
+            {star === false ?
+              <button value={`&#9734`} onClick={handleStarClick}>&#9734;</button> :
+              <button value={`&#9733`} onClick={handleStarClick}>&#9733;</button>
+            }
           </form>
       </div>
   );
