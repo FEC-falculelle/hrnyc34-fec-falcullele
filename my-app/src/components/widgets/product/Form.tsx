@@ -73,12 +73,12 @@ function Form() {
   return (
         <div className='form'>
           <form>
-            <select value={sizeValue} onChange={handleSizeSelect}>
+            <select value={sizeValue} onChange={handleSizeSelect} className='sizeForm'>
             {availibleSizes.map((item, i) => {
               return (<option key={i} value={item}>{item}</option>)
             })}
             </select>
-            <select value={quantityArray[0]} onChange={handleQuantitySelect}>
+            <select value={quantityArray[0]} onChange={handleQuantitySelect} className='quantityForm'>
               {
                 quantityArray.map((item,) => {
                   return (
@@ -88,10 +88,10 @@ function Form() {
               }
             </select>
             <br />
-            <button>ADD TO BAG</button>
+            <button className='addToBag'>ADD TO BAG</button>
             {star === false ?
-              <button value={`&#9734`} onClick={handleStarClick}>&#9734;</button> :
-              <button value={`&#9733`} onClick={handleStarClick}>&#9733;</button>
+              <button value={`&#9734`} onClick={handleStarClick} className='starButton'>&#9734;</button> :
+              <button value={`&#9733`} onClick={handleStarClick} className='starButton'>&#9733;</button>
             }
           </form>
       </div>

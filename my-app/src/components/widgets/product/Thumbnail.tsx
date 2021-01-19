@@ -19,7 +19,9 @@ const Thumbnail = ({url, setCurIndex, index}:any) => {
   }
 
   return (
+    <div>
     <div className='thumbnail-img' id={`${index}`} style={styles} onMouseEnter={handleHoverOn}/>
+    </div>
     )
 };
 
