@@ -13,12 +13,24 @@ var CharacteristicsBars = () => {
   console.log(characteristics )
 
   if (characteristics) {
-    var blah: any = Object.keys(characteristics);
+    var characteristicsArray: any = Object.entries(characteristics).sort((a:any, b:any) => {
+      return a[0] - b[0];
+    });
+
+    var renderChars = characteristicsArray.map((char: any) => {
+      return (<div>
+        {char[0]}
+        <div className={char[0]}>
+          <div className={`${char[0]}greenBar`}> </div>
+        </div>
+      </div>)
+    })
+
   }
 
   return (
     <div className='characteristicsBars'>
-
+      {renderChars}
     </div>
 
   );

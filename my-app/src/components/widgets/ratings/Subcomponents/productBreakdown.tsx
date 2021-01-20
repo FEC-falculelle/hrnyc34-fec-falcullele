@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {RootStore} from '../../../../store/store';
-import HoverRating from '../starComponent';
 
 import Rating from '@material-ui/lab/Rating';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
@@ -25,9 +24,6 @@ var ProductBreakdown = () => {
       }, 0);
   
   }
-
- console.log(ratings, 'RATINGS BRUHH')
- console.log(totalStars, 'TOTAL STARS BRUHH')
 
   return (
     <div className='starBar'>

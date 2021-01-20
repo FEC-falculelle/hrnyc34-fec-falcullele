@@ -7,19 +7,24 @@ import {RootStore} from '../../../../store/store';
 // import ProductInfo from './ProductInfo';
 // import ProductDescription from './ProductDescription';
 
-interface Props {
-  exampleData: string;
-}
+var totalRatings:number;
 
 var SortComponent = () => {
-  // const dispatch = useDispatch();
-  // const productReviewsState = useSelector((state: RootStore) => state.productReviewsInfo);
 
-  // console.log('product state: ', productReviewsInfo);
+  const dispatch = useDispatch();
+  const initialRatings = useSelector((state: RootStore) => state.reviewsMetaInfo?.reviewsMeta?.ratings);
+
+  const [ratings, setRatings] = useState(() => initialRatings);
+  
+  if (ratings) {
+    totalRatings = Object.values(ratings).reduce((accum, currentVal) => {
+      return parseInt(accum) + parseInt(currentVal);
+    });
+  }
 
   return (
     <div className='sortingComponent'>
-      # of reviews, sorted by: 
+      {totalRatings} reviews, sorted by: 
       <select>
         <option value="newest">Newest</option>
         <option value="helpful">Helpful</option>

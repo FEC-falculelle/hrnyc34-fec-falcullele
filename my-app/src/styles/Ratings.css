@@ -28,3 +28,80 @@
   height: 20px;
 }
 
+.reviewTile {
+  color: green;
+  border: 1px solid black;
+}
+
+
+.Size{
+  width:20%;
+  height: 20px;
+  background-color: gray;
+}
+
+.Size .SizegreenBar{
+  background-color: rgb(44, 173, 44);
+  width: 75%;
+  height: 20px;
+}
+
+.Fit{
+  width:20%;
+  height: 20px;
+  background-color: gray;
+}
+
+.Fit .FitgreenBar{
+  background-color: rgb(44, 173, 44);
+  width: 75%;
+  height: 20px;
+}
+
+.Width{
+  width:20%;
+  height: 20px;
+  background-color: gray;
+}
+
+.Width .WidthgreenBar{
+  background-color: rgb(44, 173, 44);
+  width: 75%;
+  height: 20px;
+}
+
+.Comfort{
+  width:20%;
+  height: 20px;
+  background-color: gray;
+}
+
+.Comfort .ComfortgreenBar{
+  background-color: rgb(44, 173, 44);
+  width: 75%;
+  height: 20px;
+}
+
+.Quality{
+  width:20%;
+  height: 20px;
+  background-color: gray;
+}
+
+.Quality .QualitygreenBar{
+  background-color: rgb(44, 173, 44);
+  width: 75%;
+  height: 20px;
+}
+
+.Length{
+  width:20%;
+  height: 20px;
+  background-color: gray;
+}
+
+.Length .LengthgreenBar{
+  background-color: rgb(44, 173, 44);
+  width: 75%;
+  height: 20px;
+}
