@@ -148,3 +148,23 @@
 .form-option {
 
 }
+
+/* This is circle styleing for the stle element */
+/* .isSelectedThumbnail {
+  position: absolute;
+  left: 5.5%;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  margin-top: -1.25%;
+} */
+
+.isSelectedThumbnail {
+  position: absolute;
+  width: 55px;
+  height: 2px;
+  background-color: black;
+  margin-left: -0.31%;
+  margin-top: 7.25%;
+}

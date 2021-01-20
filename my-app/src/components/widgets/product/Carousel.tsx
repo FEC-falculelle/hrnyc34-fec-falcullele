@@ -57,11 +57,9 @@ function Carousel() {
           <ImageSlide url={featuredImage[curIndex].url}/>
           <Arrow direction='right' clickFunction={nextSlide} glyph="&#8594;" />
           <div className='thumbnails' >
-            {featuredImage?.map((item:any, i:number) => {
-             return (
-             <Thumbnail key={i} index={i} url={item} setCurIndex={setCurIndex} />
-              )
-            })}
+            {featuredImage?.map((item:any, i:number) => (
+                 <Thumbnail key={i} index={i} url={item} setCurIndex={setCurIndex} curIndex={curIndex}/>
+            ))}
             <div className='chevron-down'>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
