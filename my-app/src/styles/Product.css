@@ -7,14 +7,14 @@
   grid-row-start: 2;
   grid-row-end: 4;
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: 5fr 2fr;
   grid-template-rows: 5fr 1fr;
 }
 
 .featured-image {
   display: block;
   margin: auto;
-  background-color: cornflowerblue;
+  background-color:white;
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
@@ -32,7 +32,7 @@
   grid-row-end: 2;
   width: 100%;
   height: 100%;
-  background-color: rebeccapurple;
+  background-color: white;
 }
 
 .description {
@@ -44,16 +44,19 @@
   grid-column-end: 3;
   grid-row-start: 2;
   grid-row-end: 3;
-  background-color:teal;
+  background-color:white;
 }
 
 .style-selector {
   display: flex;
   flex-wrap: wrap;
-  width: 375px;
+  width: 250px;
   height: 150px;
+  padding: 2%;
+}
+
+.style-selector > div {
   margin: 2%;
-  justify-content: space-evenly;
 }
 
 .styleBubble {
@@ -62,4 +65,86 @@
   border: 1px solid black;
   border-radius: 50%;
   background-size: contain;
+}
+
+.thumbnails {
+  position: relative;
+  /* top: 17%; */
+  bottom: 95.5%;
+  left: 3%;
+  display: flex;
+  flex-direction: column;
+}
+
+.thumbnail-img {
+  outline: 1px solid black;
+  margin-bottom: 2%;
+}
+
+.carousel {
+  height: 100%;
+  width: 100%;
+}
+
+.slide-arrow-left {
+  position: relative;
+  width: 3%;
+  top: 44.75%;
+  left: 17%;
+  z-index: 1;
+}
+
+.slide-arrow-right {
+  position: relative;
+  width: 3%;
+  bottom: 59.25%;
+  left: 90%;
+  z-index: 1;
+}
+
+.image-slide {
+  margin-left: 3.5%;
+}
+
+.chevron-down {
+  margin-left: 2%;
+}
+
+.form {
+  width: 100%;
+}
+
+.sizeForm {
+  width: 60%;
+  height: 50px;
+  margin-right: 5%;
+  margin-bottom: 5%;
+  padding-left: 5%;
+}
+
+.quantityForm {
+  width: 35%;
+  height: 50px;
+  padding-left: 5%;
+}
+
+.addToBag {
+  width: 75%;
+  height: 50px;
+  margin-right: 5%;
+  background-color: white;
+  border: 1px solid black;
+  text-align: left;
+  padding-left: 7.5%;
+}
+
+.starButton {
+  width: 20%;
+  height: 50px;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.form-option {
+
 }

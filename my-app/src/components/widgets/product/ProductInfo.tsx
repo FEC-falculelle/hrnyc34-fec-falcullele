@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {RootStore} from '../../../store/store';
 import {getStyle} from '../../../actions/productStyleAction';
 import StyleComponent from './styleComponent';
+import Form from './Form';
 import {selectStyle} from '../../../actions/selectStyleAction';
 
 
@@ -67,6 +68,7 @@ function ProductInfo() {
           );
         })}
       </div>
+      <Form />
     </div>
   );
 }

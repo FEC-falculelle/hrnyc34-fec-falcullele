@@ -1,5 +1,5 @@
 body {
-
+  margin: 2%;
 }
 
 .App {
@@ -16,7 +16,7 @@ body {
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 1;
-  background-color: azure;
+  background-color: white;
 }
 
 .related-products {
