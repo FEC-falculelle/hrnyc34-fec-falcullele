@@ -13,8 +13,8 @@ import {getReviewsMeta} from '../../../actions/ratingReview/getReviewsMetaDataAc
 
 var ProductReviewsComponent = () => {
   const dispatch = useDispatch();
-  const productReviewsState = useSelector((state: RootStore) => state.reviewsInfo);
-  const productState = useSelector((state: RootStore) => state.singleProduct);
+  // const productReviewsState = useSelector((state: RootStore) => state.reviewsInfo);
+  // const productState = useSelector((state: RootStore) => state.singleProduct);
 
   useEffect(()  => {
     dispatch(getReviews('11001'));  // TODO: BASED ON PRODUCT INFO! hardcoded for now
@@ -23,12 +23,11 @@ var ProductReviewsComponent = () => {
 
   return (
     <div className='ratings'>
-      ratings and review component :
-      <SortComponent />
-      <ReviewsList />
       <ProductBreakdown />
       <RatingBreakdown />
+      <SortComponent />
       <CharacteristicsBar />
+      <ReviewsList />
     </div>
 
   );
