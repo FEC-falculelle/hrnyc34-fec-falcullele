@@ -15,7 +15,6 @@ const Thumbnail = ({url, setCurIndex, index, curIndex}:any) => {
 
   const handleHoverOn = (e:any) => {
     e.preventDefault();
-    console.log(e.target.id);
     setCurIndex(e.target.id);
   }
     return (

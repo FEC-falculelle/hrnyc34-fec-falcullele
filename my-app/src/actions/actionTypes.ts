@@ -33,6 +33,7 @@ export interface Featured {
   "description": string,
   "category": string,
   "default_price": string,
+  "sale_price": string,
   "created_at": string,
   "updated_at": string,
   "features": object[]

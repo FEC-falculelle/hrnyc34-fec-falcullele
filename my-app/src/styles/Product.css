@@ -83,7 +83,7 @@
 
 .carousel {
   height: 100%;
-  width: 100%;
+  width: 95%;
 }
 
 .slide-arrow-left {
@@ -104,8 +104,8 @@
 
 .image-slide {
   position: relative;
-  margin-right: 3.5%;
-  right: 2%;
+  /* margin-right: 3.5%; */
+  /* right: 2%; */
 }
 
 .chevron-down {
@@ -175,4 +175,45 @@
   height: 90%;
   width: 90%;
   margin-left: 7%;
+}
+
+.default-price {
+  font-size: small;
+  color: rgb(63, 63, 63);
+  margin-bottom: 4%;
+}
+
+.product-category {
+  color: rgb(63, 63, 63);
+}
+
+.product-name {
+  font-size: xx-large;
+  font-weight: bolder;
+  margin-top: 0%;
+  margin-bottom: 2%;
+}
+
+.old-price {
+  text-decoration: line-through;
+  font-size: small;
+  color: rgb(63, 63, 63);
+}
+
+.sale-price {
+  font-size: small;
+  color: red;
+  margin-bottom: 4%;
+}
+
+.style-style {
+  font-weight: bold;
+}
+
+.style-name {
+  margin-left: 5px;
+}
+
+.style-flex {
+  display: flex;
 }

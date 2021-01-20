@@ -16,6 +16,7 @@ function ProductInfo() {
   const [name, setName] = useState(singleProductState?.products?.name);
   const [slogan, setSlogan] = useState(singleProductState?.products?.slogan);
   const [price, setPrice] = useState(singleProductState?.products?.default_price);
+  const [salePrice, setSalePrice] = useState(singleProductState?.products?.sale_price);
   const [styles, setStyles] = useState(styleState?.products?.results)
   const [selectedStyle, setSelectedStyle] = useState(styleState?.products?.results[0])
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -38,6 +39,7 @@ function ProductInfo() {
   useEffect(() => {
     if (styleState.hasOwnProperty('products')) {
       setStyles(styleState.products?.results);
+      setSalePrice(styleState.products?.results[0]?.sale_price);
     }
   }, [styleState])
 
@@ -49,6 +51,7 @@ function ProductInfo() {
     setSelectedIndex(index);
     dispatch(selectStyle(index));
     setSelectedStyle(styleState?.products?.results[index]);
+    setSalePrice(styleState.products?.results[index]?.sale_price)
   }
 
 
@@ -57,10 +60,20 @@ function ProductInfo() {
   return (
     <div className='product-options'>
       <p>reviews, Read all reviews</p>
-      <h3>{category}</h3>
-      <h1>{name}</h1>
-      <h4>${price}</h4>
-      <h5>Style &gt; {selectedStyle?.name}</h5>
+      <div className='product-category'>{category}</div>
+      <div className='product-name'>{name}</div>
+      {salePrice ?
+      <div>
+      <div className='old-price'>${price}</div>
+      <div className='sale-price'>${salePrice}</div>
+      </div>
+      :
+      <div className='default-price'>${price}</div>
+      }
+      <div className='style-flex'>
+      <div className='style-style'>Style &gt; </div>
+      <div className='style-name'>{selectedStyle?.name}</div>
+      </div>
       <div className='style-selector'>
         {styles?.map((item, i) => {
           return (
