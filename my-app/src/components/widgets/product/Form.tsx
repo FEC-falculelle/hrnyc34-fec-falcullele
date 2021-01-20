@@ -83,7 +83,7 @@ function Form() {
               {sizeValue === "SELECT SIZE" ? <option className='form-select' value='-'>-</option> :
                   quantityArray.map((item,) => {
                     return (
-                      <option className='form-select' value={item}>{item}</option>
+                      <option className='form-option' value={item}>{item}</option>
                     );
                   })
               }
