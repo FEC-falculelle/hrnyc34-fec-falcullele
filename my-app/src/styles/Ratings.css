@@ -7,13 +7,5 @@
   grid-column-end: 3;
   grid-row-start: 6;
   grid-row-end: 7;
-  background-color:plum;
-}
-
-.characteristicsBar {
-  color: red
-}
-
-.productBreakdown h1{
-  font-size: 60px;
+  background-color:white;
 }

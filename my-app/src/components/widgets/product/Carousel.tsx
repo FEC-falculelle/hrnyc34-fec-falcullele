@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {RootStore} from '../../../store/store';
 import ImageSlide from './ImageSlide';
 import Arrow from './Arrow';
+import Thumbnail from './Thumbnail';
 
 
 interface Photos {
@@ -21,17 +22,15 @@ function Carousel() {
 
   useEffect( () => {
     setIndex(styleIndex.selectedStyleIndex);
-    console.log(styleIndex.selectedStyleIndex);
     setFeaturedImage(styleState?.products?.results[styleIndex.selectedStyleIndex]?.photos)
-  }, [styleIndex])
-
-
-  console.log('featuredImage: ', featuredImage, 'index: ', index);
+  }, [styleIndex]);
 
   let [curIndex, setCurIndex] = useState<any>(0);
+
   const maxIndex = featuredImage.length - 1;
 
   let previousSlide = () => {
+    console.log('left');
     const maxIndex = featuredImage.length - 1;
     const shouldReset = curIndex === 0;
     const index = shouldReset ? maxIndex : curIndex - 1;
@@ -39,6 +38,7 @@ function Carousel() {
     }
 
   let nextSlide = () => {
+    console.log('right');
     const maxIndex = featuredImage.length - 1;
     const shouldReset = curIndex === maxIndex;
     const index = shouldReset ? 0 : curIndex + 1;
@@ -53,9 +53,21 @@ function Carousel() {
 
   return (
         <div className='carousel'>
-          <Arrow direction='left' clickFunction={previousSlide} glyph="&#9664;" />
+          <Arrow direction='left' clickFunction={previousSlide} glyph="&#8592;" />
           <ImageSlide url={featuredImage[curIndex].url}/>
-          <Arrow direction='right' clickFunction={nextSlide} glyph="&#9664;" />
+          <Arrow direction='right' clickFunction={nextSlide} glyph="&#8594;" />
+          <div className='thumbnails' >
+            {featuredImage?.map((item:any, i:number) => {
+             return (
+             <Thumbnail key={i} index={i} url={item} setCurIndex={setCurIndex} />
+              )
+            })}
+            <div className='chevron-down'>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+              </svg>
+            </div>
+          </div>
       </div>
   );
 }

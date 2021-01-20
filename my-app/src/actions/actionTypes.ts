@@ -38,6 +38,11 @@ export interface Featured {
   "features": object[]
 }
 
+export interface SkusObj {
+  quantity: number
+  size: string
+}
+
 export interface Result {
   "style_id": number,
   "name": string,
@@ -45,6 +50,7 @@ export interface Result {
   "sale_price"?: any,
   "default?": boolean,
   "photos": object[]
+  "skus": object
 }
 
 export interface Style {

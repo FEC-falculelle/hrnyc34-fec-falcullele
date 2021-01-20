@@ -18,10 +18,11 @@ function ImageSlide ({url}:any) {
 
   const styles = {
     backgroundImage: `url(${url})`,
-    backgroundSize: 'cover',
+    backgroundSize: 'contain',
     backgroundPosition: 'center',
-    width: '300px',
-    height: '300px'
+    width: '100%',
+    height: '100%',
+    backgroundRepeat: `no-repeat`
   };
 
   return (
