@@ -9,3 +9,15 @@
   grid-row-end: 7;
   background-color:white;
 }
+
+.grayBar{
+  width:20%;
+  height: 20px;
+  background-color: gray;
+}
+
+.grayBar .greenBar{
+  background-color: rgb(44, 173, 44);
+  width: 75%;
+  height: 20px;
+}
