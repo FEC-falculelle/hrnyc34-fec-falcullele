@@ -18,6 +18,7 @@ function ProductInfo() {
   const [price, setPrice] = useState(singleProductState?.products?.default_price);
   const [styles, setStyles] = useState(styleState?.products?.results)
   const [selectedStyle, setSelectedStyle] = useState(styleState?.products?.results[0])
+  const [selectedIndex, setSelectedIndex] = useState(0)
 
   useEffect(() => {
     dispatch(selectStyle())
@@ -44,12 +45,11 @@ function ProductInfo() {
   // const featuredProduct = useSelector((state: RootStore) => state.products[0]);
 
   const handleClick = (e: any) => {
-    let index = e.target.id
-    dispatch(selectStyle(Number(index)));
+    let index = Number(e.target.id);
+    setSelectedIndex(index);
+    dispatch(selectStyle(index));
     setSelectedStyle(styleState?.products?.results[index]);
   }
-
-
 
 
 
@@ -64,7 +64,7 @@ function ProductInfo() {
       <div className='style-selector'>
         {styles?.map((item, i) => {
           return (
-            <StyleComponent index={i} style={item} key={item.style_id} clickFunction={handleClick}/>
+            <StyleComponent index={i} curIndex={selectedIndex}style={item} key={item.style_id} clickFunction={handleClick}/>
           );
         })}
       </div>

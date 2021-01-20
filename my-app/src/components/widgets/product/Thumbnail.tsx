@@ -8,7 +8,7 @@ const Thumbnail = ({url, setCurIndex, index, curIndex}:any) => {
     backgroundImage: `url(${url.thumbnail_url})`,
     height: `50px`,
     width: `50px`,
-    backgroundSize: 'contain',
+    backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: `no-repeat`
   };
