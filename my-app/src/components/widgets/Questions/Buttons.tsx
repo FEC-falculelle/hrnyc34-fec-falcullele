@@ -1,23 +1,28 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import NewQuestion from './NewQuestion';
 import {
-  TextField,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
+  makeStyles,
+  Button,
 } from '@material-ui/core';
 
-export default function Buttons() {
-  const useStyles = makeStyles((theme) => ({
-    button: {
-      margin: theme.spacing(1),
-    },
-  }));
+const useStyles = makeStyles((theme) => ({
+  boldText: {
+    fontWeight: theme.typography.fontWeightBold,
+  },
+  button: {
+    margin: theme.spacing(1),
+  },
+}));
+
+interface ButtonsProps {
+  loadMore: () => void;
+  disableLoadMore: boolean;
+}
+
+const Buttons = ({loadMore, disableLoadMore}: ButtonsProps) => {
+
+  const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
 
@@ -29,13 +34,16 @@ export default function Buttons() {
     setOpen(false);
   };
 
-  const classes = useStyles();
-
   return (
     <div>
       <Button
         variant="outlined"
         className={classes.button}
+        onClick={loadMore}
+        disabled={disableLoadMore}
+        classes={{
+          label: classes.boldText,
+        }}
       >
         MORE ANSWERED QUESTIONS
       </Button>
@@ -43,6 +51,9 @@ export default function Buttons() {
         variant="outlined"
         className={classes.button}
         endIcon={<AddIcon>ADD A QUESTION</AddIcon>}
+        classes={{
+          label: classes.boldText,
+        }}
         onClick={handleClickOpen}
       >
         ADD A QUESTION
@@ -50,4 +61,6 @@ export default function Buttons() {
       <NewQuestion open={open} onClose={handleClose} />
     </div>
   );
-}
+};
+
+export default Buttons;

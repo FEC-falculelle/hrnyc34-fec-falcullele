@@ -4,7 +4,6 @@ import * as yup from 'yup';
 import {
   TextField,
   Dialog,
-  DialogActions,
   DialogContent,
   DialogContentText,
   DialogTitle,
@@ -19,14 +18,8 @@ interface NewQuestionProps {
 }
 
 const useStyles = makeStyles((theme) => ({
-  modal: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    padding: theme.spacing(4),
-  },
   title: {
-    padding: '15px 24px',
+    padding: theme.spacing(4, 6),
     backgroundColor: '#e4e7ed',
   },
   form: {
@@ -37,8 +30,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NewQuestion({open, onClose}: NewQuestionProps) {
-  const styles = useStyles();
+const NewQuestion = ({open, onClose}: NewQuestionProps) => {
+  const classes = useStyles();
   const validationSchema = yup.object({
     question: yup
       .string()
@@ -72,12 +65,12 @@ export default function NewQuestion({open, onClose}: NewQuestionProps) {
       onClose={onClose}
       maxWidth="md"
     >
-      <DialogTitle id="form-dialog-title" className={styles.title}>ASK YOUR QUESTION</DialogTitle>
+      <DialogTitle id="form-dialog-title" className={classes.title}>ASK YOUR QUESTION</DialogTitle>
       <DialogContent>
         <DialogContentText>
           About the ...Product Name Here...
         </DialogContentText>
-        <form onSubmit={formik.handleSubmit} className={styles.form}>
+        <form onSubmit={formik.handleSubmit} className={classes.form}>
           <TextField
             fullWidth
             id="question"
@@ -86,7 +79,7 @@ export default function NewQuestion({open, onClose}: NewQuestionProps) {
             onChange={formik.handleChange}
             error={formik.touched.question && Boolean(formik.errors.question)}
             helperText={(formik.touched.question && formik.errors.question) || (`${formik.values.question ? formik.values.question.length : 0} / 1000`)}
-            className={styles.textField}
+            className={classes.textField}
           />
           <TextField
             fullWidth
@@ -97,7 +90,7 @@ export default function NewQuestion({open, onClose}: NewQuestionProps) {
             onChange={formik.handleChange}
             error={formik.touched.nickname && Boolean(formik.errors.nickname)}
             helperText={(formik.touched.nickname && formik.errors.nickname) || ('For privacy reasons, do not use your full name or email address')}
-            className={styles.textField}
+            className={classes.textField}
           />
           <TextField
             fullWidth
@@ -108,7 +101,7 @@ export default function NewQuestion({open, onClose}: NewQuestionProps) {
             onChange={formik.handleChange}
             error={formik.touched.email && Boolean(formik.errors.email)}
             helperText={(formik.touched.email && formik.errors.email) || ('For authentication reasons, you will not be emailed')}
-            className={styles.textField}
+            className={classes.textField}
           />
           <Button color="primary" variant="contained" fullWidth type="submit">
             Submit
@@ -116,5 +109,7 @@ export default function NewQuestion({open, onClose}: NewQuestionProps) {
         </form>
       </DialogContent>
     </Dialog>
-  )
-}
+  );
+};
+
+export default NewQuestion;

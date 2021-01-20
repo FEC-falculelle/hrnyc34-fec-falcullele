@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
 
 const SearchBar = () => {
   const classes = useStyles();
+
   return (
     <div className={classes.root}>
       <TextField
