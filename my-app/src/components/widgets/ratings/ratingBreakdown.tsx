@@ -4,15 +4,23 @@ import { ratingsForMeta } from '../../../actions/ratingReview/ratingActionTypes'
 import {RootStore} from '../../../store/store';
 
 var RatingBreakdown = () => {
-  // const dispatch = useDispatch();
-  const ratings = useSelector((state: RootStore) => state.reviewsMetaInfo?.reviewsMeta?.ratings);
+  const dispatch = useDispatch();
+  const initialRatings = useSelector((state: RootStore) => state.reviewsMetaInfo?.reviewsMeta?.ratings);
 
-  // console.log('product state: ', ratings['4']);
+  const [ratings, setRatings] = useState(() => initialRatings);
+
+  if (ratings) {
+    var total: number = Object.values(ratings).reduce((accum, currentVal) => {
+      return parseInt(accum) + parseInt(currentVal);
+    });
+    console.log(total, 'TOTALLLLL')
+  }
 
   return (
     <div className='ratingBreakdown'>
       rating breakdown
-      5 stars:
+      5 stars: {ratings?.[5]} <br/>
+      4 stars: {ratings?.[4]} <br/>
       
     </div>
 

@@ -14,7 +14,6 @@ var ReviewsList = () => {
   const productReviewsState = useSelector((state: RootStore) => state.reviewsInfo);
   const productState = useSelector((state: RootStore) => state.singleProduct);
 
-
   useEffect(()  => {
     dispatch(getReviews('11001'));  // TODO: BASED ON PRODUCT INFO! hardcoded for now
     dispatch(getReviewsMeta(11001)); // TODO: BASED ON PRODUCT INFO!
