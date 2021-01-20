@@ -5,6 +5,7 @@ import {getStyle} from '../../../actions/productStyleAction';
 import StyleComponent from './styleComponent';
 import Form from './Form';
 import {selectStyle} from '../../../actions/selectStyleAction';
+import Rating from '@material-ui/lab/Rating';
 
 
 function ProductInfo() {
@@ -59,7 +60,8 @@ function ProductInfo() {
 
   return (
     <div className='product-options'>
-      <p>reviews, Read all reviews</p>
+      <p>reviews</p>
+      <Rating disabled/>
       <div className='product-category'>{category}</div>
       <div className='product-name'>{name}</div>
       {salePrice ?
