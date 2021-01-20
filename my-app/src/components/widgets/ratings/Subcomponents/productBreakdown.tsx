@@ -4,6 +4,7 @@ import {RootStore} from '../../../../store/store';
 import HoverRating from '../starComponent';
 
 import Rating from '@material-ui/lab/Rating';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 var totalRatings: number;
 var totalStars: any;
@@ -30,12 +31,13 @@ var ProductBreakdown = () => {
 
   return (
     <div className='starBar'>
-      <h1> {totalStars / totalRatings}</h1>
+      <h1> {(totalStars / totalRatings).toFixed(1)}</h1>
     <Rating 
       name="5stars"
       value= {totalStars / totalRatings}
       precision={0.25}
       defaultValue={0}
+      emptyIcon={<StarBorderIcon fontSize="inherit" />}
       disabled />
 
       

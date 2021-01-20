@@ -12,6 +12,10 @@ var CharacteristicsBars = () => {
  
   console.log(characteristics )
 
+  if (characteristics) {
+    var blah: any = Object.keys(characteristics);
+  }
+
   return (
     <div className='characteristicsBars'>
 
