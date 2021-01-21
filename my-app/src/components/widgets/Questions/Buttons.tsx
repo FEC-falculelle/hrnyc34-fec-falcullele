@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AddIcon from '@material-ui/icons/Add';
 import NewQuestion from './NewQuestion';
 import {
@@ -24,7 +24,7 @@ const Buttons = ({loadMore, disableLoadMore}: ButtonsProps) => {
 
   const classes = useStyles();
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);

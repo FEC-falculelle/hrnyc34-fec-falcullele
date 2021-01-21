@@ -8,4 +8,5 @@
   grid-row-start: 6;
   grid-row-end: 7;
   background-color:white;
+  max-width: 800px;
 }

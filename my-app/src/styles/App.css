@@ -28,7 +28,8 @@ body {
   grid-column-end: 3;
   grid-row-start: 4;
   grid-row-end: 5;
-  background-color:thistle;
+  background-color: white;
+  max-width: 800px;
 }
 
 
