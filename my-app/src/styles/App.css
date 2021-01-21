@@ -16,7 +16,7 @@ body {
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 1;
-  background-color: white;
+  background-color: transparent;
 }
 
 .related-products {
@@ -28,7 +28,7 @@ body {
   grid-column-end: 3;
   grid-row-start: 4;
   grid-row-end: 5;
-  background-color: white;
+  background-color: transparent;
   max-width: 800px;
 }
 

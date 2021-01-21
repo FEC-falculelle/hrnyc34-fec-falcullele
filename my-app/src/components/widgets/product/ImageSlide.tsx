@@ -19,6 +19,7 @@ function ImageSlide ({url}:any) {
 
 
   const styles = {
+    backgroundColor: 'transparent',
     backgroundImage: `url(${url})`,
     backgroundSize: 'contain',
     backgroundPosition: 'center',

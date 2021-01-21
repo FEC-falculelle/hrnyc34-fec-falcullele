@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Answer as AnswerType } from '../../../actions/questionAnswers/types';
+import reportAnswer from '../../../actions/questionAnswers/reportAnswer';
+import helpfulAnswer from '../../../actions/questionAnswers/helpfulAnswer';
 import {
   Box,
   Typography,
@@ -84,10 +87,19 @@ const months = [
 const Answer = ({ answerInfo, searchString }: AnswerProps) => {
 
   const [reported, setReported] = useState(false);
+  const [helpfulness, setHelpfulness] = useState(false);
+
+  const dispatch = useDispatch();
 
   const handleReport = () => {
+    dispatch(reportAnswer(answerInfo.id));
     setReported(true);
   };
+
+  const handleHelpfulness = () => {
+    dispatch(helpfulAnswer(answerInfo.id));
+    setHelpfulness(true);
+  }
 
   const [modalImage, setModalImage] = useState<string | null>(null);
 
@@ -131,6 +143,10 @@ const Answer = ({ answerInfo, searchString }: AnswerProps) => {
         </Box>
         <Box className={classes.flex}>
           <Typography component="p" className={classes.faintText1}>
+            {/* <Typography component="span" >
+
+            </Typography>
+            {(answerInfo.answerer_name === 'Seller') ? } */}
             {`by ${answerInfo.answerer_name}, ${months[d.getMonth()]} ${d.getDay()}, ${d.getFullYear()}  |  Helpful? `}
           </Typography>
           <Button
@@ -140,8 +156,10 @@ const Answer = ({ answerInfo, searchString }: AnswerProps) => {
             }}
             disableRipple
             disableFocusRipple
+            onClick={handleHelpfulness}
+            disabled={helpfulness}
           >
-            {`Yes (${answerInfo.helpfulness})`}
+            {helpfulness ? `Yes (${answerInfo.helpfulness + 1})` : `Yes (${answerInfo.helpfulness})`}
           </Button>
           <Typography className={classes.faintText1}>
             {' | '}

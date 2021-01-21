@@ -9,6 +9,8 @@ import '../styles/Ratings.css';
 import Product from './widgets/product/Product';
 import ProductReviewsComponent from './widgets/ratings/ratingReview';
 import Questions from './widgets/Questions';
+import { ThemeProvider, createMuiTheme, IconButton, CssBaseline } from '@material-ui/core';
+import { Brightness4 as ModeIcon } from '@material-ui/icons';
 
 import axios from 'axios';
 import API_TOKEN from '../config';
@@ -21,9 +23,22 @@ interface Props {
   exampleData: string;
 }
 
+const light = createMuiTheme({
+  palette: {
+    type: 'light',
+  },
+});
+
+const dark = createMuiTheme({
+  palette: {
+    type: 'dark',
+  },
+});
+
 function App() {
   const dispatch = useDispatch();
   const [productName, setProductName] = useState('');
+  const [theme, setTheme] = useState(true);
   const productState = useSelector((state: RootStore) => state.products);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => setProductName(e.target.value)
@@ -31,23 +46,29 @@ function App() {
   const handleSubmit = () => dispatch(getProducts())
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Falculelle Gang #FEC</h1>
-      </header>
-      <Product />
-      <div className='related-products'>
-      <h2>RELATED PRODUCTS</h2>
+    <ThemeProvider theme={createMuiTheme(theme ? light : dark)}>
+      <CssBaseline />
+      <div className="App">
+        <header className="App-header">
+          <h1>Falculelle Gang #FEC</h1>
+          <IconButton onClick={() => setTheme(!theme)}>
+            <ModeIcon />
+          </IconButton>
+        </header>
+        <Product />
+        <div className='related-products'>
+        <h2>RELATED PRODUCTS</h2>
+        </div>
+        <div className='qa'>
+          <h2>QUESTIONS &amp; ANSWERS</h2>
+          <Questions />
+        </div>
+        <div className='reviews'>
+            product reviews
+            <ProductReviewsComponent/>
+        </div>
       </div>
-      <div className='qa'>
-        <h2>QUESTIONS &amp; ANSWERS</h2>
-        <Questions />
-      </div>
-      <div className='reviews'>
-          product reviews
-          <ProductReviewsComponent/>
-      </div>
-    </div>
+    </ThemeProvider>
   );
 }
 
