@@ -9651,11 +9651,14 @@ react-fast-compare@^2.0.1:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
   integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
 
+<<<<<<< HEAD
 react-inner-image-zoom@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/react-inner-image-zoom/-/react-inner-image-zoom-1.3.0.tgz#e26a319d7e19b171a31e607e641310a2f38f2c20"
   integrity sha512-ifFRgj232E1rkRrc0Kq5wSjU8Bsj+b4GfVoPZbZaRUrI0buZUgEm3MeYq7fNhEU2kqMy5iY6VIyzuu4ehF2v5A==
 
+=======
+>>>>>>> dev
 react-input-autosize@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-input-autosize/-/react-input-autosize-3.0.0.tgz#6b5898c790d4478d69420b55441fcc31d5c50a85"

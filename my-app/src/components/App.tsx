@@ -36,17 +36,17 @@ function App() {
         <h1>Falculelle Gang #FEC</h1>
       </header>
       <Product />
-        <div className='related-products'>
-           related-products
-        </div>
-        <div className='qa'>
-          QUESTIONS &amp; ANSWERS
-          <Questions />
-        </div>
-        <div className='reviews' id='reviews'>
-           product reviews
-           <ProductReviewsComponent/>
-        </div>
+      <div className='related-products'>
+      <h2>RELATED PRODUCTS</h2>
+      </div>
+      <div className='qa'>
+        <h2>QUESTIONS &amp; ANSWERS</h2>
+        <Questions />
+      </div>
+      <div className='reviews'>
+          product reviews
+          <ProductReviewsComponent/>
+      </div>
     </div>
   );
 }

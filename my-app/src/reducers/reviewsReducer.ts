@@ -1,16 +1,16 @@
 import {ReviewDataFromAPI, ReviewsDispatchTypes, REVIEWS_FAIL, REVIEWS_LOADING, REVIEWS_SUCCESS} from '../actions/ratingReview/ratingActionTypes';
 
-interface ExampleState {
+interface reviewDataInfo {
   loading: boolean,
   reviews?: (ReviewDataFromAPI)[]
 }
 
-const exampleState: ExampleState = {
+const exampleState: reviewDataInfo = {
   loading: false,
   reviews: []
 };
 
-const reviewsReducer = (state: ExampleState = exampleState, action: ReviewsDispatchTypes) : ExampleState => {
+const reviewsReducer = (state: reviewDataInfo = exampleState, action: ReviewsDispatchTypes) : reviewDataInfo => {
   switch (action.type) {
     case REVIEWS_FAIL:
       return {

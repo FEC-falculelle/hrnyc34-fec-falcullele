@@ -1,3 +1,5 @@
+
+
 .reviews {
   height: 100%;
   width: 100%;
@@ -8,4 +10,88 @@
   grid-row-start: 6;
   grid-row-end: 7;
   background-color:white;
+  max-width: 800px;
+}
+
+.reviews h1 {
+  font-size: 80px;
+}
+
+.grayBar{
+  width:20%;
+  height: 20px;
+  background-color: rgba(209, 205, 205, 0.774);
+}
+
+.grayBar .greenBar{
+  background-color: green;
+  width: 75%;
+  height: 20px;
+}
+
+.reviewTile {
+  color: green;
+  border: 1px solid black;
+}
+
+
+.Size{
+  width:20%;
+  height: 20px;
+  background-color: rgba(209, 205, 205, 0.774);
+}
+
+.Size .SizegreenBar{
+  background-color: rgb(30, 12, 131);
+  width: 75%;
+  height: 20px;
+}
+
+.Fit{
+  width:20%;
+  height: 20px;
+  background-color: rgba(209, 205, 205, 0.774);
+}
+
+
+
+.Width{
+  width:20%;
+  height: 20px;
+  background-color: rgba(209, 205, 205, 0.774);
+}
+
+
+.Comfort{
+  width:20%;
+  height: 20px;
+  background-color: rgba(209, 205, 205, 0.774);
+}
+
+
+
+.Quality{
+  width:20%;
+  height: 20px;
+  background-color: rgba(209, 205, 205, 0.774);
+}
+
+.Length{
+  width:20%;
+  height: 20px;
+  background-color: rgba(209, 205, 205, 0.774);
+}
+
+
+.fivestars{
+  transform: scale(0.5);
+}
+
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  
+  border-top: 20px solid black;
 }

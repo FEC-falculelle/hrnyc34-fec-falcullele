@@ -2,7 +2,7 @@ import {ProductType, Featured, ProductDispatchTypes, PRODUCT_FAIL, PRODUCT_LOADI
 
 interface ExampleState {
   loading: boolean,
-  products?: Featured
+  products: Featured
 }
 
 const exampleState: ExampleState = {
@@ -35,10 +35,12 @@ const singleProductReducer = (state: ExampleState = exampleState, action: Produc
   switch (action.type) {
     case PRODUCT_FAIL:
       return {
+        ...state,
         loading: false,
       }
     case PRODUCT_LOADING:
       return {
+        ...state,
         loading: true,
       }
     case PRODUCT_SUCCESS:

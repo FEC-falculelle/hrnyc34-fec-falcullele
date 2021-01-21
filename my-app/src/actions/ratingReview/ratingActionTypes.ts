@@ -15,11 +15,6 @@ export interface ReviewsFail {
   type: typeof REVIEWS_FAIL
 }
 
-export interface ReviewsSuccess {
-  type: typeof REVIEWS_SUCCESS,
-  payload: ReviewDataFromAPI[]
-}
-
 export interface ReviewsMetaLoading {
   type: typeof REVIEWSMETA_LOADING
 }
@@ -33,6 +28,19 @@ export interface ReviewsMetaSuccess {
   payload: ReviewsMetaDataFromAPI
 }
 
+export interface ReviewResults {
+  "review_id": number,
+  "rating": number,
+  "summary": string,
+  "recommend": boolean,
+  "response": null,
+  "body": string,
+  "date": Date,
+  "reviewer_name": string,
+  "helpfulness": number,
+  "photos": Photo[]
+}
+
 export type ReviewDataFromAPI = {
   "product": string,
   "page": number,
@@ -40,12 +48,17 @@ export type ReviewDataFromAPI = {
   "results": ReviewResults[],
 }
 
-export type ratingsForMeta = {
-  1?: string,
-  2?: string,
-  3?: string,
-  4?: string,
-  5?: string
+export interface ReviewsSuccess {
+  type: typeof REVIEWS_SUCCESS,
+  payload: ReviewDataFromAPI[]
+}
+
+export interface ratingsForMeta {
+  1?: string | number,
+  2?: string | number,
+  3?: string | number,
+  4?: string | number,
+  5?: string | number
 }
 
 export type recommendedForMeta = {
@@ -77,19 +90,6 @@ export type ReviewsMetaDataFromAPI = {
 export interface Photo {
   "id": number,
   "url": string
-}
-
-export interface ReviewResults {
-    "review_id": number,
-    "rating": number,
-    "summary": string,
-    "recommend": boolean,
-    "response": null,
-    "body": string,
-    "date": Date,
-    "reviewer_name": string,
-    "helpfulness": number,
-    "photos": Photo[]
 }
 
 // '|' is equal to '||' in typescript

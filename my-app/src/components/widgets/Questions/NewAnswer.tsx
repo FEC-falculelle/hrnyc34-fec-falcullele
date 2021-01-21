@@ -17,6 +17,7 @@ import {
 interface NewQuestionProps {
   open: boolean;
   onClose: () => void;
+  question: string;
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -32,16 +33,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const NewQuestion = ({open, onClose}: NewQuestionProps) => {
+const NewAnswer = ({open, onClose, question}: NewQuestionProps) => {
 
   const product = useSelector((state: RootStore) => state.singleProduct.products);
-
   const classes = useStyles();
+
   const validationSchema = yup.object({
-    question: yup
+    answer: yup
       .string()
-      .max(1000, 'Question should be of maximum 1000 characters length')
-      .required('Question is required'),
+      .max(1000, 'Answer should be of maximum 1000 characters length')
+      .required('Answer is required'),
     nickname: yup
       .string()
       .max(60, 'Nickname should be of maximum 60 characters length')
@@ -54,7 +55,7 @@ const NewQuestion = ({open, onClose}: NewQuestionProps) => {
   });
     const formik = useFormik({
       initialValues: {
-        question: '',
+        answer: '',
         email: '',
         nickname: '',
       },
@@ -70,20 +71,20 @@ const NewQuestion = ({open, onClose}: NewQuestionProps) => {
       onClose={onClose}
       maxWidth="md"
     >
-      <DialogTitle id="form-dialog-title" className={classes.title}>ASK YOUR QUESTION</DialogTitle>
+      <DialogTitle id="form-dialog-title" className={classes.title}>SUBMIT YOUR ANSWER</DialogTitle>
       <DialogContent>
         <DialogContentText>
-          {`About the ${product.name}`}
+          {`${product.name} : ${question}`}
         </DialogContentText>
         <form onSubmit={formik.handleSubmit} className={classes.form}>
           <TextField
             fullWidth
-            id="question"
-            label="Question"
+            id="answer"
+            label="Answer"
             variant="outlined"
             onChange={formik.handleChange}
-            error={formik.touched.question && Boolean(formik.errors.question)}
-            helperText={(formik.touched.question && formik.errors.question) || (`${formik.values.question ? formik.values.question.length : 0} / 1000`)}
+            error={formik.touched.answer && Boolean(formik.errors.answer)}
+            helperText={(formik.touched.answer && formik.errors.answer) || (`${formik.values.answer ? formik.values.answer.length : 0} / 1000`)}
             className={classes.textField}
           />
           <TextField
@@ -109,7 +110,7 @@ const NewQuestion = ({open, onClose}: NewQuestionProps) => {
             className={classes.textField}
           />
           <Button color="primary" variant="contained" fullWidth type="submit">
-            Submit Question
+            Submit Answer
           </Button>
         </form>
       </DialogContent>
@@ -117,4 +118,4 @@ const NewQuestion = ({open, onClose}: NewQuestionProps) => {
   );
 };
 
-export default NewQuestion;
+export default NewAnswer;
