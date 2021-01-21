@@ -5,6 +5,7 @@ import { RootState } from '../../../store/store';
 import Question from './Question';
 import SearchBar from './SearchBar';
 import Buttons from './Buttons';
+import { Question as QuestionType } from '../../../actions/questionAnswers/types';
 
 
 const Questions = () => {
@@ -12,14 +13,26 @@ const Questions = () => {
   const { questions } = useSelector((state: RootState) => state.qaReducer);
 
   const [numShown, setNumShown] = useState(4);
+  const [questionShown, setQuestionShown] = useState<QuestionType[]>([]);
 
   const loadMore = () => {
     setNumShown(numShown + 4);
   };
 
   useEffect(() => {
-    dispatch(getQuestions(11001))
+    dispatch(getQuestions(11001));
   }, []);
+
+  useEffect(() => {
+    setQuestionShown(questions);
+  }, [questions]);
+
+  // const filterQuestions = (e) => {
+  //   const searchString = e.target.value;
+  //   if (searchString >= 3) {
+  //     setQuestionShown[questions.filter]
+  //   }
+  // }
 
   return (
     <>
