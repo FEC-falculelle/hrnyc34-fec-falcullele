@@ -6,7 +6,7 @@ import StyleComponent from './styleComponent';
 import Form from './Form';
 import {selectStyle} from '../../../actions/selectStyleAction';
 import Rating from '@material-ui/lab/Rating';
-// import StarBorderIcon from '@material-ui/icons/StarBorderIcon';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { withStyles } from '@material-ui/core/styles';
 
 
@@ -85,13 +85,14 @@ function ProductInfo() {
     <div className='product-options'>
       <div className='product-reviews-box'>
       <StyledRating
+        className='product-rating-stars'
         name='productRating'
         value= {averageRating}
         precision={0.5}
         defaultValue={0}
-        // emptyIcon={<StarBorderIcon/>}
+        emptyIcon={<StarBorderIcon/>}
         readOnly/>
-      <p className='product-reviews-text'>Read all reviews</p>
+      <a className='product-reviews-text' href='#reviews'>Read all reviews</a>
     </div>
       <div className='product-category'>{category}</div>
       <div className='product-name'>{name}</div>

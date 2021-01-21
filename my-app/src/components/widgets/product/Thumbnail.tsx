@@ -4,8 +4,6 @@ const Thumbnail = ({url, setCurIndex, index, curIndex}:any) => {
 
   let isSelected = Number(curIndex) === index;
 
-  console.log(isSelected);
-
   const styles = {
     backgroundImage: `url(${url.thumbnail_url})`,
     height: `50px`,
