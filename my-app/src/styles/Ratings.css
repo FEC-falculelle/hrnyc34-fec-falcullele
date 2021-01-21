@@ -19,7 +19,7 @@
 .grayBar{
   width:20%;
   height: 20px;
-  background-color: gray;
+  background-color: rgba(209, 205, 205, 0.774);
 }
 
 .grayBar .greenBar{
@@ -37,7 +37,7 @@
 .Size{
   width:20%;
   height: 20px;
-  background-color: gray;
+  background-color: rgba(209, 205, 205, 0.774);
 }
 
 .Size .SizegreenBar{
@@ -49,63 +49,48 @@
 .Fit{
   width:20%;
   height: 20px;
-  background-color: gray;
+  background-color: rgba(209, 205, 205, 0.774);
 }
 
-.Fit .FitgreenBar{
-  background-color: rgb(30, 12, 131);
-  width: 75%;
-  height: 20px;
-}
+
 
 .Width{
   width:20%;
   height: 20px;
-  background-color: gray;
+  background-color: rgba(209, 205, 205, 0.774);
 }
 
-.Width .WidthgreenBar{
-  background-color: rgb(30, 12, 131);
-  width: 75%;
-  height: 20px;
-}
 
 .Comfort{
   width:20%;
   height: 20px;
-  background-color: gray;
+  background-color: rgba(209, 205, 205, 0.774);
 }
 
-.Comfort .ComfortgreenBar{
-  background-color: rgb(30, 12, 131);
-  width: 75%;
-  height: 20px;
-}
+
 
 .Quality{
   width:20%;
   height: 20px;
-  background-color: gray;
-}
-
-.Quality .QualitygreenBar{
-  background-color: rgb(30, 12, 131);
-  width: 75%;
-  height: 20px;
+  background-color: rgba(209, 205, 205, 0.774);
 }
 
 .Length{
   width:20%;
   height: 20px;
-  background-color: gray;
+  background-color: rgba(209, 205, 205, 0.774);
 }
 
-.Length .LengthgreenBar{
-  background-color: rgb(30, 12, 131);
-  width: 75%;
-  height: 20px;
-}
 
 .fivestars{
   transform: scale(0.5);
+}
+
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  
+  border-top: 20px solid black;
 }

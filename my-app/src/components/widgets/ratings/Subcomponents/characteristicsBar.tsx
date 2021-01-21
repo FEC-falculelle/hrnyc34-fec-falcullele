@@ -22,6 +22,7 @@ var CharacteristicsBars = () => {
         {char[0]}
         <div className={char[0]}>
           <div className={`${char[0]}greenBar`}> </div>
+          <div className="arrow-down"></div>
         </div>
         {char[1].value}
       </div>)

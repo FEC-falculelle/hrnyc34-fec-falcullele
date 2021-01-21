@@ -7,9 +7,12 @@ import SortComponent from './Subcomponents/sortComponent';
 import ProductBreakdown from './Subcomponents/productBreakdown';
 import RatingBreakdown from './Subcomponents/ratingBreakdown';
 import CharacteristicsBar from './Subcomponents/characteristicsBar'
+import AddReview from './Subcomponents/addReviewButton';
+import MoreReviews from './Subcomponents/moreReviewsButton';
 
 import {getReviews} from '../../../actions/ratingReview/getReviewsAction';
 import {getReviewsMeta} from '../../../actions/ratingReview/getReviewsMetaDataAction'
+
 
 var ProductReviewsComponent = () => {
   const dispatch = useDispatch();
@@ -28,6 +31,8 @@ var ProductReviewsComponent = () => {
       <SortComponent />
       <CharacteristicsBar />
       <ReviewsList />
+      <AddReview/>
+      <MoreReviews/>
     </div>
 
   );
