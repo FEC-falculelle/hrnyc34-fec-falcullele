@@ -29,6 +29,10 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: theme.typography.fontWeightLight,
     fontSize: 11,
   },
+  boldSmallText: {
+    fontWeight: theme.typography.fontWeightBold,
+    fontSize: 12,
+  },
   answerContainer: {
     display: 'flex',
   },
@@ -143,11 +147,11 @@ const Answer = ({ answerInfo, searchString }: AnswerProps) => {
         </Box>
         <Box className={classes.flex}>
           <Typography component="p" className={classes.faintText1}>
-            {/* <Typography component="span" >
-
+            {'by '}
+            <Typography component="span" className={answerInfo.answerer_name === 'Seller' ? classes.boldSmallText : classes.faintText1}>
+              {answerInfo.answerer_name}
             </Typography>
-            {(answerInfo.answerer_name === 'Seller') ? } */}
-            {`by ${answerInfo.answerer_name}, ${months[d.getMonth()]} ${d.getDay()}, ${d.getFullYear()}  |  Helpful? `}
+            {`, ${months[d.getMonth()]} ${d.getDay()}, ${d.getFullYear()}  |  Helpful? `}
           </Typography>
           <Button
             className={classes.actionButton}
