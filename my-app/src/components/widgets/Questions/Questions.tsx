@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, ChangeEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import getQuestions from '../../../actions/questionAnswers/getQuestions';
 import { RootState } from '../../../store/store';
@@ -14,6 +14,7 @@ const Questions = () => {
 
   const [numShown, setNumShown] = useState(4);
   const [questionShown, setQuestionShown] = useState<QuestionType[]>([]);
+  const [searchString, setSearchString] = useState('');
 
   const loadMore = () => {
     setNumShown(numShown + 4);
@@ -27,18 +28,41 @@ const Questions = () => {
     setQuestionShown(questions);
   }, [questions]);
 
-  // const filterQuestions = (e) => {
-  //   const searchString = e.target.value;
-  //   if (searchString >= 3) {
-  //     setQuestionShown[questions.filter]
-  //   }
-  // }
+  const filterQuestions = (e: ChangeEvent<HTMLInputElement>) => {
+    const newSearchString = e.target.value.toLowerCase();
+    if (newSearchString.length >= 3) {
+      const filteredQuestions: QuestionType[] = [];
+      questions.forEach((question) => {
+        if (question.question_body.toLowerCase().indexOf(newSearchString) !== -1) {
+          filteredQuestions.push(question);
+        } else {
+          const answers: QuestionType['answers'] = {};
+          Object.values(question.answers).forEach((answer) => {
+            if (answer.body.toLowerCase().indexOf(newSearchString) !== -1) {
+              answers[answer.id] = answer;
+            }
+          });
+          if (Object.keys(answers).length) {
+            filteredQuestions.push({
+              ...question,
+              answers,
+            });
+          }
+        }
+      });
+      setQuestionShown(filteredQuestions);
+      setSearchString(newSearchString);
+    } else {
+      setQuestionShown(questions);
+      setSearchString('');
+    }
+  }
 
   return (
     <>
-      <SearchBar/>
-      {questions.slice(0, numShown).map((question) => (
-        <Question key={question.question_id} questionInfo={question}/>
+      <SearchBar onChange={filterQuestions}/>
+      {questionShown.slice(0, numShown).map((question) => (
+        <Question key={question.question_id} questionInfo={question} searchString={searchString}/>
       ))}
       <Buttons loadMore={loadMore} disableLoadMore={questions.length <= numShown} />
     </>

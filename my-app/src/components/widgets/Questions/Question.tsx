@@ -8,6 +8,7 @@ import {
   Button,
   makeStyles,
 } from '@material-ui/core';
+import Highlighter from 'react-highlight-words';
 
 const useStyles = makeStyles((theme) => ({
   boldText: {
@@ -46,9 +47,10 @@ const useStyles = makeStyles((theme) => ({
 
 interface QuestionProps {
   questionInfo: QuestionType;
+  searchString: string;
 }
 
-const Question = ({ questionInfo }: QuestionProps) => {
+const Question = ({ questionInfo, searchString }: QuestionProps) => {
   const [numShown, setNumShown] = useState(2);
 
   const loadMore = () => {
@@ -71,7 +73,13 @@ const Question = ({ questionInfo }: QuestionProps) => {
     <Box mt={1} className={classes.questionContainer}>
       <Box className={classes.header}>
         <Typography variant="body1" component="p" className={classes.boldText}>
-          {`Q: ${questionInfo.question_body}`}
+          {'Q: '}
+          <Highlighter
+            searchWords={[searchString]}
+            textToHighlight={questionInfo.question_body}
+            autoEscape={true}
+          />
+          {/* {`Q: ${questionInfo.question_body}`} */}
         </Typography>
         <Box className={classes.flex}>
           <Typography className={classes.faintText}>
@@ -105,7 +113,7 @@ const Question = ({ questionInfo }: QuestionProps) => {
         </Box>
       </Box>
       {Object.values(questionInfo.answers).slice(0, numShown).map((answer) => (
-        <Answer key={answer.id} answerInfo={answer} />
+        <Answer key={answer.id} answerInfo={answer} searchString={searchString}/>
       ))}
       {Object.values(questionInfo.answers).length > numShown && (
         <Button

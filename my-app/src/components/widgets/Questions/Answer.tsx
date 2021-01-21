@@ -5,10 +5,13 @@ import {
   Typography,
   makeStyles,
   Button,
+  Modal,
 } from '@material-ui/core';
+import Highlighter from 'react-highlight-words';
 
 interface AnswerProps {
-  answerInfo: AnswerType,
+  answerInfo: AnswerType;
+  searchString: string;
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -44,6 +47,23 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'flex-start',
   },
+  photoSize: {
+    width: 60,
+    height: 45,
+    marginRight: theme.spacing(1),
+    border: '1px solid black',
+    borderRadius: 4,
+  },
+  modalPhotoSize: {
+    width: '75vw',
+    height: '45vw',
+  },
+  flexPhoto: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%',
+  }
 }));
 
 const months = [
@@ -61,12 +81,22 @@ const months = [
   'December',
 ];
 
-const Answer = ({ answerInfo }: AnswerProps) => {
+const Answer = ({ answerInfo, searchString }: AnswerProps) => {
 
   const [reported, setReported] = useState(false);
 
   const handleReport = () => {
     setReported(true);
+  };
+
+  const [modalImage, setModalImage] = useState<string | null>(null);
+
+  const handleClick = (photoUrl: string) => () => {
+    setModalImage(photoUrl);
+  };
+
+  const handleClose = () => {
+    setModalImage(null);
   };
 
   const classes = useStyles();
@@ -79,8 +109,26 @@ const Answer = ({ answerInfo }: AnswerProps) => {
       </Typography>
       <Box className={classes.answerContent}>
         <Typography variant="body1" component="p">
-          {answerInfo.body}
+          <Highlighter
+            searchWords={[searchString]}
+            textToHighlight={answerInfo.body}
+            autoEscape={true}
+          />
         </Typography>
+        <Box className={classes.flex}>
+          <Modal open={!!modalImage} onClose={handleClose}>
+            <div onClick={handleClose} className={classes.flexPhoto}>
+              {!!modalImage && <img className={classes.modalPhotoSize} src={modalImage} />}
+            </div>
+          </Modal>
+          {answerInfo.photos.map((photo) => (
+            <img
+              className={classes.photoSize}
+              src={photo}
+              onClick={handleClick(photo)}
+            />
+          ))}
+        </Box>
         <Box className={classes.flex}>
           <Typography component="p" className={classes.faintText1}>
             {`by ${answerInfo.answerer_name}, ${months[d.getMonth()]} ${d.getDay()}, ${d.getFullYear()}  |  Helpful? `}
@@ -112,9 +160,6 @@ const Answer = ({ answerInfo }: AnswerProps) => {
           </Button>
         </Box>
       </Box>
-      <Typography variant="body1" component="p">
-          {/* {answerInfo.photos} */}
-        </Typography>
     </Box>
   );
 };

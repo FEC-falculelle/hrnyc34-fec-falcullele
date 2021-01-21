@@ -1,19 +1,12 @@
 import { GET_QUESTIONS, GET_QUESTIONS_ERROR, GET_QUESTIONS_SUCCESS } from './actionTypesQA';
 
-export interface Photo {
-  id: number,
-  url: string,
-}
-
 export interface Answer {
   id: number,
   body: string,
   date: string,
   answerer_name: string,
   helpfulness: number,
-  photos: [{
-    [id: string]: Photo,
-  }]
+  photos: string[],
 }
 
 export interface Question {
