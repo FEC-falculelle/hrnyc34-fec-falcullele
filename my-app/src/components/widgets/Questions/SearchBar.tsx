@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import SearchIcon from "@material-ui/icons/Search";
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -12,8 +12,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+interface SearchBarProps {
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+}
 
-const SearchBar = () => {
+
+const SearchBar = ({ onChange }: SearchBarProps) => {
   const classes = useStyles();
 
   return (
@@ -24,6 +28,7 @@ const SearchBar = () => {
         variant="outlined"
         margin="dense"
         size="small"
+        onChange={onChange}
         fullWidth
         InputProps={{
           endAdornment: (
