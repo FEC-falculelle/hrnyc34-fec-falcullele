@@ -13,6 +13,11 @@
   max-width: 800px;
 }
 
+.reviewTitle {
+  font-weight: bold;
+  font-size: large;
+}
+
 .ratings {
   display: grid;
   grid-template-columns: 1fr 3fr;
@@ -49,50 +54,20 @@
 }
 
 .reviewTile {
-  color: green;
   border: 1px solid black;
 }
 
 
-.Size{
+.char {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   width:100%;
   height: 10px;
   background-color: rgba(209, 205, 205, 0.774);
 }
-
-.Fit{
-  width:100%;
-  height: 10px;
-  background-color: rgba(209, 205, 205, 0.774);
-}
-
-.Width{
-  width:100%;
-  height: 10px;
-  background-color: rgba(209, 205, 205, 0.774);
-}
-
-.Comfort{
-  width:100%;
-  height: 10px;
-  background-color: rgba(209, 205, 205, 0.774);
-}
-
-.Quality{
-  width:100%;
-  height: 10px;
-  background-color: rgba(209, 205, 205, 0.774);
-}
-
-.Length{
-  width:100%;
-  height: 10px;
-  background-color: rgba(209, 205, 205, 0.774);
-}
-
 
 .fivestars{
-  transform: scale(0.5);
+  transform: scale(0.8);
 }
 
 .arrow-down {

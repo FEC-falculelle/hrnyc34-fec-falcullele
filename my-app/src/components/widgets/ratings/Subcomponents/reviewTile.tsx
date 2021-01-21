@@ -15,7 +15,6 @@ const StyledRating = withStyles({
 
 var ReviewTile = ({reviewsProp}:any) => {
 
-  console.log(reviewsProp, 'REVIEWSPROPPPPPP')
   if (reviewsProp) {
     var renderReviews = reviewsProp.map((review:any) => {
 
@@ -28,7 +27,7 @@ var ReviewTile = ({reviewsProp}:any) => {
         defaultValue={0}
         emptyIcon={<StarBorderIcon fontSize="inherit" />}
         readOnly/> <br/>
-        {review.summary} <br/>
+        <div className="reviewTitle">{review.summary} </div><br/>
         {review.body} <br/>
         by: {review.reviewer_name} <br/>
 
