@@ -3,7 +3,7 @@ import {ReviewsMetaDispatchTypes, REVIEWSMETA_LOADING, REVIEWSMETA_FAIL, REVIEWS
 import axios from 'axios';
 import API_TOKEN from '../../config';
 
-export const getReviewsMeta = (id: number = 11001) => async (dispatch: Dispatch<ReviewsMetaDispatchTypes>) => {
+export const getReviewsMeta = (id: number) => async (dispatch: Dispatch<ReviewsMetaDispatchTypes>) => {
   try {
     dispatch( {
       type: REVIEWSMETA_LOADING

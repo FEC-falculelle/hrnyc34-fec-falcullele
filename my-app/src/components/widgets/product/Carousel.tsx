@@ -4,6 +4,7 @@ import {RootStore} from '../../../store/store';
 import ImageSlide from './ImageSlide';
 import Arrow from './Arrow';
 import Thumbnail from './Thumbnail';
+import { Fullscreen, LinearScale } from '@material-ui/icons';
 
 
 interface Photos {
@@ -26,6 +27,7 @@ function Carousel() {
   }, [styleIndex]);
 
   let [curIndex, setCurIndex] = useState<any>(0);
+  let [carouselClassName, setCarouselClassName] = useState<any>('carousel');
 
   const maxIndex = featuredImage.length - 1;
 
@@ -51,20 +53,27 @@ function Carousel() {
     //   setFeaturedImage(styleState?.products?.results[styleIndex.styleIndex]?.photos);
     // }, [styleIndex])
 
+
+    let handleFullscreen = () => {
+      console.log('fullscreen click');
+      setCarouselClassName('carousel-fullscreen');
+    };
+
   return (
         <div className='carousel'>
-          <Arrow direction='left' clickFunction={previousSlide} glyph="&#8592;" />
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="fullscreen" onClick={handleFullscreen}    viewBox="0 0 16 16">
+            <path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1h-4zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zM.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5z"/>
+          </svg>
+          <Arrow direction='left' clickFunction={previousSlide} />
           <ImageSlide url={featuredImage[curIndex].url}/>
-          <Arrow direction='right' clickFunction={nextSlide} glyph="&#8594;" />
+          <Arrow direction='right' clickFunction={nextSlide} />
           <div className='thumbnails' >
-            {featuredImage?.map((item:any, i:number) => {
-             return (
-             <Thumbnail key={i} index={i} url={item} setCurIndex={setCurIndex} />
-              )
-            })}
+            {featuredImage?.map((item:any, i:number) => (
+                 <Thumbnail key={i} index={i} url={item} setCurIndex={setCurIndex} curIndex={curIndex}/>
+            ))}
             <div className='chevron-down'>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+              <path fillRule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
               </svg>
             </div>
           </div>
