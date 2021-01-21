@@ -4,9 +4,16 @@ import {RootStore} from '../../../../store/store';
 
 import Rating from '@material-ui/lab/Rating';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+import { withStyles } from '@material-ui/core/styles';
 
 var totalRatings: number;
 var totalStars: any;
+
+const StyledRating = withStyles({
+  iconFilled: {
+    color: '#161616',
+  },
+})(Rating);
 
 var ProductBreakdown = () => {
   // const dispatch = useDispatch();
@@ -28,13 +35,13 @@ var ProductBreakdown = () => {
   return (
     <div className='starBar'>
       <h1> {(totalStars / totalRatings).toFixed(1)}</h1>
-    <Rating 
+    <StyledRating 
       name="5stars"
       value= {totalStars / totalRatings}
       precision={0.25}
       defaultValue={0}
       emptyIcon={<StarBorderIcon fontSize="inherit" />}
-      disabled />
+      readOnly />
 
       
     </div>

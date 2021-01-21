@@ -23,7 +23,7 @@
 }
 
 .grayBar .greenBar{
-  background-color: rgb(44, 173, 44);
+  background-color: green;
   width: 75%;
   height: 20px;
 }
@@ -41,7 +41,7 @@
 }
 
 .Size .SizegreenBar{
-  background-color: rgb(44, 173, 44);
+  background-color: rgb(30, 12, 131);
   width: 75%;
   height: 20px;
 }
@@ -53,7 +53,7 @@
 }
 
 .Fit .FitgreenBar{
-  background-color: rgb(44, 173, 44);
+  background-color: rgb(30, 12, 131);
   width: 75%;
   height: 20px;
 }
@@ -65,7 +65,7 @@
 }
 
 .Width .WidthgreenBar{
-  background-color: rgb(44, 173, 44);
+  background-color: rgb(30, 12, 131);
   width: 75%;
   height: 20px;
 }
@@ -77,7 +77,7 @@
 }
 
 .Comfort .ComfortgreenBar{
-  background-color: rgb(44, 173, 44);
+  background-color: rgb(30, 12, 131);
   width: 75%;
   height: 20px;
 }
@@ -89,7 +89,7 @@
 }
 
 .Quality .QualitygreenBar{
-  background-color: rgb(44, 173, 44);
+  background-color: rgb(30, 12, 131);
   width: 75%;
   height: 20px;
 }
@@ -101,7 +101,11 @@
 }
 
 .Length .LengthgreenBar{
-  background-color: rgb(44, 173, 44);
+  background-color: rgb(30, 12, 131);
   width: 75%;
   height: 20px;
+}
+
+.fivestars{
+  transform: scale(0.5);
 }
