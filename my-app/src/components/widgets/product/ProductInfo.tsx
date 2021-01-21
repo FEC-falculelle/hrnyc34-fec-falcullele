@@ -6,6 +6,8 @@ import StyleComponent from './styleComponent';
 import Form from './Form';
 import {selectStyle} from '../../../actions/selectStyleAction';
 import Rating from '@material-ui/lab/Rating';
+// import StarBorderIcon from '@material-ui/icons/StarBorderIcon';
+import { withStyles } from '@material-ui/core/styles';
 
 
 function ProductInfo() {
@@ -18,9 +20,32 @@ function ProductInfo() {
   const [slogan, setSlogan] = useState(singleProductState?.products?.slogan);
   const [price, setPrice] = useState(singleProductState?.products?.default_price);
   const [salePrice, setSalePrice] = useState(singleProductState?.products?.sale_price);
-  const [styles, setStyles] = useState(styleState?.products?.results)
-  const [selectedStyle, setSelectedStyle] = useState(styleState?.products?.results[0])
-  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [styles, setStyles] = useState(styleState?.products?.results);
+  const [selectedStyle, setSelectedStyle] = useState(styleState?.products?.results[0]);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  // From Albert
+    const initialRatings = useSelector((state: RootStore) => state.reviewsMetaInfo?.reviewsMeta?.ratings);
+    var totalRatings: any;
+    var totalStars: any;
+  const [ratings, setRatings] = useState(() => initialRatings);
+  if (ratings) {
+    totalRatings = Object.values(ratings).reduce((accum:any, currentVal:any):any => {
+      return parseInt(accum) + parseInt(currentVal);
+    });
+    totalStars = Object.entries(ratings)
+    .reduce((accum:any, currentVal:any) => {
+      return accum + (parseInt(currentVal[0]) * parseInt(currentVal[1]));
+    }, 0);
+  }
+  let averageRating = totalStars/totalRatings;
+
+  const StyledRating = withStyles({
+    iconFilled: {
+      color: 'black',
+    },
+  })(Rating);
+    // From Albert
+
 
   useEffect(() => {
     dispatch(selectStyle())
@@ -56,12 +81,18 @@ function ProductInfo() {
   }
 
 
-
-
   return (
     <div className='product-options'>
-      <p>reviews</p>
-      <Rating disabled/>
+      <div className='product-reviews-box'>
+      <StyledRating
+        name='productRating'
+        value= {averageRating}
+        precision={0.5}
+        defaultValue={0}
+        // emptyIcon={<StarBorderIcon/>}
+        readOnly/>
+      <p className='product-reviews-text'>Read all reviews</p>
+    </div>
       <div className='product-category'>{category}</div>
       <div className='product-name'>{name}</div>
       {salePrice ?

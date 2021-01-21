@@ -120,7 +120,8 @@
 }
 
 .chevron-down {
-  margin-left: 2.325%;
+  margin-left: 33%;
+  margin-top: 25%;
 }
 
 .form {
@@ -218,4 +219,11 @@
 
 .style-flex {
   display: flex;
+}
+
+.product-reviews-box {
+  display: flex;
+}
+
+.product-reviews-stars {
 }
