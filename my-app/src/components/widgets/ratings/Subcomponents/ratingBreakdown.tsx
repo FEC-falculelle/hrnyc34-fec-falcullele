@@ -15,9 +15,11 @@ var RatingBreakdown = () => {
     totalRatings = Object.values(ratings).reduce((accum, currentVal) => {
       return parseInt(accum) + parseInt(currentVal);
     });
-    
-    console.log(totalRatings, 'TOTALLLLL')
+
   }
+
+
+
 
   return (
     <div className='ratingBreakdown'>

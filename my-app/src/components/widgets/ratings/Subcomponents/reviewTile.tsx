@@ -19,10 +19,9 @@ var ReviewTile = ({reviewsProp}:any) => {
   if (reviewsProp) {
     var renderReviews = reviewsProp.map((review:any) => {
 
-    return (<div className ="reviewTile"> 
+    return (<div className ="reviewTile" key = {review.review_id}> 
             <StyledRating 
             className="fivestars"
-        key = {review.review_id}
         name="fivestars"
         value= {review.rating}
         precision={0.5}
