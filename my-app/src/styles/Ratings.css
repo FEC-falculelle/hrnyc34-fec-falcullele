@@ -9,7 +9,7 @@
   grid-column-end: 3;
   grid-row-start: 6;
   grid-row-end: 7;
-  background-color:white;
+  background-color:transparent;
   max-width: 800px;
 }
 
@@ -93,4 +93,13 @@
 
 .fivestars{
   transform: scale(0.5);
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+
+  border-top: 20px solid black;
 }
