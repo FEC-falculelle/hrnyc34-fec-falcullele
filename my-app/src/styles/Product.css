@@ -35,8 +35,9 @@
 
 .fullscreen {
   position: absolute;
-  margin-left: 58.75%;
-  top: 15%;
+  margin-left: 58%;
+  top: 20%;
+  z-index: 1;
 }
 
 .featured-image-enlarged {
@@ -173,20 +174,25 @@
   margin-right: 5%;
   margin-bottom: 5%;
   padding-left: 5%;
+  background-color: transparent;
+  outline: 1px solid white;
 }
 
 .quantityForm {
   width: 35%;
   height: 50px;
   padding-left: 5%;
+  background-color: transparent;
+  outline: 1px solid white;
 }
 
 .addToBag {
   width: 75%;
   height: 50px;
   margin-right: 5%;
-  background-color: white;
+  background-color: transparent;
   border: 1px solid black;
+  outline: 1px solid white;
   text-align: left;
   padding-left: 7.5%;
 }
@@ -194,8 +200,9 @@
 .starButton {
   width: 20%;
   height: 50px;
-  background-color: white;
+  background-color: transparent;
   border: 1px solid black;
+  outline: 1px solid white;
 }
 
 .form-option {
@@ -217,16 +224,17 @@
   height: 90%;
   width: 90%;
   margin-left: 7%;
+  color: black;
 }
 
 .default-price {
   font-size: small;
-  color: rgb(63, 63, 63);
+  /* color: rgb(63, 63, 63); */
   margin-bottom: 4%;
 }
 
 .product-category {
-  color: rgb(63, 63, 63);
+  /* color: rgb(63, 63, 63); */
 }
 
 .product-name {
@@ -239,7 +247,7 @@
 .old-price {
   text-decoration: line-through;
   font-size: small;
-  color: rgb(63, 63, 63);
+  /* color: rgb(63, 63, 63); */
 }
 
 .sale-price {
@@ -273,9 +281,9 @@
 .product-reviews-text {
   margin-top: 5px;
   font-size: 2pt;
-  font-weight: lighter;
   margin-left: -45px;
-  color: rgb(63, 63, 63);
+  text-decoration: none;
+  color: black;
 }
 
 .modalDiv {
@@ -320,7 +328,7 @@
   display: flex;
   font-weight: lighter;
   font-size: xx-small;
-  color: rgb(63, 63, 63);
+  /* color: rgb(63, 63, 63); */
 }
 
 .feature-check {
@@ -332,5 +340,5 @@
 .description-left p {
   font-weight: lighter;
   font-size: xx-small;
-  color: rgb(63, 63, 63);
+  /* color: rgb(63, 63, 63); */
 }

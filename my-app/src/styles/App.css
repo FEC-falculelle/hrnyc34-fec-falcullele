@@ -33,10 +33,10 @@ body {
 }
 
 .App-header div {
-  position: fixed;
+  position: absolute;
   color: white;
   margin-left: 75%;
-  top: 3%;
+  margin-top: 2%;
   background-color: transparent;
 }
 
