@@ -9,6 +9,7 @@ import '../styles/Ratings.css';
 import Product from './widgets/product/Product';
 import ProductReviewsComponent from './widgets/ratings/ratingReview';
 import Questions from './widgets/Questions';
+import RelatedDisplay from './widgets/related/RelatedDisplay';
 import { ThemeProvider, createMuiTheme, IconButton, CssBaseline } from '@material-ui/core';
 import { Brightness4 as ModeIcon } from '@material-ui/icons';
 
@@ -64,12 +65,13 @@ function App() {
         <Product />
         <div className='related-products'>
         <h2>RELATED PRODUCTS</h2>
+          <RelatedDisplay />
         </div>
         <div className='qa'>
           <h2>QUESTIONS &amp; ANSWERS</h2>
           <Questions />
         </div>
-        <div className='reviews'>
+        <div id='reviews' className='reviews'>
             product reviews
             <ProductReviewsComponent/>
         </div>

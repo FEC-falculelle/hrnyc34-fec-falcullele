@@ -13,13 +13,11 @@ const CharacteristicsBars = () => {
     () => characteristicsState
   );
 
-  console.log(characteristics);
-
   if (characteristics) {
     const characteristicsArray: any = Object.entries(characteristics).sort();
 
     var renderChars : any = characteristicsArray.map((char: any) => {
-      
+
       const arrowPosition = (parseFloat(char[1].value) / 5) * 10;
       let lowest:string = '';
       const arrowDownStyle: any = {

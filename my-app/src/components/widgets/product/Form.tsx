@@ -58,7 +58,6 @@ function Form() {
 
   const handleQuantitySelect = (e: any) => {
     e.preventDefault();
-    console.log(e.target.value);
   }
 
   const handleStarClick = (e: any) => {
