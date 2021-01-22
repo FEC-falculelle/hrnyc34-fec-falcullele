@@ -53,11 +53,6 @@
   height: 10px;
 }
 
-.reviewTile {
-  border: 1px solid black;
-}
-
-
 .char {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -77,4 +72,12 @@
   border-right: 10px solid transparent;
 
   border-top: 20px solid black;
+}
+
+hr.solid {
+  border-top: 1px solid black;
+}
+
+.helpfulButton {
+  font-size: 12px;
 }

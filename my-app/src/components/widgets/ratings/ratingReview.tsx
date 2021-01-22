@@ -20,8 +20,8 @@ const ProductReviewsComponent = () => {
   // const productState = useSelector((state: RootStore) => state.singleProduct);
 
   useEffect(()  => {
-    dispatch(getReviews('11002'));  
-    dispatch(getReviewsMeta(11002)); 
+    dispatch(getReviews('11001'));  
+    dispatch(getReviewsMeta(11001)); 
   }, []);
 
   return (
@@ -34,8 +34,11 @@ const ProductReviewsComponent = () => {
       <div className='div2'>
         <SortComponent />
         <ReviewsList />
-        <AddReview/>
-        <MoreReviews/>
+        <div>
+          <MoreReviews/>
+          <AddReview/>
+        </div>
+        <hr className="solid" />
       </div>
     </div>
 

@@ -13,8 +13,6 @@ const CharacteristicsBars = () => {
     () => characteristicsState
   );
 
-  console.log(characteristics);
-
   if (characteristics) {
     const characteristicsArray: any = Object.entries(characteristics).sort();
 

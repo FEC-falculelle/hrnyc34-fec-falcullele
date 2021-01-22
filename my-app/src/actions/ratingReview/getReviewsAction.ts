@@ -21,7 +21,7 @@ export const getReviews = (id: string, page: number = 1, count: number = 5, sort
     }
   }
     )
-  console.log('this is res', res)
+
     dispatch( {
       type: REVIEWS_SUCCESS,
       payload: res.data
