@@ -3,7 +3,7 @@ import {ReviewsDispatchTypes, REVIEWS_LOADING, REVIEWS_FAIL, REVIEWS_SUCCESS, Re
 import axios from 'axios';
 import API_TOKEN from '../../config';
 
-export const getReviews = (id: string, page: number = 1, count: number = 5, sort: string = 'newest') => async (dispatch: Dispatch<ReviewsDispatchTypes>) => {
+export const getReviews = (id: string, page: number = 1, count: number = 25, sort: string = 'newest') => async (dispatch: Dispatch<ReviewsDispatchTypes>) => {
   try {
     dispatch( {
       type: REVIEWS_LOADING
@@ -16,12 +16,11 @@ export const getReviews = (id: string, page: number = 1, count: number = 5, sort
     params: {
       "product_id": id,
       "page": page,
-      "count" : count, 
+      "count" : count,
       "sort" : sort
     }
-  }
+    }
     )
-  console.log('this is res', res)
     dispatch( {
       type: REVIEWS_SUCCESS,
       payload: res.data

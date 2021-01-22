@@ -24,13 +24,16 @@ interface NewQuestionProps {
 const useStyles = makeStyles((theme) => ({
   title: {
     padding: theme.spacing(4, 6),
-    backgroundColor: '#e4e7ed',
+    backgroundColor: theme.palette.background.default,
   },
   form: {
     width: '100%',
   },
   textField: {
     margin: theme.spacing(2, 0),
+  },
+  modal: {
+    backgroundColor: theme.palette.background.paper,
   },
 }));
 
@@ -80,6 +83,9 @@ const NewQuestion = ({open, onClose}: NewQuestionProps) => {
         open={open}
         onClose={onClose}
         maxWidth="md"
+        PaperProps={{
+          className: classes.modal,
+        }}
       >
         <DialogTitle id="form-dialog-title" className={classes.title}>ASK YOUR QUESTION</DialogTitle>
         <DialogContent>

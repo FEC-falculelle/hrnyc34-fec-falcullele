@@ -13,13 +13,11 @@ const CharacteristicsBars = () => {
     () => characteristicsState
   );
 
-  // console.log(characteristics);
-
   if (characteristics) {
     const characteristicsArray: any = Object.entries(characteristics).sort();
 
     var renderChars : any = characteristicsArray.map((char: any) => {
-      
+
       const arrowPosition = (parseFloat(char[1].value) / 5) * 10;
       let lowest:string = '';
       const arrowDownStyle: any = {
@@ -52,7 +50,7 @@ const CharacteristicsBars = () => {
 
       return (
         <div key={char[0]}>
-          {char[0]}
+          <div className='charTitles'>{char[0]}</div>
           <div className={`char`}>
             <div className={`${char[0]} arrow-down`} style={arrowDownStyle}></div>
           </div>

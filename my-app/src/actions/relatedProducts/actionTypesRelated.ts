@@ -1,0 +1,3 @@
+export const GET_STYLES = 'GET_STYLES';
+export const GET_STYLES_SUCCESS = 'GET_STYLES_SUCCESS';
+export const GET_STYLES_ERROR = 'GET_STYLES_ERROR';

@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-// import { ratingsForMeta } from '../../../../actions/ratingReview/ratingActionTypes';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { ratingsForMeta } from '../../../../actions/ratingReview/ratingActionTypes';
 import {RootStore} from '../../../../store/store';
+
+import {getReviews} from '../../../../actions/ratingReview/getReviewsAction';
+import {getReviewsMeta} from '../../../../actions/ratingReview/getReviewsMetaDataAction'
 
 var totalRatings: number;
 
@@ -14,34 +17,41 @@ var RatingBreakdown = () => {
   
   if (ratings) {
     totalRatings = Object.values(ratings).reduce((accum, currentVal) => {
-      return parseInt(accum) + parseInt(currentVal);
-    });
+      return accum + parseInt(currentVal);
+    },0);
 
   }
 
+  useEffect(()  => {
+    dispatch(getReviews('11001'));  
+    dispatch(getReviewsMeta(11001)); 
+    setRatings(() => initialRatings);
+  }, []);
 
+  useEffect(() => {
+    setRatings(() => initialRatings);
+  }, [initialRatings])
 
 
   return (
-    <div className='ratingBreakdown'>
-      rating breakdown <br></br>
-      5 stars: {ratings?.[5]}/{totalRatings} <br/>
+    <div className='ratingBreakdown'> <br></br>
+      5 stars: ({ratings?.[5]}/{totalRatings}) <br/>
       <div className="grayBar">
         <div className="greenBar"> </div>
       </div>
-      4 stars: {ratings?.[4]}/{totalRatings} <br/>
+      4 stars: ({ratings?.[4] || 0}/{totalRatings}) <br/>
       <div className="grayBar">
         <div className="greenBar"> </div>
       </div>
-      3 stars: {ratings?.[3]}/{totalRatings} <br/>
+      3 stars: ({ratings?.[3] || 0}/{totalRatings}) <br/>
       <div className="grayBar">
         <div className="greenBar"> </div>
       </div>
-      2 stars: {ratings?.[2]}/{totalRatings} <br/>
+      2 stars: ({ratings?.[2] || 0}/{totalRatings}) <br/>
       <div className="grayBar">
         <div className="greenBar"> </div>
       </div>
-      1 stars: {ratings?.[1]}/{totalRatings} <br/>
+      1 stars: ({ratings?.[1] || 0}/{totalRatings}) <br/>
       <div className="grayBar">
         <div className="greenBar"> </div>
       </div>

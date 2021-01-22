@@ -1,7 +1,6 @@
 import {Dispatch} from "redux";
-import {ProductDispatchTypes, PRODUCTS_LOADING, PRODUCTS_FAIL, PRODUCTS_SUCCESS, ProductType} from './actionTypes';
+import {ProductDispatchTypes, PRODUCTS_LOADING, PRODUCTS_FAIL, PRODUCTS_SUCCESS} from './actionTypes';
 import axios from 'axios';
-import API_TOKEN from '../config';
 
 export const getProducts = (id: any = '') => async (dispatch: Dispatch<ProductDispatchTypes>) => {
   try {
