@@ -32,19 +32,19 @@ function Carousel() {
     setFeaturedImage(styleState?.products?.results[styleIndex.selectedStyleIndex]?.photos)
   }, [styleIndex]);
 
-  let [curIndex, setCurIndex] = useState<any>(0);
-  let [carouselClassName, setCarouselClassName] = useState<any>('carousel');
+  const [curIndex, setCurIndex] = useState<any>(0);
+  const [carouselClassName, setCarouselClassName] = useState<any>('carousel');
 
   const maxIndex = featuredImage.length - 1;
 
-  let previousSlide = () => {
+  const previousSlide = () => {
     const maxIndex = featuredImage.length - 1;
     const shouldReset = curIndex === 0;
     const index = shouldReset ? maxIndex : curIndex - 1;
     setCurIndex(index);
     }
 
-    let previousModalSlide = () => {
+    const previousModalSlide = () => {
       const maxIndex = featuredImage.length - 1;
       const shouldReset = curIndex === 0;
       const index = shouldReset ? maxIndex : curIndex - 1;
@@ -52,14 +52,14 @@ function Carousel() {
       setModalImage(featuredImage[index].url);
       }
 
-  let nextSlide = () => {
+  const nextSlide = () => {
     const maxIndex = featuredImage.length - 1;
     const shouldReset = curIndex === maxIndex;
     const index = shouldReset ? 0 : curIndex + 1;
     setCurIndex(index);
     }
 
-    let nextModalSlide = () => {
+    const nextModalSlide = () => {
       const maxIndex = featuredImage.length - 1;
       const shouldReset = curIndex === 0;
       const index = shouldReset ? maxIndex : curIndex - 1;
@@ -75,15 +75,15 @@ function Carousel() {
     // }, [styleIndex])
 
 
-    let handleFullscreen = () => {
+    const handleFullscreen = () => {
       setModalImage(featuredImage[curIndex].url);
     };
 
-    let handleClose = () => {
+    const handleClose = () => {
       setModalImage(null);
     };
 
-    let modalArrowLeft: object  = {
+    const modalArrowLeft: any  = {
       position: 'absolute',
       width: '200px',
       height: '200px',
@@ -92,7 +92,7 @@ function Carousel() {
       outline: '3px solid red'
     };
 
-    let modalArrowRight: object = {
+    const modalArrowRight: any = {
       position: 'absolute',
       width: '200px',
       height: '200px',

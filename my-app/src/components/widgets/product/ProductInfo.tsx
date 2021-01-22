@@ -25,8 +25,8 @@ function ProductInfo() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   // From Albert
     const initialRatings = useSelector((state: RootStore) => state.reviewsMetaInfo?.reviewsMeta?.ratings);
-    var totalRatings: any;
-    var totalStars: any;
+    let totalRatings: any;
+    let totalStars: any;
   const [ratings, setRatings] = useState(() => initialRatings);
   if (ratings) {
     totalRatings = Object.values(ratings).reduce((accum:any, currentVal:any):any => {
@@ -37,7 +37,7 @@ function ProductInfo() {
       return accum + (parseInt(currentVal[0]) * parseInt(currentVal[1]));
     }, 0);
   }
-  let averageRating = totalStars/totalRatings;
+  const averageRating = totalStars/totalRatings;
 
   const StyledRating = withStyles({
     iconFilled: {
@@ -73,7 +73,7 @@ function ProductInfo() {
   // const featuredProduct = useSelector((state: RootStore) => state.products[0]);
 
   const handleClick = (e: any) => {
-    let index = Number(e.target.id);
+    const index = Number(e.target.id);
     setSelectedIndex(index);
     dispatch(selectStyle(index));
     setSelectedStyle(styleState?.products?.results[index]);

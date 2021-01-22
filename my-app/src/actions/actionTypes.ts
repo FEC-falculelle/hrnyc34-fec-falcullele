@@ -55,8 +55,8 @@ export interface Result {
   "original_price": string,
   "sale_price"?: any,
   "default?": boolean,
-  "photos": object[]
-  "skus": object
+  "photos": any[]
+  "skus": any
 }
 
 export interface Style {
