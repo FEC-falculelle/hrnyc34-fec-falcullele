@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {RootStore} from '../../../store/store';
+// import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
+
 
 interface Photos {
   thumbnail_url: string,
@@ -11,12 +13,13 @@ function ImageSlide ({url}:any) {
 
   const styleState = useSelector((state: RootStore) => state.style);
   const styleIndex = useSelector((state: any) => state.selectStyle);
-  let index = styleIndex.selectedStyleIndex;
+  const index: any = styleIndex.selectedStyleIndex;
 
   const [featuredImage, setFeaturedImage] = useState<Photos | any>(styleState?.products?.results[index]?.photos[0]);
 
 
   const styles = {
+    backgroundColor: 'transparent',
     backgroundImage: `url(${url})`,
     backgroundSize: 'contain',
     backgroundPosition: 'center',

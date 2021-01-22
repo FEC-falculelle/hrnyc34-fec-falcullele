@@ -2,7 +2,7 @@ import {ProductType, Featured, ProductDispatchTypes, PRODUCT_FAIL, PRODUCT_LOADI
 
 interface ExampleState {
   loading: boolean,
-  products?: Featured
+  products: Featured
 }
 
 const exampleState: ExampleState = {
@@ -15,6 +15,7 @@ const exampleState: ExampleState = {
     "description": "The So Fatigues will wake you up and fit you in. This high energy camo will have you blending in to even the wildest surroundings.",
     "category": "Jackets",
     "default_price": "140.00",
+    "sale_price": "null",
     "created_at": "2021-01-12T21:17:59.200Z",
     "updated_at": "2021-01-12T21:17:59.200Z",
     "features": [
@@ -34,10 +35,12 @@ const singleProductReducer = (state: ExampleState = exampleState, action: Produc
   switch (action.type) {
     case PRODUCT_FAIL:
       return {
+        ...state,
         loading: false,
       }
     case PRODUCT_LOADING:
       return {
+        ...state,
         loading: true,
       }
     case PRODUCT_SUCCESS:

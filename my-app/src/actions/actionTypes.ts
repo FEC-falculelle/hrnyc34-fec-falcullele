@@ -25,6 +25,11 @@ export type ProductType = {
   "updated_at": string
 }
 
+export interface Feature {
+  feature: string,
+  value: string
+}
+
 export interface Featured {
   "id": number
   "campus": string,
@@ -33,9 +38,10 @@ export interface Featured {
   "description": string,
   "category": string,
   "default_price": string,
+  "sale_price": string,
   "created_at": string,
   "updated_at": string,
-  "features": object[]
+  "features": Feature[]
 }
 
 export interface SkusObj {
@@ -49,8 +55,8 @@ export interface Result {
   "original_price": string,
   "sale_price"?: any,
   "default?": boolean,
-  "photos": object[]
-  "skus": object
+  "photos": any[]
+  "skus": any
 }
 
 export interface Style {
