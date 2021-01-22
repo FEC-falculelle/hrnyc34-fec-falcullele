@@ -8,6 +8,7 @@ import {selectStyle} from '../../../actions/selectStyleAction';
 import Rating from '@material-ui/lab/Rating';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { withStyles } from '@material-ui/core/styles';
+import { Typography } from '@material-ui/core';
 
 
 function ProductInfo() {

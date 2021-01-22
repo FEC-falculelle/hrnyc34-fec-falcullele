@@ -1,5 +1,6 @@
 body {
   margin: 2%;
+  background-color: transparent;
 }
 
 .App {
@@ -18,9 +19,9 @@ body {
   grid-row-start: 1;
   grid-row-end: 1;
   background-color: #484848;
-  margin-left: -2.1%;
+  margin-left: 0%;
   margin-right: -2.1%;
-  margin-top: -2.1%;
+  margin-top: 0%;
   padding-bottom: -2%;
   margin-bottom: 2%;
 }
