@@ -14,7 +14,7 @@ import {getReviews} from '../../../actions/ratingReview/getReviewsAction';
 import {getReviewsMeta} from '../../../actions/ratingReview/getReviewsMetaDataAction'
 
 
-var ProductReviewsComponent = () => {
+const ProductReviewsComponent = () => {
   const dispatch = useDispatch();
   // const productReviewsState = useSelector((state: RootStore) => state.reviewsInfo);
   // const productState = useSelector((state: RootStore) => state.singleProduct);
@@ -26,13 +26,17 @@ var ProductReviewsComponent = () => {
 
   return (
     <div className='ratings'>
-      <ProductBreakdown />
-      <RatingBreakdown />
-      <SortComponent />
-      <CharacteristicsBar />
-      <ReviewsList />
-      <AddReview/>
-      <MoreReviews/>
+      <div className='div1'>
+        <ProductBreakdown />
+        <RatingBreakdown />
+        <CharacteristicsBar />
+      </div>
+      <div className='div2'>
+        <SortComponent />
+        <ReviewsList />
+        <AddReview/>
+        <MoreReviews/>
+      </div>
     </div>
 
   );

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Answer from './Answer';
 import { Question as QuestionType } from '../../../actions/questionAnswers/types';
 import NewAnswer from './NewAnswer';
+import helpfulQuestion from '../../../actions/questionAnswers/helpfulQuestion';
 import {
   Box,
   Typography,
@@ -52,10 +54,18 @@ interface QuestionProps {
 
 const Question = ({ questionInfo, searchString }: QuestionProps) => {
   const [numShown, setNumShown] = useState(2);
+  const [helpfulness, setHelpfulness] = useState(false);
 
   const loadMore = () => {
     setNumShown(numShown + 2);
   };
+
+  const dispatch = useDispatch();
+
+  const handleHelpfulness = () => {
+    dispatch(helpfulQuestion(questionInfo.question_id));
+    setHelpfulness(true);
+  }
 
   const [open, setOpen] = React.useState(false);
 
@@ -79,7 +89,6 @@ const Question = ({ questionInfo, searchString }: QuestionProps) => {
             textToHighlight={questionInfo.question_body}
             autoEscape={true}
           />
-          {/* {`Q: ${questionInfo.question_body}`} */}
         </Typography>
         <Box className={classes.flex}>
           <Typography className={classes.faintText}>
@@ -92,8 +101,10 @@ const Question = ({ questionInfo, searchString }: QuestionProps) => {
             }}
             disableRipple
             disableFocusRipple
+            onClick={handleHelpfulness}
+            disabled={helpfulness}
           >
-            {`Yes (${questionInfo.question_helpfulness})`}
+            {helpfulness ? `Yes (${questionInfo.question_helpfulness + 1})` : `Yes (${questionInfo.question_helpfulness})`}
           </Button>
           <Typography className={classes.faintText}>
             {' |  '}
@@ -109,10 +120,18 @@ const Question = ({ questionInfo, searchString }: QuestionProps) => {
           >
             Add Answer
           </Button>
-          <NewAnswer open={open} onClose={handleClose} question={questionInfo.question_body}/>
+          <NewAnswer open={open} onClose={handleClose} question={questionInfo}/>
         </Box>
       </Box>
-      {Object.values(questionInfo.answers).slice(0, numShown).map((answer) => (
+      {Object.values(questionInfo.answers).sort((el1, el2) => {
+        if (el1.answerer_name === 'Seller') {
+          return -1;
+        }
+        if (el2.answerer_name === 'Seller') {
+          return 1;
+        }
+        return 0;
+      }).slice(0, numShown).map((answer) => (
         <Answer key={answer.id} answerInfo={answer} searchString={searchString}/>
       ))}
       {Object.values(questionInfo.answers).length > numShown && (

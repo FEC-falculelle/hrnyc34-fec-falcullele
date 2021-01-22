@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Answer as AnswerType } from '../../../actions/questionAnswers/types';
+import reportAnswer from '../../../actions/questionAnswers/reportAnswer';
+import helpfulAnswer from '../../../actions/questionAnswers/helpfulAnswer';
 import {
   Box,
   Typography,
@@ -25,6 +28,10 @@ const useStyles = makeStyles((theme) => ({
   faintText2: {
     fontWeight: theme.typography.fontWeightLight,
     fontSize: 11,
+  },
+  boldSmallText: {
+    fontWeight: theme.typography.fontWeightBold,
+    fontSize: 12,
   },
   answerContainer: {
     display: 'flex',
@@ -84,10 +91,19 @@ const months = [
 const Answer = ({ answerInfo, searchString }: AnswerProps) => {
 
   const [reported, setReported] = useState(false);
+  const [helpfulness, setHelpfulness] = useState(false);
+
+  const dispatch = useDispatch();
 
   const handleReport = () => {
+    dispatch(reportAnswer(answerInfo.id));
     setReported(true);
   };
+
+  const handleHelpfulness = () => {
+    dispatch(helpfulAnswer(answerInfo.id));
+    setHelpfulness(true);
+  }
 
   const [modalImage, setModalImage] = useState<string | null>(null);
 
@@ -131,7 +147,11 @@ const Answer = ({ answerInfo, searchString }: AnswerProps) => {
         </Box>
         <Box className={classes.flex}>
           <Typography component="p" className={classes.faintText1}>
-            {`by ${answerInfo.answerer_name}, ${months[d.getMonth()]} ${d.getDay()}, ${d.getFullYear()}  |  Helpful? `}
+            {'by '}
+            <Typography component="span" className={answerInfo.answerer_name === 'Seller' ? classes.boldSmallText : classes.faintText1}>
+              {answerInfo.answerer_name}
+            </Typography>
+            {`, ${months[d.getMonth()]} ${d.getDay()}, ${d.getFullYear()}  |  Helpful? `}
           </Typography>
           <Button
             className={classes.actionButton}
@@ -140,8 +160,10 @@ const Answer = ({ answerInfo, searchString }: AnswerProps) => {
             }}
             disableRipple
             disableFocusRipple
+            onClick={handleHelpfulness}
+            disabled={helpfulness}
           >
-            {`Yes (${answerInfo.helpfulness})`}
+            {helpfulness ? `Yes (${answerInfo.helpfulness + 1})` : `Yes (${answerInfo.helpfulness})`}
           </Button>
           <Typography className={classes.faintText1}>
             {' | '}

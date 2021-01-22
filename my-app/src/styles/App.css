@@ -36,7 +36,7 @@ body {
   color: white;
   margin-left: 75%;
   top: 3%;
-
+  background-color: transparent;
 }
 
 .related-products {
@@ -48,7 +48,7 @@ body {
   grid-column-end: 3;
   grid-row-start: 4;
   grid-row-end: 5;
-  background-color: white;
+  background-color: transparent;
   max-width: 800px;
 }
 

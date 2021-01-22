@@ -1,41 +1,69 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import {RootStore} from '../../../../store/store';
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { RootStore } from "../../../../store/store";
 
-
-var CharacteristicsBars = () => {
+const CharacteristicsBars = () => {
   // const dispatch = useDispatch();
 
-  const characteristicsState = useSelector((state: RootStore) => state.reviewsMetaInfo?.reviewsMeta?.characteristics);
+  const characteristicsState = useSelector(
+    (state: RootStore) => state.reviewsMetaInfo?.reviewsMeta?.characteristics
+  );
 
-  const [characteristics, setCharacteristics] = useState(() => characteristicsState);
- 
-  console.log(characteristics )
+  const [characteristics, setCharacteristics] = useState(
+    () => characteristicsState
+  );
+
+  console.log(characteristics);
 
   if (characteristics) {
-    var characteristicsArray: any = Object.entries(characteristics).sort((a:any, b:any) => {
-      return a[0] - b[0];
-    });
+    const characteristicsArray: any = Object.entries(characteristics).sort();
 
-    var renderChars = characteristicsArray.map((char: any) => {
-      return (<div>
-        {char[0]}
-        <div className={char[0]}>
-          <div className={`${char[0]}greenBar`}> </div>
-          <div className="arrow-down"></div>
+    var renderChars : any = characteristicsArray.map((char: any) => {
+      
+      const arrowPosition = (parseFloat(char[1].value) / 5) * 10;
+      let lowest:string = '';
+      const arrowDownStyle: any = {
+        width: `0`,
+        height: `0`,
+        borderLeft: `5px solid transparent`,
+        borderRight: `5px solid transparent`,
+        borderTop: `10px solid black`,
+        gridColumnStart: `${arrowPosition}`,
+      };
+
+      if (char[0] === "Size") {
+        lowest = "A size too small";
+      }
+      if (char[0] === "Width") {
+        lowest = "Too narrow";
+      }
+      if (char[0] === "Comfort") {
+        lowest = "Uncomfortable";
+      }
+      if (char[0] === "Quality") {
+        lowest = "Poor";
+      }
+      if (char[0] === "Length") {
+        lowest = "Runs short";
+      }
+      if (char[0] === "Fit") {
+        lowest = "Runs tight";
+      }
+
+      return (
+        <div key={char[0]}>
+          {char[0]}
+          <div className={`char`}>
+            <div className={`${char[0]} arrow-down`} style={arrowDownStyle}></div>
+          </div>
+          {lowest}
+          <br/>
         </div>
-        {char[1].value}
-      </div>)
-    })
-
+      );
+    });
   }
 
-  return (
-    <div className='characteristicsBars'>
-      {renderChars}
-    </div>
-
-  );
-}
+  return <div className="characteristicsBars">{renderChars}</div>;
+};
 
 export default CharacteristicsBars;
