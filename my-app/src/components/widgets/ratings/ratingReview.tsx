@@ -20,8 +20,8 @@ const ProductReviewsComponent = () => {
   // const productState = useSelector((state: RootStore) => state.singleProduct);
 
   useEffect(()  => {
-    dispatch(getReviews('11001'));  // TODO: BASED ON PRODUCT INFO! hardcoded for now
-    dispatch(getReviewsMeta(11001)); // TODO: BASED ON PRODUCT INFO!
+    dispatch(getReviews('11002'));  
+    dispatch(getReviewsMeta(11002)); 
   }, []);
 
   return (

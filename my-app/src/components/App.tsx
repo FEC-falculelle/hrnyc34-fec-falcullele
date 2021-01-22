@@ -63,7 +63,7 @@ function App() {
           <h2>QUESTIONS &amp; ANSWERS</h2>
           <Questions />
         </div>
-        <div className='reviews'>
+        <div id='reviews' className='reviews'>
             product reviews
             <ProductReviewsComponent/>
         </div>
