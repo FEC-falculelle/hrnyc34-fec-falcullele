@@ -35,7 +35,9 @@ function Carousel() {
   const [curIndex, setCurIndex] = useState<any>(0);
   const [carouselClassName, setCarouselClassName] = useState<any>('carousel');
 
-  const maxIndex = featuredImage.length - 1;
+  if (featuredImage) {
+    const maxIndex = featuredImage.length - 1;
+  }
 
   const previousSlide = () => {
     const maxIndex = featuredImage.length - 1;
@@ -116,7 +118,10 @@ function Carousel() {
           </svg>
           </Box>
           <Arrow direction='left' clickFunction={previousSlide} />
-          <ImageSlide url={featuredImage[curIndex].url}/>
+          { featuredImage ?
+          <ImageSlide url={featuredImage[curIndex].url}/> :
+          <div />
+          }
           <Arrow direction='right' clickFunction={nextSlide} />
           <div className='thumbnails' >
             {featuredImage?.map((item:any, i:number) => (
