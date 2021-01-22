@@ -8,6 +8,7 @@ import {selectStyle} from '../../../actions/selectStyleAction';
 import Rating from '@material-ui/lab/Rating';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { withStyles } from '@material-ui/core/styles';
+import { Typography } from '@material-ui/core';
 
 
 function ProductInfo() {
@@ -83,6 +84,7 @@ function ProductInfo() {
 
   return (
     <div className='product-options'>
+
       <div className='product-reviews-box'>
       <StyledRating
         className='product-rating-stars'
@@ -92,7 +94,9 @@ function ProductInfo() {
         defaultValue={0}
         emptyIcon={<StarBorderIcon/>}
         readOnly/>
-      <a className='product-reviews-text' href='#reviews'>Read all reviews</a>
+      <Typography>
+        <a className='product-reviews-text' href='#reviews'>Read all reviews</a>
+      </Typography>
     </div>
       <div className='product-category'>{category}</div>
       <div className='product-name'>{name}</div>

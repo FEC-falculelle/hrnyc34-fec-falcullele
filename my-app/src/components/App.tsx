@@ -72,8 +72,8 @@ function App() {
           <Questions />
         </div>
         <div id='reviews' className='reviews'>
-            product reviews
-            <ProductReviewsComponent/>
+          <h2>PRODUCT REVIEWS</h2>
+          <ProductReviewsComponent/>
         </div>
       </div>
     </ThemeProvider>

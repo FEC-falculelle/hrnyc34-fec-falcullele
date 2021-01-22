@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {RootStore} from '../../../../store/store';
 
 import Rating from '@material-ui/lab/Rating';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { withStyles } from '@material-ui/core/styles';
+
+import {getReviews} from '../../../../actions/ratingReview/getReviewsAction';
+import {getReviewsMeta} from '../../../../actions/ratingReview/getReviewsMetaDataAction'
+
 
 var totalRatings: number;
 var totalStars: any;
@@ -16,7 +20,7 @@ const StyledRating = withStyles({
 })(Rating);
 
 var ProductBreakdown = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const initialRatings = useSelector((state: RootStore) => state.reviewsMetaInfo?.reviewsMeta?.ratings);
   const [ratings, setRatings] = useState(() => initialRatings);
   
@@ -31,6 +35,16 @@ var ProductBreakdown = () => {
       }, 0);
   
   }
+
+  useEffect(()  => {
+    dispatch(getReviews('11001'));  
+    dispatch(getReviewsMeta(11001)); 
+    setRatings(() => initialRatings);
+  }, []);
+
+  useEffect(() => {
+    setRatings(() => initialRatings);
+  }, [initialRatings])
 
   return (
     <div className='starBar'>

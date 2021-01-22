@@ -20,12 +20,11 @@ useEffect(() => {
 }, [initialReviews])
 
   if (reviewsList?.reviews?.results){
-    console.log(reviewsList.reviews.results, 'these are the reviews on the current product')
+    // console.log(reviewsList.reviews.results, 'these are the reviews on the current product')
     reviewsProp = reviewsList.reviews.results;
   }
   return (
     <div className='reviewsList'>
-      ReviewsList
       <ReviewTile reviewsProp={reviewsProp}/>
       
     </div>

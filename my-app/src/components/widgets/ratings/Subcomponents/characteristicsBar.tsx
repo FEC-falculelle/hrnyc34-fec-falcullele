@@ -50,7 +50,7 @@ const CharacteristicsBars = () => {
 
       return (
         <div key={char[0]}>
-          {char[0]}
+          <div className='charTitles'>{char[0]}</div>
           <div className={`char`}>
             <div className={`${char[0]} arrow-down`} style={arrowDownStyle}></div>
           </div>
