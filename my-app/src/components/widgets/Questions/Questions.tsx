@@ -1,7 +1,7 @@
 import React, { useEffect, useState, ChangeEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import getQuestions from '../../../actions/questionAnswers/getQuestions';
-import { RootState } from '../../../store/store';
+import { RootState, RootStore } from '../../../store/store';
 import Question from './Question';
 import SearchBar from './SearchBar';
 import Buttons from './Buttons';
@@ -10,10 +10,15 @@ import { Question as QuestionType } from '../../../actions/questionAnswers/types
 
 const Questions = () => {
   const dispatch = useDispatch();
+
+  const productId = useSelector((state: RootStore) => state.singleProduct.products.id);
+
   const { questions } = useSelector((state: RootState) => state.qaReducer);
 
   const [numShown, setNumShown] = useState(4);
+
   const [questionShown, setQuestionShown] = useState<QuestionType[]>([]);
+
   const [searchString, setSearchString] = useState('');
 
   const loadMore = () => {
@@ -21,8 +26,11 @@ const Questions = () => {
   };
 
   useEffect(() => {
-    dispatch(getQuestions(11001));
-  }, []);
+    if (productId) {
+      dispatch(getQuestions(productId));
+    }
+    // eslint-disable-next-line
+  }, [productId]);
 
   useEffect(() => {
     setQuestionShown(questions);

@@ -16,7 +16,7 @@ const addQuestion = (params: ParamsType) => async (dispatch: DispatchType) => {
   });
 
   try {
-    const res = await axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/qa/questions/', params);
+    await axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/qa/questions/', params);
     return dispatch({
       type: ADD_QUESTION_SUCCESS,
     });
