@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootStore } from "../../../../store/store";
 
 const CharacteristicsBars = () => {
@@ -13,7 +13,7 @@ const CharacteristicsBars = () => {
     () => characteristicsState
   );
 
-  console.log(characteristics);
+  // console.log(characteristics);
 
   if (characteristics) {
     const characteristicsArray: any = Object.entries(characteristics).sort();

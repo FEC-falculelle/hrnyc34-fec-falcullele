@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { ratingsForMeta } from '../../../../actions/ratingReview/ratingActionTypes';
+import { useSelector } from 'react-redux';
+// import { ratingsForMeta } from '../../../../actions/ratingReview/ratingActionTypes';
 import {RootStore} from '../../../../store/store';
 
 var totalRatings: number;
 
 var RatingBreakdown = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const initialRatings = useSelector((state: RootStore) => state.reviewsMetaInfo?.reviewsMeta?.ratings);
 
-  const [ratings, setRatings] = useState(() => initialRatings);
+  const [ratings] = useState(() => initialRatings);
+  // const [ratings, setRatings] = useState(() => initialRatings);
   
   if (ratings) {
     totalRatings = Object.values(ratings).reduce((accum, currentVal) => {
