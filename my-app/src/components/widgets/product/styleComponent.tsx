@@ -7,7 +7,7 @@ import { Result } from '../../../actions/actionTypes';
 
 function StyleComponent({style, clickFunction, index, curIndex}:Result | any) {
 
-  let isSelected = curIndex === index;
+  const isSelected = curIndex === index;
 
   return (
       isSelected ?

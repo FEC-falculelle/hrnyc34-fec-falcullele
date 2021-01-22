@@ -15,16 +15,16 @@ function Form() {
 
   const [star, setStar] = useState<boolean>(false);
 
-  let [availibleSizes, setSizes] = useState<string[]>([]);
+  const [availibleSizes, setSizes] = useState<string[]>([]);
 
-  let [quantity, setQuantity] = useState<number | string>('-');
-  let [quantityArray, setQuantityArray] = useState<number[]>([]);
+  const [quantity, setQuantity] = useState<number | string>('-');
+  const [quantityArray, setQuantityArray] = useState<number[]>([]);
 
-  let [sizeValue, setSizeValue] = useState<string>('SELECT SIZE');
+  const [sizeValue, setSizeValue] = useState<string>('SELECT SIZE');
 
   useEffect(() => {
-    let array: string[] = [];
-    for (let i in skus) {
+    const array: string[] = [];
+    for (const i in skus) {
       if (skus[i].quantity !== 0 && array.indexOf(skus[i].size) === -1) {
         array.push(skus[i].size);
       }
@@ -33,10 +33,10 @@ function Form() {
   }, []);
 
 
-  let handleSizeSelect = (e: any) => {
-    let selectedSize = e.target.value;
+  const handleSizeSelect = (e: any) => {
+    const selectedSize = e.target.value;
     setSizeValue(e.target.value);
-    for (let i in skus) {
+    for (const i in skus) {
       if (skus[i].size === selectedSize) {
         if (skus[i].quantity >= 15) {
           setQuantity(15)
@@ -46,7 +46,7 @@ function Form() {
           setQuantityArray([]);
         } else {
           setQuantity(skus[i].quantity)
-          let quanArr = [];
+          const quanArr = [];
           for (let j = 1; j <= skus[i].quantity; j++) {
             quanArr.push(j);
           }
@@ -56,12 +56,12 @@ function Form() {
     }
   }
 
-  let handleQuantitySelect = (e: any) => {
+  const handleQuantitySelect = (e: any) => {
     e.preventDefault();
     console.log(e.target.value);
   }
 
-  let handleStarClick = (e: any) => {
+  const handleStarClick = (e: any) => {
     e.preventDefault();
     if(e.target.value === `&#9734`) {
       setStar(true);
@@ -69,6 +69,10 @@ function Form() {
       setStar(false);
     }
   }
+
+  // const addToBag = () => {
+
+  // };
 
   return (
         <div className='form'>

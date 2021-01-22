@@ -1,5 +1,6 @@
 body {
   margin: 2%;
+  background-color: transparent;
 }
 
 .App {
@@ -11,11 +12,31 @@ body {
 }
 
 .App-header {
+  position: sticky;
   display: flex;
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 1;
+  background-color: #484848;
+  margin-left: 0%;
+  margin-right: -2.1%;
+  margin-top: 0%;
+  padding-bottom: -2%;
+  margin-bottom: 2%;
+}
+
+.App-header h1 {
+  margin-left: 2%;
+  color: white;
+  font-style: italic;
+}
+
+.App-header div {
+  position: absolute;
+  color: white;
+  margin-left: 75%;
+  margin-top: 2%;
   background-color: transparent;
 }
 

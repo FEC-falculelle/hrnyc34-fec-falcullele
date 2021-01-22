@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Arrow = ({ direction, clickFunction }:any) => {
-  let dir: boolean = direction === 'left';
+  const dir: boolean = direction === 'left';
   return (
   dir ?
       <div
