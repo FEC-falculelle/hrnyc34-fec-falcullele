@@ -27,7 +27,7 @@ interface NewQuestionProps {
 const useStyles = makeStyles((theme) => ({
   title: {
     padding: theme.spacing(4, 6),
-    backgroundColor: '#e4e7ed',
+    backgroundColor: theme.palette.background.default,
   },
   form: {
     width: '100%',
@@ -37,7 +37,10 @@ const useStyles = makeStyles((theme) => ({
   },
   submitImage: {
     margin: '20px 0px',
-  }
+  },
+  modal: {
+    backgroundColor: theme.palette.background.paper,
+  },
 }));
 
 const NewAnswer = ({open, onClose, question}: NewQuestionProps) => {
@@ -88,6 +91,9 @@ const NewAnswer = ({open, onClose, question}: NewQuestionProps) => {
         open={open}
         onClose={onClose}
         maxWidth="md"
+        PaperProps={{
+          className: classes.modal,
+        }}
       >
         <DialogTitle id="form-dialog-title" className={classes.title}>SUBMIT YOUR ANSWER</DialogTitle>
         <DialogContent>

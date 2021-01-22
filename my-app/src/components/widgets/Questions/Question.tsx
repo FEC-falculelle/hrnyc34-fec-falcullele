@@ -123,7 +123,15 @@ const Question = ({ questionInfo, searchString }: QuestionProps) => {
           <NewAnswer open={open} onClose={handleClose} question={questionInfo}/>
         </Box>
       </Box>
-      {Object.values(questionInfo.answers).slice(0, numShown).map((answer) => (
+      {Object.values(questionInfo.answers).sort((el1, el2) => {
+        if (el1.answerer_name === 'Seller') {
+          return -1;
+        }
+        if (el2.answerer_name === 'Seller') {
+          return 1;
+        }
+        return 0;
+      }).slice(0, numShown).map((answer) => (
         <Answer key={answer.id} answerInfo={answer} searchString={searchString}/>
       ))}
       {Object.values(questionInfo.answers).length > numShown && (
