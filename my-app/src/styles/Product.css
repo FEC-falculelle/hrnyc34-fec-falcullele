@@ -140,6 +140,7 @@
   width: 3%;
   top: 44.75%;
   left: 17%;
+  transform: scale(2);
   z-index: 1;
 }
 
@@ -148,6 +149,7 @@
   width: 3%;
   bottom: 59.25%;
   left: 90%;
+  transform: scale(2);
   z-index: 1;
 }
 
@@ -223,7 +225,8 @@
 .selectedStyleCheck {
   height: 90%;
   width: 90%;
-  margin-left: 7%;
+  margin-left: 6%;
+  margin-bottom: 15%;
   color: black;
 }
 
