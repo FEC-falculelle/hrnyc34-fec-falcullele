@@ -2,7 +2,7 @@ import React from 'react';
 
 const Thumbnail = ({url, setCurIndex, index, curIndex}:any) => {
 
-  let isSelected = Number(curIndex) === index;
+  const isSelected = Number(curIndex) === index;
 
   const styles = {
     backgroundImage: `url(${url.thumbnail_url})`,
