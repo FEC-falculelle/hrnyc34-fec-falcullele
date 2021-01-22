@@ -17,7 +17,6 @@ var ReviewTile = ({reviewsProp}:any) => {
 
   if (reviewsProp) {
     var renderReviews = reviewsProp.map((review:any) => {
-
     return (<div className ="reviewTile" key = {review.review_id}> 
             <StyledRating 
             className="fivestars"
@@ -28,9 +27,11 @@ var ReviewTile = ({reviewsProp}:any) => {
         emptyIcon={<StarBorderIcon fontSize="inherit" />}
         readOnly/> <br/>
         <div className="reviewTitle">{review.summary} </div><br/>
-        {review.body} <br/>
+        {review.body} <br/> <br/>
+        RECOMMENDED? {review.recommend}
+        <br/>
         by: {review.reviewer_name} <br/>
-
+        <div className='helpfulButton'> Helpful? YES | REPORT </div>
     </div>)
   })
 }
