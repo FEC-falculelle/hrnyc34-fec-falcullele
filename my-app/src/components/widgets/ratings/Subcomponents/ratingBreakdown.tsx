@@ -16,8 +16,8 @@ var RatingBreakdown = () => {
   
   if (ratings) {
     totalRatings = Object.values(ratings).reduce((accum, currentVal) => {
-      return parseInt(accum) + parseInt(currentVal);
-    });
+      return accum + parseInt(currentVal);
+    },0);
 
   }
 
@@ -33,8 +33,7 @@ var RatingBreakdown = () => {
 
 
   return (
-    <div className='ratingBreakdown'>
-      rating breakdown <br></br>
+    <div className='ratingBreakdown'> <br></br>
       5 stars: ({ratings?.[5]}/{totalRatings}) <br/>
       <div className="grayBar">
         <div className="greenBar"> </div>

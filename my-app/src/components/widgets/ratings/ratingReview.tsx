@@ -29,6 +29,7 @@ const ProductReviewsComponent = () => {
       <div className='div1'>
         <ProductBreakdown />
         <RatingBreakdown />
+        <br/>
         <CharacteristicsBar />
       </div>
       <div className='div2'>

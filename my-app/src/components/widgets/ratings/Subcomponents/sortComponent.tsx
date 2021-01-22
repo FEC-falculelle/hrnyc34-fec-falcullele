@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {RootStore} from '../../../../store/store';
+
+import {getReviews} from '../../../../actions/ratingReview/getReviewsAction';
+import {getReviewsMeta} from '../../../../actions/ratingReview/getReviewsMetaDataAction'
+
 
 var totalRatings:number;
 
@@ -16,6 +20,16 @@ var SortComponent = () => {
       return parseInt(accum) + parseInt(currentVal);
     });
   }
+
+  useEffect(()  => {
+    dispatch(getReviews('11001'));  
+    dispatch(getReviewsMeta(11001)); 
+    setRatings(() => initialRatings);
+  }, []);
+
+  useEffect(() => {
+    setRatings(() => initialRatings);
+  }, [initialRatings])
 
   return (
     <div className='sortingComponent'>
