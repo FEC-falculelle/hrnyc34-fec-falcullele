@@ -6,7 +6,6 @@ import {
     makeStyles,
     Button,
   } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
 
   const useStyles = makeStyles((theme) => ({
     boldText: {
@@ -18,7 +17,7 @@ import AddIcon from '@material-ui/icons/Add';
   }));
 
 
-var MoreReviews = () => {
+const MoreReviews = (): JSX.Element => {
     const classes = useStyles();
     return (<span> 
       <Button

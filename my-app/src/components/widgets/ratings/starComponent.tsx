@@ -25,7 +25,7 @@ const useStyles = makeStyles({
   },
 });
 
-var HoverRating = () => {
+const HoverRating = () => {
   const [value, setValue] = React.useState<number | null>(2);
   const [hover, setHover] = React.useState(-1);
   const classes = useStyles();

@@ -18,7 +18,7 @@ import AddIcon from '@material-ui/icons/Add';
   }));
 
 
-var AddReview = () => {
+const AddReview = (): JSX.Element => {
     const classes = useStyles();
     return (<span> 
         <Button

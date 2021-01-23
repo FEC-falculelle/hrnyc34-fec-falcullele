@@ -13,7 +13,7 @@ const StyledRating = withStyles({
   },
 })(Rating);
 
-var ReviewTile = ({reviewsProp}:any) => {
+const ReviewTile = ({reviewsProp}:any) => {
 
   if (reviewsProp) {
     var renderReviews = reviewsProp.map((review:any) => {

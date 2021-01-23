@@ -8,7 +8,7 @@ import {getReviewsMeta} from '../../../../actions/ratingReview/getReviewsMetaDat
 
 var totalRatings:number;
 
-var SortComponent = () => {
+const SortComponent = () => {
 
   const dispatch = useDispatch();
   const initialRatings = useSelector((state: RootStore) => state.reviewsMetaInfo?.reviewsMeta?.ratings);
