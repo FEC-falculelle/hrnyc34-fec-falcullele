@@ -2,7 +2,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useSelector, useDispatch } from 'react-redux';
-import {RootStore} from '../../../store/store';
+import { RootStore } from '../../../store/store';
 import {
   TextField,
   Dialog,
@@ -43,8 +43,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const NewAnswer = ({open, onClose, question}: NewQuestionProps) => {
-
+const NewAnswer = ({ open, onClose, question }: NewQuestionProps) => {
   const dispatch = useDispatch();
 
   const product = useSelector((state: RootStore) => state.singleProduct.products);
@@ -54,10 +53,7 @@ const NewAnswer = ({open, onClose, question}: NewQuestionProps) => {
   const classes = useStyles();
 
   const validationSchema = yup.object({
-    answer: yup
-      .string()
-      .max(1000, 'Answer should be of maximum 1000 characters length')
-      .required('Answer is required'),
+    answer: yup.string().max(1000, 'Answer should be of maximum 1000 characters length').required('Answer is required'),
     nickname: yup
       .string()
       .max(60, 'Nickname should be of maximum 60 characters length')
@@ -68,38 +64,46 @@ const NewAnswer = ({open, onClose, question}: NewQuestionProps) => {
       .email('Enter a valid email')
       .required('Email is required'),
   });
-    const formik = useFormik({
-      initialValues: {
-        answer: '',
-        email: '',
-        nickname: '',
-      },
-      validationSchema: validationSchema,
-      onSubmit: (values) => {
-        onClose();
-        dispatch(addAnswer(question.question_id, {
+
+  const formik = useFormik({
+    initialValues: {
+      answer: '',
+      email: '',
+      nickname: '',
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      closeAndReset();
+      dispatch(
+        addAnswer(question.question_id, {
           body: values.answer,
           name: values.nickname,
           email: values.email,
-        }));
-      },
-    });
+        }),
+      );
+    },
+  });
+
+  const closeAndReset = () => {
+    onClose();
+    formik.resetForm();
+  };
 
   return (
     <>
       <Dialog
         open={open}
-        onClose={onClose}
+        onClose={closeAndReset}
         maxWidth="md"
         PaperProps={{
           className: classes.modal,
         }}
       >
-        <DialogTitle id="form-dialog-title" className={classes.title}>SUBMIT YOUR ANSWER</DialogTitle>
+        <DialogTitle id="form-dialog-title" className={classes.title}>
+          SUBMIT YOUR ANSWER
+        </DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            {`${product.name} : ${question.question_body}`}
-          </DialogContentText>
+          <DialogContentText>{`${product.name} : ${question.question_body}`}</DialogContentText>
           <form onSubmit={formik.handleSubmit} className={classes.form}>
             <TextField
               fullWidth
@@ -108,7 +112,10 @@ const NewAnswer = ({open, onClose, question}: NewQuestionProps) => {
               variant="outlined"
               onChange={formik.handleChange}
               error={formik.touched.answer && Boolean(formik.errors.answer)}
-              helperText={(formik.touched.answer && formik.errors.answer) || (`${formik.values.answer ? formik.values.answer.length : 0} / 1000`)}
+              helperText={
+                (formik.touched.answer && formik.errors.answer) ||
+                `${formik.values.answer ? formik.values.answer.length : 0} / 1000`
+              }
               className={classes.textField}
             />
             <TextField
@@ -119,7 +126,10 @@ const NewAnswer = ({open, onClose, question}: NewQuestionProps) => {
               variant="outlined"
               onChange={formik.handleChange}
               error={formik.touched.nickname && Boolean(formik.errors.nickname)}
-              helperText={(formik.touched.nickname && formik.errors.nickname) || ('For privacy reasons, do not use your full name or email address')}
+              helperText={
+                (formik.touched.nickname && formik.errors.nickname) ||
+                'For privacy reasons, do not use your full name or email address'
+              }
               className={classes.textField}
             />
             <TextField
@@ -130,12 +140,14 @@ const NewAnswer = ({open, onClose, question}: NewQuestionProps) => {
               variant="outlined"
               onChange={formik.handleChange}
               error={formik.touched.email && Boolean(formik.errors.email)}
-              helperText={(formik.touched.email && formik.errors.email) || ('For authentication reasons, you will not be emailed')}
+              helperText={
+                (formik.touched.email && formik.errors.email) || 'For authentication reasons, you will not be emailed'
+              }
               className={classes.textField}
             />
             <DropzoneArea
               acceptedFiles={['image/*']}
-              dropzoneText={"Drag and drop an image here or click"}
+              dropzoneText={'Drag and drop an image here or click'}
               filesLimit={5}
               onChange={(files) => console.log('Files:', files)}
             />

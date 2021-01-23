@@ -13,8 +13,7 @@ const helpfulAnswer = (id: number) => async (dispatch: DispatchType) => {
     return dispatch({
       type: ADD_HELPFUL_ANSWER_SUCCESS,
     });
-  }
-  catch(e) {
+  } catch (e) {
     return dispatch({
       type: ADD_HELPFUL_ANSWER_ERROR,
     });

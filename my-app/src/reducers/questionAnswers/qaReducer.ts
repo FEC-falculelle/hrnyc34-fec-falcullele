@@ -1,4 +1,3 @@
-import { createReducer } from '@reduxjs/toolkit';
 import {
   GET_QUESTIONS,
   GET_QUESTIONS_SUCCESS,
@@ -16,10 +15,10 @@ import {
 import QuestionsActionTypes, { Question } from '../../actions/questionAnswers/types';
 
 interface QaState {
-  questions: Question[],
-  loadingQuestions: boolean,
-  addQuestionStatus: null | 'success' | 'error',
-  addAnswerStatus: null | 'success' | 'error',
+  questions: Question[];
+  loadingQuestions: boolean;
+  addQuestionStatus: null | 'success' | 'error';
+  addAnswerStatus: null | 'success' | 'error';
 }
 
 const initialState: QaState = {
@@ -29,10 +28,7 @@ const initialState: QaState = {
   addAnswerStatus: null,
 };
 
-const qaReducer = (
-  state = initialState,
-  action: QuestionsActionTypes,
-): QaState => {
+const qaReducer = (state = initialState, action: QuestionsActionTypes): QaState => {
   switch (action.type) {
     case GET_QUESTIONS_SUCCESS:
       return {

@@ -22,16 +22,16 @@ export type ProductType = {
   "category": string,
   "default_price": string,
   "created_at": string,
-  "updated_at": string
+  "updated_at": string,
 }
 
 export interface Feature {
   feature: string,
-  value: string
+  value: string,
 }
 
 export interface Featured {
-  "id": number
+  "id": number,
   "campus": string,
   "name": string,
   "slogan": string,
@@ -41,12 +41,12 @@ export interface Featured {
   "sale_price": string,
   "created_at": string,
   "updated_at": string,
-  "features": Feature[]
+  "features": Feature[],
 }
 
 export interface SkusObj {
-  quantity: number
-  size: string
+  quantity: number,
+  size: string,
 }
 
 export interface Result {
@@ -55,13 +55,13 @@ export interface Result {
   "original_price": string,
   "sale_price"?: any,
   "default?": boolean,
-  "photos": any[]
-  "skus": any
+  "photos": any[],
+  "skus": any,
 }
 
 export interface Style {
-  "product_id": string
-  "results": Result[]
+  "product_id": string,
+  "results": Result[],
 }
 
 export interface ProductsLoading {
@@ -108,5 +108,4 @@ export interface CurrentStyleIndex {
   payload: number
 }
 
-// '|' is equal to '||' in typescript
 export type ProductDispatchTypes = ProductsLoading | ProductsFail | ProductsSuccess | ProductLoading | ProductFail | ProductSuccess | StyleLoading | StyleFail | StyleSuccess | CurrentStyleIndex

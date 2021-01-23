@@ -6,7 +6,7 @@ import ReviewTile from './reviewTile';
 
 var reviewsProp:any;
 
-var ReviewsList = () => {
+const ReviewsList = () => {
   const initialReviews = useSelector((state: RootStore) => state.reviewsInfo);
 
   const [reviewsList, setReviewsList] = useState<any>([]);

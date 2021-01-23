@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {RootStore} from '../../../store/store';
 import {getStyle} from '../../../actions/productStyleAction';
@@ -18,13 +18,12 @@ function ProductInfo() {
 
   const [category, setCategory] = useState(singleProductState?.products?.category);
   const [name, setName] = useState(singleProductState?.products?.name);
-  const [slogan, setSlogan] = useState(singleProductState?.products?.slogan);
   const [price, setPrice] = useState(singleProductState?.products?.default_price);
   const [salePrice, setSalePrice] = useState(singleProductState?.products?.sale_price);
   const [styles, setStyles] = useState(styleState?.products?.results);
   const [selectedStyle, setSelectedStyle] = useState(styleState?.products?.results[0]);
   const [selectedIndex, setSelectedIndex] = useState(0);
-  // From Albert
+
     const initialRatings = useSelector((state: RootStore) => state.reviewsMetaInfo?.reviewsMeta?.ratings);
     let totalRatings: any;
     let totalStars: any;
@@ -38,6 +37,7 @@ function ProductInfo() {
       return accum + (parseInt(currentVal[0]) * parseInt(currentVal[1]));
     }, 0);
   }
+
   const averageRating = totalStars/totalRatings;
 
   const StyledRating = withStyles({
@@ -45,21 +45,19 @@ function ProductInfo() {
       color: 'black',
     },
   })(Rating);
-    // From Albert
+
 
 
   useEffect(() => {
     dispatch(selectStyle())
   }, []);
 
-  //might need to useRed or useCallback here incase values are not stored
   useEffect(() => {
     if (singleProductState.hasOwnProperty('products')) {
       setCategory(singleProductState?.products?.category);
       setName(singleProductState?.products?.name);
-      setSlogan(singleProductState?.products?.slogan);
       setPrice(singleProductState?.products?.default_price);
-      getStyle(singleProductState?.products?.id);
+      dispatch(getStyle(singleProductState?.products?.id));
     }
   }, [singleProductState]);
 
@@ -69,9 +67,6 @@ function ProductInfo() {
       setSalePrice(styleState.products?.results[0]?.sale_price);
     }
   }, [styleState])
-
-
-  // const featuredProduct = useSelector((state: RootStore) => state.products[0]);
 
   const handleClick = (e: any) => {
     const index = Number(e.target.id);
@@ -84,26 +79,26 @@ function ProductInfo() {
 
   return (
     <div className='product-options'>
-
       <div className='product-reviews-box'>
-      <StyledRating
-        className='product-rating-stars'
-        name='productRating'
-        value= {averageRating}
-        precision={0.5}
-        defaultValue={0}
-        emptyIcon={<StarBorderIcon/>}
-        readOnly/>
-      <Typography>
-        <a className='product-reviews-text' href='#reviews'>Read all reviews</a>
-      </Typography>
-    </div>
+        <StyledRating
+          className='product-rating-stars'
+          name='productRating'
+          value= {averageRating}
+          precision={0.5}
+          defaultValue={0}
+          emptyIcon={<StarBorderIcon/>}
+          readOnly
+        />
+        <Typography>
+          <a className='product-reviews-text' href='#reviews'>Read all reviews</a>
+        </Typography>
+      </div>
       <div className='product-category'>{category}</div>
       <div className='product-name'>{name}</div>
       {salePrice ?
       <div>
-      <div className='old-price'>${price}</div>
-      <div className='sale-price'>${salePrice}</div>
+        <div className='old-price'>${price}</div>
+        <div className='sale-price'>${salePrice}</div>
       </div>
       :
       <div className='default-price'>${price}</div>

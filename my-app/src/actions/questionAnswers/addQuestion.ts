@@ -20,8 +20,7 @@ const addQuestion = (params: ParamsType) => async (dispatch: DispatchType) => {
     return dispatch({
       type: ADD_QUESTION_SUCCESS,
     });
-  }
-  catch(e) {
+  } catch (e) {
     return dispatch({
       type: ADD_QUESTION_ERROR,
     });

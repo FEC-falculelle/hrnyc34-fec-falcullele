@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootStore } from "../../../../store/store";
 
-const CharacteristicsBars = () => {
+const CharacteristicsBars = (): JSX.Element => {
   // const dispatch = useDispatch();
 
   const characteristicsState = useSelector(
@@ -13,14 +13,21 @@ const CharacteristicsBars = () => {
     () => characteristicsState
   );
 
+  useEffect(() => {
+    setCharacteristics(characteristicsState);
+  }, [characteristicsState]);
+
+let renderChars;
   if (characteristics) {
-    const characteristicsArray: any = Object.entries(characteristics).sort();
+    const characteristicsArray = Object.entries(characteristics).sort();
 
-    var renderChars : any = characteristicsArray.map((char: any) => {
-
-      const arrowPosition = (parseFloat(char[1].value) / 5) * 10;
-      let lowest:string = '';
-      const arrowDownStyle: any = {
+    renderChars= characteristicsArray.map((char) => {
+      let arrowPosition;
+      if (char[1]) {
+        arrowPosition = (parseFloat(char[1].value) / 5) * 10;
+      }
+      let lowest = '';
+      const arrowDownStyle = {
         width: `0`,
         height: `0`,
         borderLeft: `5px solid transparent`,
@@ -61,7 +68,7 @@ const CharacteristicsBars = () => {
     });
   }
 
-  return <div className="characteristicsBars">{renderChars}</div>;
+  return (<div className="characteristicsBars">{renderChars}</div>);
 };
 
 export default CharacteristicsBars;

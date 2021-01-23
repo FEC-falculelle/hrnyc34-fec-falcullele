@@ -19,8 +19,7 @@ const addAnswer = (id: number, params: ParamsType) => async (dispatch: DispatchT
     return dispatch({
       type: ADD_ANSWER_SUCCESS,
     });
-  }
-  catch(e) {
+  } catch (e) {
     return dispatch({
       type: ADD_ANSWER_ERROR,
     });
@@ -30,4 +29,3 @@ const addAnswer = (id: number, params: ParamsType) => async (dispatch: DispatchT
 export const resetAnswerStatus = createAction(RESET_ANSWER_STATUS);
 
 export default addAnswer;
-

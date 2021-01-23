@@ -19,8 +19,6 @@ function Product() {
 
 
   const [featuredProduct, setfeaturedProduct] = useState<Featured>();
-  // const featuredState = useSelector((state: RootStore) => state.products[0]);
-  // const [featuredProduct, setFeatured] = useState;
 
   useEffect(()  => {
     dispatch(getProducts());
@@ -40,8 +38,8 @@ function Product() {
   return (
     <div className='product'>
       <ImageGallery />
-        <ProductInfo />
-          <ProductDescription />
+      <ProductInfo />
+      <ProductDescription />
     </div>
 
   );
