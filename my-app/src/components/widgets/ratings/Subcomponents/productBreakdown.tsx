@@ -10,8 +10,8 @@ import {getReviews} from '../../../../actions/ratingReview/getReviewsAction';
 import {getReviewsMeta} from '../../../../actions/ratingReview/getReviewsMetaDataAction'
 
 
-var totalRatings: number;
-var totalStars: any;
+let totalRatings: number;
+let totalStars: number;
 
 const StyledRating = withStyles({
   iconFilled: {
@@ -19,7 +19,7 @@ const StyledRating = withStyles({
   },
 })(Rating);
 
-var ProductBreakdown = () => {
+const ProductBreakdown = ():JSX.Element => {
   const dispatch = useDispatch();
   const initialRatings = useSelector((state: RootStore) => state.reviewsMetaInfo?.reviewsMeta?.ratings);
   const singleProductId = useSelector((state: RootStore) => state.singleProduct.products.id);

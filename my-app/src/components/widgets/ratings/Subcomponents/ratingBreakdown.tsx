@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { ratingsForMeta } from '../../../../actions/ratingReview/ratingActionTypes';
 import {RootStore} from '../../../../store/store';
 
 import {getReviews} from '../../../../actions/ratingReview/getReviewsAction';
 import {getReviewsMeta} from '../../../../actions/ratingReview/getReviewsMetaDataAction'
 
-var totalRatings: number;
+let totalRatings: number;
 
-var RatingBreakdown = () => {
+const RatingBreakdown = (): JSX.Element => {
   const dispatch = useDispatch();
   const initialRatings = useSelector((state: RootStore) => state.reviewsMetaInfo?.reviewsMeta?.ratings);
 
