@@ -16,12 +16,11 @@ export const getReviews = (id: string, page: number = 1, count: number = 25, sor
     params: {
       "product_id": id,
       "page": page,
-      "count" : count, 
+      "count" : count,
       "sort" : sort
     }
-  }
+    }
     )
-
     dispatch( {
       type: REVIEWS_SUCCESS,
       payload: res.data

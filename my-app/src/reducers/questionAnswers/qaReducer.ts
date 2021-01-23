@@ -13,7 +13,7 @@ import {
   RESET_ANSWER_STATUS,
 } from '../../actions/questionAnswers/actionTypesQA';
 
-import getQuestionsAction, { Question } from '../../actions/questionAnswers/types';
+import QuestionsActionTypes, { Question } from '../../actions/questionAnswers/types';
 
 interface QaState {
   questions: Question[],
@@ -31,7 +31,7 @@ const initialState: QaState = {
 
 const qaReducer = (
   state = initialState,
-  action: getQuestionsAction,
+  action: QuestionsActionTypes,
 ): QaState => {
   switch (action.type) {
     case GET_QUESTIONS_SUCCESS:

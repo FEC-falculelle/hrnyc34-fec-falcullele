@@ -9,10 +9,11 @@ import {getReviewsMeta} from '../../../../actions/ratingReview/getReviewsMetaDat
 var totalRatings: number;
 
 var RatingBreakdown = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const initialRatings = useSelector((state: RootStore) => state.reviewsMetaInfo?.reviewsMeta?.ratings);
 
-  const [ratings, setRatings] = useState(() => initialRatings);
+  const [ratings] = useState(() => initialRatings);
+  // const [ratings, setRatings] = useState(() => initialRatings);
   
   let five, four, three, two, one;
   if (ratings) {

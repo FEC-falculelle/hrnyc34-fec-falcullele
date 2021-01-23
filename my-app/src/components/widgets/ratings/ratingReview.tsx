@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import {RootStore} from '../../../store/store';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+// import {RootStore} from '../../../store/store';
 
 import ReviewsList from './Subcomponents/reviewsList';
 import SortComponent from './Subcomponents/sortComponent';

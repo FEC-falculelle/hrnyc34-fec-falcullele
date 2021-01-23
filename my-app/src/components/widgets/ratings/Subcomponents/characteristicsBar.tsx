@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootStore } from "../../../../store/store";
 
 const CharacteristicsBars = () => {
@@ -17,7 +17,7 @@ const CharacteristicsBars = () => {
     const characteristicsArray: any = Object.entries(characteristics).sort();
 
     var renderChars : any = characteristicsArray.map((char: any) => {
-      
+
       const arrowPosition = (parseFloat(char[1].value) / 5) * 10;
       let lowest:string = '';
       const arrowDownStyle: any = {

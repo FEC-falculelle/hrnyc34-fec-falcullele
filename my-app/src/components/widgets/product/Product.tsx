@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {RootStore} from '../../../store/store';
 import {getProducts} from '../../../actions/getProductsAction';
 import {getProduct} from '../../../actions/singleProductAction';
+import {getStyle} from '../../../actions/productStyleAction';
 import ImageGallery from './ImageGallery';
 import ProductInfo from './ProductInfo';
 import ProductDescription from './ProductDescription';
@@ -29,6 +30,7 @@ function Product() {
     if (Array.isArray(productState.products)) {
       if (productState.products[0]) {
         dispatch(getProduct(productState.products[0].id));
+        dispatch(getStyle(productState.products[0].id));
       }
     } else {
       console.log('productState is not an array')
