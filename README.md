@@ -8,7 +8,7 @@ We developed this project as a group over the course of 9 days during the Hack R
     
 We were given a business document which outlined a strict set of requirements that guided our implementation, funcitonality, and styling. That document can be found <a href='https://docs.google.com/document/d/1KAqduzY8ae3DYrSoCL1i23qHe95zJRYFulqMk-sGLWY/edit#'>here</a>. 
 
-<h2> Technlogies </h2>
+<h2> Technologies </h2>
 For this project, we used the following languages and frameworks in our implementation <br/>
 <ul>
 <li>Typescript</li>
