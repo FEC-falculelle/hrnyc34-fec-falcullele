@@ -19,6 +19,7 @@
 .env.production.local
 ../.DS_Store
 .eslintrc.js
+.prettierrc.js
 
 npm-debug.log*
 yarn-debug.log*
