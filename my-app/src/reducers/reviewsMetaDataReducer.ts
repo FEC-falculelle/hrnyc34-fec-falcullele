@@ -8,7 +8,7 @@ interface metaDataInfo {
 const exampleState: metaDataInfo = {
   loading: false,
   reviewsMeta: {
-    "product_id": "11001",
+    "product_id": "11002",
     "ratings": {
         "4": "1",
         "5": "1"
