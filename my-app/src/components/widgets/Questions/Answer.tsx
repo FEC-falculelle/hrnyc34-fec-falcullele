@@ -3,13 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Answer as AnswerType } from '../../../actions/questionAnswers/types';
 import reportAnswer from '../../../actions/questionAnswers/reportAnswer';
 import helpfulAnswer from '../../../actions/questionAnswers/helpfulAnswer';
-import {
-  Box,
-  Typography,
-  makeStyles,
-  Button,
-  Modal,
-} from '@material-ui/core';
+import { Box, Typography, makeStyles, Button, Modal } from '@material-ui/core';
 import Highlighter from 'react-highlight-words';
 
 interface AnswerProps {
@@ -46,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: 'transparent',
       textDecoration: 'underline',
     },
-    margin: theme.spacing(0,1),
+    margin: theme.spacing(0, 1),
     padding: 0,
     minWidth: 0,
   },
@@ -70,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     height: '100%',
-  }
+  },
 }));
 
 const months = [
@@ -89,7 +83,6 @@ const months = [
 ];
 
 const Answer = ({ answerInfo, searchString }: AnswerProps) => {
-
   const [reported, setReported] = useState(false);
   const [helpfulness, setHelpfulness] = useState(false);
 
@@ -103,7 +96,7 @@ const Answer = ({ answerInfo, searchString }: AnswerProps) => {
   const handleHelpfulness = () => {
     dispatch(helpfulAnswer(answerInfo.id));
     setHelpfulness(true);
-  }
+  };
 
   const [modalImage, setModalImage] = useState<string | null>(null);
 
@@ -119,17 +112,13 @@ const Answer = ({ answerInfo, searchString }: AnswerProps) => {
   const d = new Date(answerInfo.date);
 
   return (
-    <Box className={classes.answerContainer} >
+    <Box className={classes.answerContainer}>
       <Typography component="span" className={classes.boldText}>
         {'A: '}
       </Typography>
       <Box className={classes.answerContent}>
         <Typography variant="body1" component="p">
-          <Highlighter
-            searchWords={[searchString]}
-            textToHighlight={answerInfo.body}
-            autoEscape={true}
-          />
+          <Highlighter searchWords={[searchString]} textToHighlight={answerInfo.body} autoEscape={true} />
         </Typography>
         <Box className={classes.flex}>
           <Modal open={!!modalImage} onClose={handleClose}>
@@ -138,17 +127,16 @@ const Answer = ({ answerInfo, searchString }: AnswerProps) => {
             </div>
           </Modal>
           {answerInfo.photos.map((photo) => (
-            <img
-              className={classes.photoSize}
-              src={photo}
-              onClick={handleClick(photo)}
-            />
+            <img className={classes.photoSize} key={photo} src={photo} onClick={handleClick(photo)} />
           ))}
         </Box>
         <Box className={classes.flex}>
           <Typography component="p" className={classes.faintText1}>
             {'by '}
-            <Typography component="span" className={answerInfo.answerer_name === 'Seller' ? classes.boldSmallText : classes.faintText1}>
+            <Typography
+              component="span"
+              className={answerInfo.answerer_name === 'Seller' ? classes.boldSmallText : classes.faintText1}
+            >
               {answerInfo.answerer_name}
             </Typography>
             {`, ${months[d.getMonth()]} ${d.getDay()}, ${d.getFullYear()}  |  Helpful? `}
@@ -165,9 +153,7 @@ const Answer = ({ answerInfo, searchString }: AnswerProps) => {
           >
             {helpfulness ? `Yes (${answerInfo.helpfulness + 1})` : `Yes (${answerInfo.helpfulness})`}
           </Button>
-          <Typography className={classes.faintText1}>
-            {' | '}
-          </Typography>
+          <Typography className={classes.faintText1}>{' | '}</Typography>
           <Button
             className={classes.actionButton}
             classes={{

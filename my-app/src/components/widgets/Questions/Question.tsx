@@ -4,12 +4,7 @@ import Answer from './Answer';
 import { Question as QuestionType } from '../../../actions/questionAnswers/types';
 import NewAnswer from './NewAnswer';
 import helpfulQuestion from '../../../actions/questionAnswers/helpfulQuestion';
-import {
-  Box,
-  Typography,
-  Button,
-  makeStyles,
-} from '@material-ui/core';
+import { Box, Typography, Button, makeStyles } from '@material-ui/core';
 import Highlighter from 'react-highlight-words';
 
 const useStyles = makeStyles((theme) => ({
@@ -36,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: 'transparent',
       textDecoration: 'underline',
     },
-    margin: theme.spacing(0,1),
+    margin: theme.spacing(0, 1),
     padding: 0,
     minWidth: 0,
   },
@@ -44,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     '& *': {
       letterSpacing: '0.04em',
     },
-  }
+  },
 }));
 
 interface QuestionProps {
@@ -65,7 +60,7 @@ const Question = ({ questionInfo, searchString }: QuestionProps) => {
   const handleHelpfulness = () => {
     dispatch(helpfulQuestion(questionInfo.question_id));
     setHelpfulness(true);
-  }
+  };
 
   const [open, setOpen] = React.useState(false);
 
@@ -84,16 +79,10 @@ const Question = ({ questionInfo, searchString }: QuestionProps) => {
       <Box className={classes.header}>
         <Typography variant="body1" component="p" className={classes.boldText}>
           {'Q: '}
-          <Highlighter
-            searchWords={[searchString]}
-            textToHighlight={questionInfo.question_body}
-            autoEscape={true}
-          />
+          <Highlighter searchWords={[searchString]} textToHighlight={questionInfo.question_body} autoEscape={true} />
         </Typography>
         <Box className={classes.flex}>
-          <Typography className={classes.faintText}>
-            {`Helpful? `}
-          </Typography>
+          <Typography className={classes.faintText}>{`Helpful? `}</Typography>
           <Button
             className={classes.actionButton}
             classes={{
@@ -104,11 +93,11 @@ const Question = ({ questionInfo, searchString }: QuestionProps) => {
             onClick={handleHelpfulness}
             disabled={helpfulness}
           >
-            {helpfulness ? `Yes (${questionInfo.question_helpfulness + 1})` : `Yes (${questionInfo.question_helpfulness})`}
+            {helpfulness
+              ? `Yes (${questionInfo.question_helpfulness + 1})`
+              : `Yes (${questionInfo.question_helpfulness})`}
           </Button>
-          <Typography className={classes.faintText}>
-            {' |  '}
-          </Typography>
+          <Typography className={classes.faintText}>{' |  '}</Typography>
           <Button
             className={classes.actionButton}
             classes={{
@@ -120,20 +109,23 @@ const Question = ({ questionInfo, searchString }: QuestionProps) => {
           >
             Add Answer
           </Button>
-          <NewAnswer open={open} onClose={handleClose} question={questionInfo}/>
+          <NewAnswer open={open} onClose={handleClose} question={questionInfo} />
         </Box>
       </Box>
-      {Object.values(questionInfo.answers).sort((el1, el2) => {
-        if (el1.answerer_name === 'Seller') {
-          return -1;
-        }
-        if (el2.answerer_name === 'Seller') {
-          return 1;
-        }
-        return 0;
-      }).slice(0, numShown).map((answer) => (
-        <Answer key={answer.id} answerInfo={answer} searchString={searchString}/>
-      ))}
+      {Object.values(questionInfo.answers)
+        .sort((el1, el2) => {
+          if (el1.answerer_name === 'Seller') {
+            return -1;
+          }
+          if (el2.answerer_name === 'Seller') {
+            return 1;
+          }
+          return 0;
+        })
+        .slice(0, numShown)
+        .map((answer) => (
+          <Answer key={answer.id} answerInfo={answer} searchString={searchString} />
+        ))}
       {Object.values(questionInfo.answers).length > numShown && (
         <Button
           className={classes.button}

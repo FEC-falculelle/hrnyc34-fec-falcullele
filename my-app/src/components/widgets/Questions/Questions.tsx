@@ -7,7 +7,6 @@ import SearchBar from './SearchBar';
 import Buttons from './Buttons';
 import { Question as QuestionType } from '../../../actions/questionAnswers/types';
 
-
 const Questions = () => {
   const dispatch = useDispatch();
 
@@ -15,14 +14,14 @@ const Questions = () => {
 
   const { questions } = useSelector((state: RootState) => state.qaReducer);
 
-  const [numShown, setNumShown] = useState(4);
+  const [numShown, setNumShown] = useState(2);
 
   const [questionShown, setQuestionShown] = useState<QuestionType[]>([]);
 
   const [searchString, setSearchString] = useState('');
 
   const loadMore = () => {
-    setNumShown(numShown + 4);
+    setNumShown(numShown + 2);
   };
 
   useEffect(() => {
@@ -64,17 +63,17 @@ const Questions = () => {
       setQuestionShown(questions);
       setSearchString('');
     }
-  }
+  };
 
   return (
     <>
-      <SearchBar onChange={filterQuestions}/>
+      <SearchBar onChange={filterQuestions} />
       {questionShown.slice(0, numShown).map((question) => (
-        <Question key={question.question_id} questionInfo={question} searchString={searchString}/>
+        <Question key={question.question_id} questionInfo={question} searchString={searchString} />
       ))}
       <Buttons loadMore={loadMore} disableLoadMore={questions.length <= numShown} />
     </>
   );
-}
+};
 
 export default Questions;

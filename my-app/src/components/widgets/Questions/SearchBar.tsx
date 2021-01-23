@@ -1,10 +1,7 @@
 import React, { ChangeEvent } from 'react';
-import SearchIcon from "@material-ui/icons/Search";
+import SearchIcon from '@material-ui/icons/Search';
 import { makeStyles } from '@material-ui/core/styles';
-import {
-  TextField,
-  InputAdornment,
-} from '@material-ui/core';
+import { TextField, InputAdornment } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
 interface SearchBarProps {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
-
 
 const SearchBar = ({ onChange }: SearchBarProps) => {
   const classes = useStyles();
@@ -35,11 +31,11 @@ const SearchBar = ({ onChange }: SearchBarProps) => {
             <InputAdornment position="end">
               <SearchIcon />
             </InputAdornment>
-          )
+          ),
         }}
       />
     </div>
   );
-}
+};
 
 export default SearchBar;
