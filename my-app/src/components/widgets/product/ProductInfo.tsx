@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {RootStore} from '../../../store/store';
 import {getStyle} from '../../../actions/productStyleAction';
@@ -59,7 +59,7 @@ function ProductInfo() {
       setName(singleProductState?.products?.name);
       setSlogan(singleProductState?.products?.slogan);
       setPrice(singleProductState?.products?.default_price);
-      getStyle(singleProductState?.products?.id);
+      dispatch(getStyle(singleProductState?.products?.id));
     }
   }, [singleProductState]);
 
@@ -84,26 +84,26 @@ function ProductInfo() {
 
   return (
     <div className='product-options'>
-
       <div className='product-reviews-box'>
-      <StyledRating
-        className='product-rating-stars'
-        name='productRating'
-        value= {averageRating}
-        precision={0.5}
-        defaultValue={0}
-        emptyIcon={<StarBorderIcon/>}
-        readOnly/>
-      <Typography>
-        <a className='product-reviews-text' href='#reviews'>Read all reviews</a>
-      </Typography>
-    </div>
+        <StyledRating
+          className='product-rating-stars'
+          name='productRating'
+          value= {averageRating}
+          precision={0.5}
+          defaultValue={0}
+          emptyIcon={<StarBorderIcon/>}
+          readOnly
+        />
+        <Typography>
+          <a className='product-reviews-text' href='#reviews'>Read all reviews</a>
+        </Typography>
+      </div>
       <div className='product-category'>{category}</div>
       <div className='product-name'>{name}</div>
       {salePrice ?
       <div>
-      <div className='old-price'>${price}</div>
-      <div className='sale-price'>${salePrice}</div>
+        <div className='old-price'>${price}</div>
+        <div className='sale-price'>${salePrice}</div>
       </div>
       :
       <div className='default-price'>${price}</div>

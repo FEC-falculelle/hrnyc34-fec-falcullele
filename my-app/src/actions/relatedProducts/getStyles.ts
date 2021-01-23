@@ -4,7 +4,6 @@ import { GET_STYLES, GET_STYLES_SUCCESS, GET_STYLES_ERROR } from './actionTypesR
 import { Style, RelatedProduct } from './types';
 
 const getStyles = (id: number) => async (dispatch: DispatchType) => {
-    console.log(id);
     dispatch({
       type: GET_STYLES,
     });
