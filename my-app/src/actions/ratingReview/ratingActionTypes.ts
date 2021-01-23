@@ -54,11 +54,11 @@ export interface ReviewsSuccess {
 }
 
 export interface ratingsForMeta {
-  1?: string | number,
-  2?: string | number,
-  3?: string | number,
-  4?: string | number,
-  5?: string | number
+  1?: string,
+  2?: string,
+  3?: string,
+  4?: string,
+  5?: string
 }
 
 export type recommendedForMeta = {
