@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import AddIcon from '@material-ui/icons/Add';
 import NewQuestion from './NewQuestion';
-import {
-  makeStyles,
-  Button,
-} from '@material-ui/core';
+import { makeStyles, Button } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   boldText: {
@@ -20,8 +17,7 @@ interface ButtonsProps {
   disableLoadMore: boolean;
 }
 
-const Buttons = ({loadMore, disableLoadMore}: ButtonsProps) => {
-
+const Buttons = ({ loadMore, disableLoadMore }: ButtonsProps) => {
   const classes = useStyles();
 
   const [open, setOpen] = useState(false);

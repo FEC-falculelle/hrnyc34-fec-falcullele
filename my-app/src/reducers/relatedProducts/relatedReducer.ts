@@ -1,16 +1,11 @@
-import { createReducer } from '@reduxjs/toolkit';
-import {
-  GET_STYLES,
-  GET_STYLES_ERROR,
-  GET_STYLES_SUCCESS
-} from '../../actions/relatedProducts/actionTypesRelated';
+import { GET_STYLES, GET_STYLES_ERROR, GET_STYLES_SUCCESS } from '../../actions/relatedProducts/actionTypesRelated';
 
 import StylesActionTypes, { RelatedProduct } from '../../actions/relatedProducts/types';
 
 interface relatedState {
-  relatedProducts: RelatedProduct[],
-  loadingStyles: boolean,
-  addStyleStatus: null | 'success' | 'error',
+  relatedProducts: RelatedProduct[];
+  loadingStyles: boolean;
+  addStyleStatus: null | 'success' | 'error';
 }
 
 const initialState: relatedState = {
@@ -19,10 +14,7 @@ const initialState: relatedState = {
   addStyleStatus: null,
 };
 
-const relatedReducer = (
-  state = initialState,
-  action: StylesActionTypes,
-): relatedState => {
+const relatedReducer = (state = initialState, action: StylesActionTypes): relatedState => {
   switch (action.type) {
     case GET_STYLES:
       return {

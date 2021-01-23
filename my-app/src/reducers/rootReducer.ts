@@ -1,4 +1,4 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 import productsReducer from './productsReducer';
 import singleProductReducer from './singleProductReducer';
 import styleReducer from './styleReducer';
@@ -9,7 +9,7 @@ import reviewsMetaReducer from './reviewsMetaDataReducer';
 import qaReducer from './questionAnswers/qaReducer';
 import relatedReducer from './relatedProducts/relatedReducer';
 
-const RootReducer = combineReducers( {
+const RootReducer = combineReducers({
   products: productsReducer,
   qaReducer,
   relatedReducer,
@@ -17,7 +17,7 @@ const RootReducer = combineReducers( {
   reviewsMetaInfo: reviewsMetaReducer,
   style: styleReducer,
   selectStyle: selectStyleReducer,
-  singleProduct: singleProductReducer
+  singleProduct: singleProductReducer,
 });
 
 export default RootReducer;

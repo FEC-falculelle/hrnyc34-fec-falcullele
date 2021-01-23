@@ -18,7 +18,6 @@ function ProductInfo() {
 
   const [category, setCategory] = useState(singleProductState?.products?.category);
   const [name, setName] = useState(singleProductState?.products?.name);
-  const [slogan, setSlogan] = useState(singleProductState?.products?.slogan);
   const [price, setPrice] = useState(singleProductState?.products?.default_price);
   const [salePrice, setSalePrice] = useState(singleProductState?.products?.sale_price);
   const [styles, setStyles] = useState(styleState?.products?.results);
@@ -57,7 +56,6 @@ function ProductInfo() {
     if (singleProductState.hasOwnProperty('products')) {
       setCategory(singleProductState?.products?.category);
       setName(singleProductState?.products?.name);
-      setSlogan(singleProductState?.products?.slogan);
       setPrice(singleProductState?.products?.default_price);
       dispatch(getStyle(singleProductState?.products?.id));
     }

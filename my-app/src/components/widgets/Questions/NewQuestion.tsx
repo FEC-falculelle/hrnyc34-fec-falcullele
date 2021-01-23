@@ -2,7 +2,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useSelector, useDispatch } from 'react-redux';
-import {RootStore} from '../../../store/store';
+import { RootStore } from '../../../store/store';
 import {
   TextField,
   Dialog,
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const NewQuestion = ({open, onClose}: NewQuestionProps) => {
+const NewQuestion = ({ open, onClose }: NewQuestionProps) => {
   const dispatch = useDispatch();
   const product = useSelector((state: RootStore) => state.singleProduct.products);
 
@@ -59,28 +59,30 @@ const NewQuestion = ({open, onClose}: NewQuestionProps) => {
       .email('Enter a valid email')
       .required('Email is required'),
   });
-    const formik = useFormik({
-      initialValues: {
-        question: '',
-        email: '',
-        nickname: '',
-      },
-      validationSchema: validationSchema,
-      onSubmit: (values) => {
-        closeAndReset();
-        dispatch(addQuestion({
+  const formik = useFormik({
+    initialValues: {
+      question: '',
+      email: '',
+      nickname: '',
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      closeAndReset();
+      dispatch(
+        addQuestion({
           body: values.question,
           name: values.nickname,
           email: values.email,
           product_id: product.id,
-        }));
-      },
-    });
+        }),
+      );
+    },
+  });
 
-    const closeAndReset = () => {
-      onClose();
-      formik.resetForm();
-    }
+  const closeAndReset = () => {
+    onClose();
+    formik.resetForm();
+  };
 
   return (
     <>
@@ -92,11 +94,11 @@ const NewQuestion = ({open, onClose}: NewQuestionProps) => {
           className: classes.modal,
         }}
       >
-        <DialogTitle id="form-dialog-title" className={classes.title}>ASK YOUR QUESTION</DialogTitle>
+        <DialogTitle id="form-dialog-title" className={classes.title}>
+          ASK YOUR QUESTION
+        </DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            {`About the ${product.name}`}
-          </DialogContentText>
+          <DialogContentText>{`About the ${product.name}`}</DialogContentText>
           <form onSubmit={formik.handleSubmit} className={classes.form}>
             <TextField
               fullWidth
@@ -105,7 +107,10 @@ const NewQuestion = ({open, onClose}: NewQuestionProps) => {
               variant="outlined"
               onChange={formik.handleChange}
               error={formik.touched.question && Boolean(formik.errors.question)}
-              helperText={(formik.touched.question && formik.errors.question) || (`${formik.values.question ? formik.values.question.length : 0} / 1000`)}
+              helperText={
+                (formik.touched.question && formik.errors.question) ||
+                `${formik.values.question ? formik.values.question.length : 0} / 1000`
+              }
               className={classes.textField}
             />
             <TextField
@@ -116,7 +121,10 @@ const NewQuestion = ({open, onClose}: NewQuestionProps) => {
               variant="outlined"
               onChange={formik.handleChange}
               error={formik.touched.nickname && Boolean(formik.errors.nickname)}
-              helperText={(formik.touched.nickname && formik.errors.nickname) || ('For privacy reasons, do not use your full name or email address')}
+              helperText={
+                (formik.touched.nickname && formik.errors.nickname) ||
+                'For privacy reasons, do not use your full name or email address'
+              }
               className={classes.textField}
             />
             <TextField
@@ -127,7 +135,9 @@ const NewQuestion = ({open, onClose}: NewQuestionProps) => {
               variant="outlined"
               onChange={formik.handleChange}
               error={formik.touched.email && Boolean(formik.errors.email)}
-              helperText={(formik.touched.email && formik.errors.email) || ('For authentication reasons, you will not be emailed')}
+              helperText={
+                (formik.touched.email && formik.errors.email) || 'For authentication reasons, you will not be emailed'
+              }
               className={classes.textField}
             />
             <Button color="primary" variant="contained" fullWidth type="submit">
@@ -143,7 +153,9 @@ const NewQuestion = ({open, onClose}: NewQuestionProps) => {
         onClose={() => dispatch(resetQuestionStatus())}
       >
         <Alert variant="filled" severity={addQuestionStatus || 'success'}>
-          {addQuestionStatus === 'success' ? 'Question was successfully submitted!' : 'ERROR: Question was not submitted!'}
+          {addQuestionStatus === 'success'
+            ? 'Question was successfully submitted!'
+            : 'ERROR: Question was not submitted!'}
         </Alert>
       </Snackbar>
     </>
