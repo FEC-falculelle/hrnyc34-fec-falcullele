@@ -22,8 +22,8 @@ We deployed our site on AWS, which can be viewed <a href='http://3.140.186.146/'
 
 if you wish to deploy this repo on your local machine, follow these steps: 
 <ol>
-<li>clone this repo to your local machine</li>
-<li>run yarn in the 'my-app' directory</li>
-<li>run yarn start after yarn has finished loading</li>
-<li>you will find the site on localhost:3000</li>
+  <li>clone this repo to your local machine</li>
+  <li>run <code>yarn</code> in the 'my-app' directory</li>
+  <li>run <code>yarn start</code> after yarn has finished loading</li>
+  <li>you will find the site on localhost:3000</li>
 </ol>
