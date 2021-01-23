@@ -13,8 +13,7 @@ const reportAnswer = (id: number) => async (dispatch: DispatchType) => {
     return dispatch({
       type: REPORT_ANSWER_SUCCESS,
     });
-  }
-  catch(e) {
+  } catch (e) {
     return dispatch({
       type: REPORT_ANSWER_ERROR,
     });

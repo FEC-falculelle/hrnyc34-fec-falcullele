@@ -1,30 +1,51 @@
-import { GET_QUESTIONS, GET_QUESTIONS_ERROR, GET_QUESTIONS_SUCCESS, ADD_QUESTION, ADD_QUESTION_ERROR, ADD_QUESTION_SUCCESS, ADD_ANSWER, ADD_ANSWER_ERROR, ADD_ANSWER_SUCCESS, ADD_HELPFUL_ANSWER, ADD_HELPFUL_ANSWER_ERROR, ADD_HELPFUL_ANSWER_SUCCESS, ADD_HELPFUL_QUESTION, ADD_HELPFUL_QUESTION_ERROR, ADD_HELPFUL_QUESTION_SUCCESS, RESET_QUESTION_STATUS, RESET_ANSWER_STATUS, REPORT_ANSWER_ERROR, REPORT_ANSWER_SUCCESS, REPORT_ANSWER } from './actionTypesQA';
+import {
+  GET_QUESTIONS,
+  GET_QUESTIONS_ERROR,
+  GET_QUESTIONS_SUCCESS,
+  ADD_QUESTION,
+  ADD_QUESTION_ERROR,
+  ADD_QUESTION_SUCCESS,
+  ADD_ANSWER,
+  ADD_ANSWER_ERROR,
+  ADD_ANSWER_SUCCESS,
+  ADD_HELPFUL_ANSWER,
+  ADD_HELPFUL_ANSWER_ERROR,
+  ADD_HELPFUL_ANSWER_SUCCESS,
+  ADD_HELPFUL_QUESTION,
+  ADD_HELPFUL_QUESTION_ERROR,
+  ADD_HELPFUL_QUESTION_SUCCESS,
+  RESET_QUESTION_STATUS,
+  RESET_ANSWER_STATUS,
+  REPORT_ANSWER_ERROR,
+  REPORT_ANSWER_SUCCESS,
+  REPORT_ANSWER,
+} from './actionTypesQA';
 
 export interface Answer {
-  id: number,
-  body: string,
-  date: string,
-  answerer_name: string,
-  helpfulness: number,
-  photos: string[],
+  id: number;
+  body: string;
+  date: string;
+  answerer_name: string;
+  helpfulness: number;
+  photos: string[];
 }
 
 export interface Question {
-  question_id: number,
-  question_body: string,
-  question_date: string,
-  asker_name: string,
-  question_helpfulness: number,
-  reported: boolean,
+  question_id: number;
+  question_body: string;
+  question_date: string;
+  asker_name: string;
+  question_helpfulness: number;
+  reported: boolean;
   answers: {
-    [id: string]: Answer,
-  }
+    [id: string]: Answer;
+  };
 }
 
 // GET QUESTIONS
 interface getQuestionsSuccessAction {
   type: typeof GET_QUESTIONS_SUCCESS;
-  payload: Question[],
+  payload: Question[];
 }
 
 interface getQuestionsAction {
@@ -34,7 +55,6 @@ interface getQuestionsAction {
 interface getQuestionsErrorAction {
   type: typeof GET_QUESTIONS_ERROR;
 }
-
 
 // ADD QUESTION
 interface addQuestionsSuccessAction {
@@ -109,7 +129,26 @@ interface reportAnswerErrorAction {
   type: typeof REPORT_ANSWER_ERROR;
 }
 
-
-type QuestionsActionTypes = getQuestionsAction | getQuestionsSuccessAction | getQuestionsErrorAction | addQuestionsSuccessAction | addQuestionsAction | addQuestionsErrorAction | addAnswerSuccessAction | addAnswerAction | addAnswerErrorAction | addHelpfulAnswerSuccessAction | addHelpfulAnswerAction | addHelpfulAnswerErrorAction | addHelpfulQuestionSuccessAction | addHelpfulQuestionAction | addHelpfulQuestionErrorAction | resetQuestionAction | resetAnswerAction | reportAnswerAction | reportAnswerSuccessAction | reportAnswerErrorAction;
+type QuestionsActionTypes =
+  | getQuestionsAction
+  | getQuestionsSuccessAction
+  | getQuestionsErrorAction
+  | addQuestionsSuccessAction
+  | addQuestionsAction
+  | addQuestionsErrorAction
+  | addAnswerSuccessAction
+  | addAnswerAction
+  | addAnswerErrorAction
+  | addHelpfulAnswerSuccessAction
+  | addHelpfulAnswerAction
+  | addHelpfulAnswerErrorAction
+  | addHelpfulQuestionSuccessAction
+  | addHelpfulQuestionAction
+  | addHelpfulQuestionErrorAction
+  | resetQuestionAction
+  | resetAnswerAction
+  | reportAnswerAction
+  | reportAnswerSuccessAction
+  | reportAnswerErrorAction;
 
 export default QuestionsActionTypes;

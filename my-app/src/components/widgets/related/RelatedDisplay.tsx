@@ -29,15 +29,14 @@ const useStyles = makeStyles((theme: Theme) =>
       color: theme.palette.primary.main,
     },
     titleBar: {
-      background:
-        'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+      background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
     },
     gridTile: {
       '&:hover': {
         cursor: 'pointer',
       },
     },
-  })
+  }),
 );
 
 const NO_IMAGE_URL = 'https://www.nicopress.com/media/images/800/0/404-not-found.png';
@@ -46,7 +45,7 @@ export const SingleLineGridList = memo(() => {
   const dispatch = useDispatch();
   const productId = useSelector((state: RootStore) => state.singleProduct.products.id);
   const relatedProducts = useSelector((state: RootState) => state.relatedReducer.relatedProducts);
-  const [clicked, setClicked] = useState<{ [id: number]: boolean}>({});
+  const [clicked, setClicked] = useState<{ [id: number]: boolean }>({});
   const classes = useStyles();
 
   const handleIconClick = (id: number) => {
@@ -54,7 +53,7 @@ export const SingleLineGridList = memo(() => {
       ...clicked,
       [id]: !clicked[id],
     });
-}
+  };
 
   useEffect(() => {
     if (productId) {
@@ -71,7 +70,10 @@ export const SingleLineGridList = memo(() => {
       <GridList className={classes.gridList} cols={2.5}>
         {relatedProducts.map((prod) => (
           <GridListTile key={prod.id} onClick={fetchProduct(prod.id)} className={classes.gridTile}>
-            <img src={prod.picture.photos[0].thumbnail_url ? prod.picture.photos[0].thumbnail_url : NO_IMAGE_URL} alt="" />
+            <img
+              src={prod.picture.photos[0].thumbnail_url ? prod.picture.photos[0].thumbnail_url : NO_IMAGE_URL}
+              alt=""
+            />
             <GridListTileBar
               title={prod.name}
               classes={{
@@ -79,11 +81,18 @@ export const SingleLineGridList = memo(() => {
                 title: classes.title,
               }}
               actionIcon={
-                <IconButton aria-label={`star ${prod.name}`} onClick={(e) => {
-                  e.stopPropagation();
-                  handleIconClick(prod.id);
-                }}>
-                  {clicked[prod.id] ? <StarIcon className={classes.title} /> : <StarBorderIcon className={classes.title} />}
+                <IconButton
+                  aria-label={`star ${prod.name}`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleIconClick(prod.id);
+                  }}
+                >
+                  {clicked[prod.id] ? (
+                    <StarIcon className={classes.title} />
+                  ) : (
+                    <StarBorderIcon className={classes.title} />
+                  )}
                 </IconButton>
               }
             />

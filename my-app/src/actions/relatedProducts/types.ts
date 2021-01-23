@@ -23,7 +23,7 @@ export interface RelatedProduct {
 // GET QUESTIONS
 interface getStylesSuccessAction {
   type: typeof GET_STYLES_SUCCESS;
-  payload: RelatedProduct[],
+  payload: RelatedProduct[];
 }
 
 interface getStylesAction {
@@ -33,7 +33,6 @@ interface getStylesAction {
 interface getStylesErrorAction {
   type: typeof GET_STYLES_ERROR;
 }
-
 
 type StylesActionTypes = getStylesSuccessAction | getStylesAction | getStylesErrorAction;
 

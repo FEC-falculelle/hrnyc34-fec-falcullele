@@ -8,7 +8,7 @@ test('renders learn react link', () => {
   const { getByText } = render(
     <Provider store={store}>
       <App />
-    </Provider>
+    </Provider>,
   );
 
   expect(getByText('Falculelle Gang #FEC')).toBeInTheDocument();
