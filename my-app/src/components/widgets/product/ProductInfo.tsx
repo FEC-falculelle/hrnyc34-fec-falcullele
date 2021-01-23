@@ -24,7 +24,7 @@ function ProductInfo() {
   const [styles, setStyles] = useState(styleState?.products?.results);
   const [selectedStyle, setSelectedStyle] = useState(styleState?.products?.results[0]);
   const [selectedIndex, setSelectedIndex] = useState(0);
-  // From Albert
+
     const initialRatings = useSelector((state: RootStore) => state.reviewsMetaInfo?.reviewsMeta?.ratings);
     let totalRatings: any;
     let totalStars: any;
@@ -38,6 +38,7 @@ function ProductInfo() {
       return accum + (parseInt(currentVal[0]) * parseInt(currentVal[1]));
     }, 0);
   }
+
   const averageRating = totalStars/totalRatings;
 
   const StyledRating = withStyles({
@@ -45,14 +46,13 @@ function ProductInfo() {
       color: 'black',
     },
   })(Rating);
-    // From Albert
+
 
 
   useEffect(() => {
     dispatch(selectStyle())
   }, []);
 
-  //might need to useRed or useCallback here incase values are not stored
   useEffect(() => {
     if (singleProductState.hasOwnProperty('products')) {
       setCategory(singleProductState?.products?.category);
@@ -69,9 +69,6 @@ function ProductInfo() {
       setSalePrice(styleState.products?.results[0]?.sale_price);
     }
   }, [styleState])
-
-
-  // const featuredProduct = useSelector((state: RootStore) => state.products[0]);
 
   const handleClick = (e: any) => {
     const index = Number(e.target.id);

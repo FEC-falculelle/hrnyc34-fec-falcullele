@@ -11,12 +11,14 @@ var totalRatings: number;
 var RatingBreakdown = () => {
   const dispatch = useDispatch();
   const initialRatings = useSelector((state: RootStore) => state.reviewsMetaInfo?.reviewsMeta?.ratings);
+
   const singleProductState = useSelector((state: RootStore) => state.singleProduct);
   
   const [product, setProduct] = useState(() => singleProductState);
   const [ratings, setRatings] = useState(() => initialRatings);
   
   let five, four, three, two, one;
+
   if (ratings) {
     totalRatings = Object.values(ratings).reduce((accum, currentVal) => {
       return accum + parseInt(currentVal);
@@ -73,6 +75,7 @@ useEffect(() => {
 }, [singleProductState]);
 
   useEffect(()  => {
+
     setRatings(() => initialRatings);
     setProduct(() => singleProductState)
     dispatch(getReviews(product.products.id.toString()));  
@@ -102,7 +105,7 @@ useEffect(() => {
       <div className="grayBar">
         <div className="greenBar" style = {one}> </div>
       </div>
-      
+
     </div>
 
   );

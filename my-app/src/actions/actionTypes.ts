@@ -108,5 +108,4 @@ export interface CurrentStyleIndex {
   payload: number
 }
 
-// '|' is equal to '||' in typescript
 export type ProductDispatchTypes = ProductsLoading | ProductsFail | ProductsSuccess | ProductLoading | ProductFail | ProductSuccess | StyleLoading | StyleFail | StyleSuccess | CurrentStyleIndex

@@ -11,7 +11,6 @@ function ProductDescription() {
   const [description, setDescription] = useState(singleProductState?.products?.description);
   const [features, setFeatures] = useState(singleProductState?.products?.features);
 
-  //might need to useRed or useCallback here incase values are not stored
   useEffect(() => {
     if (singleProductState.hasOwnProperty('products')) {
       setSlogan(singleProductState?.products?.slogan);

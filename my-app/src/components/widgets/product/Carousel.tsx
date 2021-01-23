@@ -69,14 +69,6 @@ function Carousel() {
       setModalImage(featuredImage[index].url);
       }
 
-
-    // useEffect(() => {
-    //   console.log('featuredImage: ', featuredImage);
-    //   console.log(styleState?.products?.results[styleIndex.styleIndex]?.photos);
-    //   setFeaturedImage(styleState?.products?.results[styleIndex.styleIndex]?.photos);
-    // }, [styleIndex])
-
-
     const handleFullscreen = () => {
       setModalImage(featuredImage[curIndex].url);
     };

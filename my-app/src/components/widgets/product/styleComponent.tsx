@@ -22,8 +22,6 @@ function StyleComponent({style, clickFunction, index, curIndex}:Result | any) {
       :
       <div className='styleBubble' onClick={clickFunction} id={index}
         style={{backgroundImage: `url(${style.photos[0].thumbnail_url})`}}>
-        {/* <p>{style.props.name}</p>
-            <img src={style.props.photos[0].thumbnail_url} /> */}
       </div>
   );
 }

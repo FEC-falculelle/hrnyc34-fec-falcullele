@@ -69,10 +69,6 @@ function Form() {
     }
   }
 
-  // const addToBag = () => {
-
-  // };
-
   return (
         <div className='form'>
           <form>
