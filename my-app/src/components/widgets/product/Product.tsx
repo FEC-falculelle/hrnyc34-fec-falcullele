@@ -40,8 +40,8 @@ function Product() {
   return (
     <div className='product'>
       <ImageGallery />
-        <ProductInfo />
-          <ProductDescription />
+      <ProductInfo />
+      <ProductDescription />
     </div>
 
   );

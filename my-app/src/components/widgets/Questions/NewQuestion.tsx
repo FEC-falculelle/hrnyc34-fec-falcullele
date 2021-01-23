@@ -67,7 +67,7 @@ const NewQuestion = ({open, onClose}: NewQuestionProps) => {
       },
       validationSchema: validationSchema,
       onSubmit: (values) => {
-        onClose();
+        closeAndReset();
         dispatch(addQuestion({
           body: values.question,
           name: values.nickname,
@@ -77,11 +77,16 @@ const NewQuestion = ({open, onClose}: NewQuestionProps) => {
       },
     });
 
+    const closeAndReset = () => {
+      onClose();
+      formik.resetForm();
+    }
+
   return (
     <>
       <Dialog
         open={open}
-        onClose={onClose}
+        onClose={closeAndReset}
         maxWidth="md"
         PaperProps={{
           className: classes.modal,

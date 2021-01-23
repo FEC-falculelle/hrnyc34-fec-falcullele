@@ -207,10 +207,10 @@
   border: 1px solid black;
   outline: 1px solid white;
 }
-
+/*
 .form-option {
 
-}
+} */
 
 
 .selectedStyle {
@@ -237,9 +237,9 @@
   margin-bottom: 4%;
 }
 
-.product-category {
+/* .product-category {
   /* color: rgb(63, 63, 63); */
-}
+/* } */
 
 .product-name {
   font-size: xx-large;

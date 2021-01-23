@@ -68,28 +68,34 @@ const NewAnswer = ({open, onClose, question}: NewQuestionProps) => {
       .email('Enter a valid email')
       .required('Email is required'),
   });
-    const formik = useFormik({
-      initialValues: {
-        answer: '',
-        email: '',
-        nickname: '',
-      },
-      validationSchema: validationSchema,
-      onSubmit: (values) => {
-        onClose();
-        dispatch(addAnswer(question.question_id, {
-          body: values.answer,
-          name: values.nickname,
-          email: values.email,
-        }));
-      },
-    });
+
+  const formik = useFormik({
+    initialValues: {
+      answer: '',
+      email: '',
+      nickname: '',
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      closeAndReset();
+      dispatch(addAnswer(question.question_id, {
+        body: values.answer,
+        name: values.nickname,
+        email: values.email,
+      }));
+    },
+  });
+
+  const closeAndReset = () => {
+    onClose();
+    formik.resetForm();
+  }
 
   return (
     <>
       <Dialog
         open={open}
-        onClose={onClose}
+        onClose={closeAndReset}
         maxWidth="md"
         PaperProps={{
           className: classes.modal,
