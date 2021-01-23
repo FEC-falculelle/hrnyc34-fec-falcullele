@@ -9,12 +9,12 @@ import {getReviewsMeta} from '../../../../actions/ratingReview/getReviewsMetaDat
 var totalRatings: number;
 
 var RatingBreakdown = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const initialRatings = useSelector((state: RootStore) => state.reviewsMetaInfo?.reviewsMeta?.ratings);
 
-  const [ratings] = useState(() => initialRatings);
-  // const [ratings, setRatings] = useState(() => initialRatings);
-  
+
+  const [ratings, setRatings] = useState(() => initialRatings);
+
   if (ratings) {
     totalRatings = Object.values(ratings).reduce((accum, currentVal) => {
       return accum + parseInt(currentVal);
@@ -23,8 +23,8 @@ var RatingBreakdown = () => {
   }
 
   useEffect(()  => {
-    dispatch(getReviews('11001'));  
-    dispatch(getReviewsMeta(11001)); 
+    dispatch(getReviews('11001'));
+    dispatch(getReviewsMeta(11001));
     setRatings(() => initialRatings);
   }, []);
 
@@ -55,7 +55,7 @@ var RatingBreakdown = () => {
       <div className="grayBar">
         <div className="greenBar"> </div>
       </div>
-      
+
     </div>
 
   );
